@@ -2172,6 +2172,12 @@
       grid-column: 1 / -1;
     }
 
+    @media (max-width: 860px) {
+      .reg-form {
+        width: 100%;
+      }
+    }
+
     @media (max-width: 560px) {
       .reg-form {
         grid-template-columns: 1fr;
@@ -4405,11 +4411,13 @@
       .who-row.is-media-right .who-media {
         justify-self: center;
         margin: 0;
+        order: -1;
       }
 
       .who-row .who-points,
       .who-row.is-media-right .who-points {
         justify-self: center;
+        order: 1;
       }
 
       .who-points li,
