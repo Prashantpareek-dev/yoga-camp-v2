@@ -1,12 +1,12 @@
-* text=auto eol=lf
+* text=auto eol=crlf
 
 # Text/source files — normalize to LF
-*.html text eol=lf
-*.css  text eol=lf
-*.js   text eol=lf
-*.json text eol=lf
-*.md   text eol=lf
-*.gs   text eol=lf
+*.html text eol=crlf
+*.css  text eol=crlf
+*.js   text eol=crlf
+*.json text eol=crlf
+*.md   text eol=crlf
+*.gs   text eol=crlf
 
 # Binary/media — never touch line endings
 *.png  binary
