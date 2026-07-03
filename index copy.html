@@ -60,7 +60,7 @@
       --gold-lt: #e6cb82;
       --cream-on-dark: #f3ecd2;
 
-      --container: 1250px;
+      --container: 1350px;
     }
 
     * {
@@ -122,11 +122,6 @@
       font-style: italic;
       font-weight: 500;
       color: var(--green);
-    }
-
-    .amp-plain {
-      font-family: "Fraunces", Georgia, serif;
-      font-style: normal;
     }
 
     .section-title.light,
@@ -436,16 +431,9 @@
     }
 
     .brand-mark1 {
-      display: inline-flex;
-      width: 110px;
-      height: 70px;
+      width: 140px;
+      height: 90px;
       color: var(--green);
-    }
-
-    .brand-mark1 img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
     }
 
     .brand-text {
@@ -1187,12 +1175,6 @@
       margin-top: 0.2rem;
     }
 
-    .guest-quote {
-      max-width: 620px;
-      margin: 1.8rem auto 0;
-      text-align: center;
-    }
-
     /* ---------- Featured Camp ---------- */
     .camp {
       position: relative;
@@ -1577,21 +1559,15 @@
     /* ---------- Gurus ---------- */
     .guru-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.4rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.6rem;
     }
 
     .guru-card {
-      width: 100%;
-      max-width: 720px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      align-items: stretch;
       background: var(--white);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      text-align: left;
+      border-radius: var(--radius);
+      padding: 2rem 1.5rem;
+      text-align: center;
       box-shadow: var(--shadow-sm);
       border: 1px solid var(--line);
       transition: transform 300ms var(--ease-out), box-shadow 300ms var(--ease-out);
@@ -1602,44 +1578,22 @@
         transform: translateY(-6px);
         box-shadow: var(--shadow-md);
       }
-
-      .guru-card:hover .guru-photo img {
-        transform: scale(1.06);
-      }
     }
 
     .guru-photo {
-      position: relative;
-      flex: 0 0 200px;
-      width: 200px;
-      aspect-ratio: 1 / 1;
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 1rem;
+      border-radius: 20%;
       overflow: hidden;
-      background: var(--sand);
+      box-shadow: var(--shadow-sm);
+      border: 3px solid var(--sand);
     }
 
     .guru-photo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
-      display: block;
-      transition: transform 650ms var(--ease-out);
-    }
-
-    .guru-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(13, 20, 10, 0) 58%, rgba(7, 16, 7, 0.55) 100%);
-      pointer-events: none;
-    }
-
-    .guru-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 1.4rem 1.6rem;
     }
 
     .guru-card h3 {
@@ -1658,53 +1612,6 @@
     .guru-bio {
       color: var(--ink-soft);
       font-size: 0.92rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .guru-trust {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-start;
-      gap: 0.5rem;
-    }
-
-    @media (max-width: 640px) {
-      .guru-card {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .guru-photo {
-        width: 100%;
-        flex: none;
-      }
-
-      .guru-info {
-        align-items: center;
-        padding: 1.6rem 1.5rem 2rem;
-      }
-
-      .guru-trust {
-        justify-content: center;
-      }
-    }
-
-    .guru-trust span {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      background: rgba(13, 83, 14, 0.06);
-      border: 1px solid var(--line);
-      border-radius: 100px;
-      padding: 0.35rem 0.75rem;
-      font-size: 0.74rem;
-      font-weight: 600;
-      color: var(--green-deep);
-    }
-
-    .guru-trust span i {
-      color: var(--gold-deep);
-      font-size: 0.7rem;
     }
 
     /* ---------- Stay mini grid ---------- */
@@ -1729,7 +1636,7 @@
     }
 
     .mini i {
-      font-size: 2rem;
+      font-size: 1.3rem;
       color: var(--green);
     }
 
@@ -1813,7 +1720,7 @@
        actual rendered width (height * 9/16) so the cap lines up exactly. */
     @media (min-width: 1024px) {
       .guest-swiper {
-        max-width: calc(min(58vh, 480px) * 0.5625 * 3 + 30px * 2);
+        max-width: calc(min(44vh, 380px) * 0.5625 * 3 + 30px * 2);
         margin-inline: auto;
       }
     }
@@ -1833,7 +1740,7 @@
 
     .guest-swiper swiper-slide video {
       width: auto;
-      height: min(58vh, 480px);
+      height: min(44vh, 380px);
       aspect-ratio: 9/16;
       object-fit: cover;
       display: block;
@@ -1843,7 +1750,7 @@
     .guest-video-mute {
       position: absolute;
       right: 12px;
-      top: 12px;
+      bottom: 12px;
       width: 38px;
       height: 38px;
       border-radius: 50%;
@@ -1896,7 +1803,7 @@
       width: max-content;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: none;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25), 0 6px 16px rgba(0, 0, 0, 0.15);
       position: relative;
       display: flex;
       align-items: center;
@@ -1910,7 +1817,7 @@
 
     .explore-card video {
       width: auto;
-      height: min(44vh, 380px);
+      height: min(38vh, 340px);
       aspect-ratio: 9/16;
       object-fit: cover;
       display: block;
@@ -1918,7 +1825,7 @@
     }
 
     .explore-quote {
-      max-width: calc(min(44vh, 380px) * 0.5625);
+      max-width: calc(min(38vh, 340px) * 0.5625);
       margin: 0.6rem auto 0;
       padding: 0 0.4rem;
       text-align: center;
@@ -2332,7 +2239,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1.6fr 1fr 1.2fr 1fr;
       gap: 2rem;
       padding-bottom: 2.5rem;
     }
@@ -2532,48 +2439,29 @@
 
     .modal-box {
       position: relative;
-      width: auto;
-      max-width: min(92vw, 960px);
-      max-height: 90vh;
+      width: min(92vw, 960px);
+      border-radius: var(--radius);
+      overflow: hidden;
       box-shadow: var(--shadow-lg);
       animation: modalIn 280ms var(--ease-out) both;
     }
 
     .modal-video {
+      width: 100%;
       display: block;
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 90vh;
       background: #000;
-      border-radius: var(--radius);
-      overflow: hidden;
     }
 
     .modal-close {
       position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.55);
+      top: -42px;
+      right: 0;
+      background: none;
       border: none;
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 2rem;
       cursor: pointer;
       line-height: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      z-index: 2;
-      transition: background 200ms ease, transform 200ms ease;
-    }
-
-    .modal-close:hover {
-      background: rgba(0, 0, 0, 0.75);
-      transform: scale(1.08);
     }
 
     @keyframes fade {
@@ -2595,159 +2483,6 @@
       to {
         opacity: 1;
         transform: scale(1);
-      }
-    }
-
-    /* ---------- Legal dialog ---------- */
-    .ld-dialog {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      width: min(92vw, 760px);
-      max-width: min(92vw, 760px);
-      max-height: min(86vh, 820px);
-      margin: auto;
-      padding: 0;
-      border: none;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      background: var(--white, #fff);
-      overflow: hidden;
-      animation: modalIn 280ms var(--ease-out) both;
-    }
-
-    .ld-dialog::backdrop {
-      background: rgba(13, 40, 8, 0.78);
-      backdrop-filter: blur(4px);
-      animation: fade 220ms ease both;
-    }
-
-    .ld-close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--cream, #FBF5DD);
-      border: 1px solid var(--line, rgba(13, 83, 14, 0.12));
-      border-radius: 50%;
-      color: var(--green-deep, #0D530E);
-      font-size: 1.3rem;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 1;
-    }
-
-    .ld-body {
-      max-height: min(86vh, 820px);
-      overflow-y: auto;
-      padding: clamp(1.6rem, 4vw, 2.6rem);
-      padding-top: clamp(2.4rem, 5vw, 3.2rem);
-    }
-
-    .ld-eyebrow {
-      font-size: 0.76rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold-deep);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .ld-body h2 {
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 400;
-      color: var(--green-deep);
-      font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.8rem);
-      margin-bottom: 0.4rem;
-    }
-
-    .ld-updated {
-      color: var(--ink-soft, #5b5d50);
-      font-size: 0.86rem;
-      margin-bottom: 1.3rem;
-    }
-
-    .ld-body h3 {
-      font-family: "Fraunces", Georgia, serif;
-      font-weight: 500;
-      color: var(--green-deep);
-      font-size: 1.08rem;
-      margin: 1.3rem 0 0.5rem;
-    }
-
-    .ld-body section:first-of-type h3 {
-      margin-top: 0;
-    }
-
-    .ld-body p {
-      color: var(--ink-soft, #5b5d50);
-      margin-bottom: 0.7rem;
-    }
-
-    .ld-body ul {
-      color: var(--ink-soft, #5b5d50);
-      padding-left: 1.2rem;
-      margin-bottom: 0.7rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-    }
-
-    .ld-body strong {
-      color: var(--ink);
-    }
-
-    .ld-body table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 0.7rem;
-      border: 1px solid var(--line, rgba(13, 83, 14, 0.12));
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .ld-body th,
-    .ld-body td {
-      text-align: left;
-      padding: 0.65rem 0.8rem;
-      font-size: 0.88rem;
-      border-bottom: 1px solid var(--line, rgba(13, 83, 14, 0.12));
-    }
-
-    .ld-body th {
-      background: var(--cream, #FBF5DD);
-      color: var(--green-deep);
-    }
-
-    .ld-body tr:last-child td {
-      border-bottom: none;
-    }
-
-    .ld-fullpage {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      margin-bottom: 1.3rem;
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--green-deep);
-      text-decoration: none;
-    }
-
-    .ld-fullpage:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 640px) {
-      .ld-dialog {
-        width: 94vw;
-        max-width: 94vw;
-        max-height: 90vh;
       }
     }
 
@@ -2991,6 +2726,7 @@
 
       .benefit-grid,
       .exp-grid,
+      .guru-grid,
       .price-grid,
       .camp-facts,
       .stats-grid {
@@ -3103,6 +2839,7 @@
 
       .benefit-grid,
       .exp-grid,
+      .guru-grid,
       .price-grid,
       .camp-facts {
         grid-template-columns: 2fr;
@@ -3193,449 +2930,155 @@
    before/after · itinerary outcomes · final close
    ============================================================ */
 
-    /* ---------- Who is this for : curved stress-line timeline ---------- */
-    .who-curve {
-      position: relative;
-      padding-block: 1rem;
-      overflow: hidden;
-    }
-
-    .who-curve-line {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      width: 130px;
-      height: 100%;
-      transform: translateX(-50%);
-      z-index: 0;
-      pointer-events: none;
-      overflow: visible;
-    }
-
-    .who-curve-line path {
-      fill: none;
-      stroke: url(#whoCurveGrad);
-      stroke-width: 3;
-      stroke-linecap: round;
-    }
-
-    .who-curve-line circle {
-      fill: var(--gold);
-      opacity: 0.55;
-    }
-
-    .who-row {
-      position: relative;
-      z-index: 1;
+    /* ---------- Who is this for ---------- */
+    .audience-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      column-gap: clamp(2rem, 6vw, 4.6rem);
-      min-height: 210px;
-      padding-block: 1.4rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
     }
 
-    .who-row + .who-row {
-      margin-top: 0.4rem;
-    }
-
-    /* media (circular portrait, sits "on" the curve) */
-    .who-media {
-      position: relative;
-      width: clamp(140px, 16vw, 208px);
-      aspect-ratio: 1 / 1;
-      margin-inline: auto;
-      opacity: 0;
-      transform: scale(0.8) translateY(26px);
-      transition: opacity 900ms var(--ease-out), transform 900ms var(--ease-out);
-    }
-
-    .who-row.is-media-left .who-media {
-      justify-self: end;
-      margin-right: -1.6rem;
-    }
-
-    .who-row.is-media-right .who-media {
-      justify-self: start;
-      margin-left: -1.6rem;
-    }
-
-    .who-row.is-visible .who-media {
-      opacity: 1;
-      transform: none;
-    }
-
-    .who-media-frame {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
+    .audience-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      box-shadow: 0 20px 44px -16px rgba(13, 83, 14, 0.5), 0 0 0 7px var(--sand), 0 0 0 10px rgba(198, 161, 91, 0.55);
-      transition: transform 500ms var(--ease-out), box-shadow 500ms var(--ease-out);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 320ms var(--ease-out), box-shadow 320ms var(--ease-out), border-color 320ms var(--ease-out);
     }
 
     @media (hover: hover) {
-      .who-row:hover .who-media-frame {
-        transform: translateY(-6px) scale(1.03);
-        box-shadow: 0 30px 54px -16px rgba(13, 83, 14, 0.58), 0 0 0 7px var(--sand), 0 0 0 10px var(--gold);
+      .audience-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--shadow-md);
+        border-color: rgba(198, 161, 91, 0.45);
       }
 
-      .who-row:hover .who-media-frame img {
-        transform: scale(1.1);
+      .audience-card:hover .aud-media img {
+        transform: scale(1.09);
       }
     }
 
-    .who-media-frame img {
+    .aud-media {
+      position: relative;
+      aspect-ratio: 5 / 4;
+      overflow: hidden;
+      background: var(--sand);
+    }
+
+    .aud-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
       display: block;
       transition: transform 700ms var(--ease-out);
     }
 
-    .who-media-tag {
-      display: block;
-      margin-top: 0.9rem;
-      text-align: center;
-      font-size: clamp(1.05rem, 1.4vw, 1.22rem);
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-    }
-
-    /* arrow-connected points, reaching out from the curve */
-    .who-points {
-      list-style: none;
-      display: grid;
-      gap: clamp(0.7rem, 1.6vw, 1.1rem);
-    }
-
-    .who-points li {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      font-size: clamp(1.08rem, 1.5vw, 1.28rem);
-      line-height: 1.42;
-      font-weight: 500;
-      color: var(--ink-soft);
-      opacity: 0;
-      transform: translateX(18px);
-      transition: opacity 620ms var(--ease-out), transform 620ms var(--ease-out);
-    }
-
-    .who-row.is-media-right .who-points li {
-      flex-direction: row-reverse;
-      text-align: right;
-      transform: translateX(-18px);
-    }
-
-    .who-row.is-visible .who-points li {
-      opacity: 1;
-      transform: none;
-    }
-
-    .who-row.is-visible .who-points li:nth-child(2) {
-      transition-delay: 160ms;
-    }
-
-    .who-row.is-visible .who-points li:nth-child(3) {
-      transition-delay: 320ms;
-    }
-
-    .who-arrow {
-      flex: none;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      position: relative;
-      background: linear-gradient(135deg, var(--gold) 0%, var(--green) 145%);
-      box-shadow: 0 10px 20px -9px rgba(13, 83, 14, 0.55);
-    }
-
-    .who-arrow::before {
+    .aud-media::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center / 55% no-repeat;
+      background: linear-gradient(180deg, rgba(13, 20, 10, 0) 58%, rgba(11, 22, 10, 0.68) 100%);
+      pointer-events: none;
     }
 
-    .who-row.is-media-right .who-arrow {
-      transform: scaleX(-1);
+    .aud-ico {
+      font-size: 1.25rem;
+      color: var(--green);
+      background: rgba(13, 83, 14, 0.08);
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
     }
 
-    /* ---------- Pain checklist : interactive self-check ---------- */
-    .pain-check-grid {
+    .aud-body {
+      padding: 1.3rem 1.3rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .audience-card h3 {
+      font-size: 1.08rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .audience-card ul {
+      list-style: none;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.9rem 1.4rem;
-      max-width: 940px;
+      gap: 0.28rem;
+    }
+
+    .audience-card li {
+      font-size: 0.86rem;
+      color: var(--ink-soft);
+      display: flex;
+      gap: 0.45rem;
+      align-items: flex-start;
+    }
+
+    .audience-card li::before {
+      content: "—";
+      color: var(--gold);
+      flex: none;
+    }
+
+    /* ---------- Pain checklist ---------- */
+    .pain-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: clamp(24px, 4vw, 48px);
+      max-width: 880px;
       margin-inline: auto;
     }
 
-    .pain-tile {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 1rem 1.2rem;
-      cursor: pointer;
-      user-select: none;
-      box-shadow: var(--shadow-sm);
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 640ms var(--ease-out), transform 640ms var(--ease-out), box-shadow 260ms var(--ease-out),
-        border-color 260ms var(--ease-out);
-      transition-delay: calc(var(--i, 0) * 70ms);
-    }
-
-    .pain-check-grid.is-visible .pain-tile {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (hover: hover) {
-      .pain-tile:hover {
-        border-color: var(--gold);
-        box-shadow: var(--shadow-md);
-        transform: translateY(-3px);
-      }
-    }
-
-    .pain-input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-    }
-
-    .pain-tick {
-      flex: none;
-      width: 27px;
-      height: 27px;
-      border-radius: 8px;
-      border: 2px solid var(--line);
+    .pain-list {
+      list-style: none;
       display: grid;
-      place-items: center;
-      transition: background 260ms var(--ease-out), border-color 260ms var(--ease-out), transform 260ms var(--ease-out);
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 2.2rem;
     }
 
-    .pain-tick svg {
-      width: 15px;
-      height: 15px;
-      overflow: visible;
-    }
-
-    .pain-tick path {
-      fill: none;
-      stroke: #fff;
-      stroke-width: 3;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      stroke-dasharray: 24;
-      stroke-dashoffset: 24;
-      transition: stroke-dashoffset 320ms var(--ease-out);
-    }
-
-    .pain-input:checked~.pain-tick {
-      background: linear-gradient(135deg, var(--gold) 0%, var(--green) 145%);
-      border-color: transparent;
-      transform: scale(1.08);
-    }
-
-    .pain-input:checked~.pain-tick path {
-      stroke-dashoffset: 0;
-    }
-
-    .pain-input:focus-visible~.pain-tick {
-      outline: 2px solid var(--gold-deep);
-      outline-offset: 2px;
-    }
-
-    .pain-text {
+    .pain-list li {
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
       color: var(--ink);
       font-weight: 500;
-      font-size: 1.02rem;
-      line-height: 1.45;
-      transition: color 260ms var(--ease-out);
+      font-size: 0.98rem;
+      line-height: 1.5;
     }
 
-    .pain-input:checked~.pain-text {
-      color: var(--green-deep);
+    .pain-list li i {
+      color: var(--gold-deep);
+      margin-top: 0.25rem;
+      flex: none;
+      font-size: 0.9rem;
     }
 
-    /* verdict / reset panel */
-    .pain-verdict {
-      position: relative;
-      max-width: 780px;
-      margin: 3rem auto 0;
+    .pain-close {
       text-align: center;
-      background: linear-gradient(155deg, var(--green-deep) 0%, var(--green) 100%);
-      border-radius: var(--radius-lg);
-      padding: clamp(2.2rem, 4vw, 3.4rem) clamp(1.4rem, 4vw, 3rem);
-      box-shadow: var(--shadow-lg);
-      overflow: hidden;
-      opacity: 0;
-      transform: scale(0.94) translateY(24px);
-      transition: opacity 800ms var(--ease-out), transform 800ms var(--ease-out);
+      margin-top: 2.4rem;
     }
 
-    .pain-verdict.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .pain-verdict::before {
-      content: "\201D";
-      position: absolute;
-      top: -1.2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: "Fraunces", Georgia, serif;
-      font-size: 11rem;
-      line-height: 1;
-      color: rgba(255, 255, 255, 0.08);
-      pointer-events: none;
-    }
-
-    .pain-count-line {
-      position: relative;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--gold-lt);
-      margin-bottom: 0.9rem;
-      min-height: 1.3em;
-      opacity: 0;
-      transition: opacity 320ms var(--ease-out);
-    }
-
-    .pain-count-line.is-active {
-      opacity: 1;
-    }
-
-    .pain-verdict .big {
-      position: relative;
+    .pain-close .big {
       font-family: "Fraunces", Georgia, serif;
       font-size: clamp(1.4rem, 1.1rem + 1.6vw, 2.1rem);
-      color: var(--cream-on-dark);
-      line-height: 1.32;
-      margin-bottom: 1.6rem;
-      transition: opacity 220ms var(--ease-out);
+      color: var(--green-deep);
+      line-height: 1.3;
+      margin-bottom: 1.4rem;
     }
 
-    .pain-verdict .big.is-swapping {
-      opacity: 0;
-    }
-
-    .pain-verdict .big strong {
-      color: var(--gold-lt);
+    .pain-close .big strong {
+      color: var(--gold-deep);
       font-weight: 500;
-    }
-
-    /* ---------- Solution bridge strip ---------- */
-    .solution-strip {
-      position: relative;
-      background: linear-gradient(120deg, var(--green-deep) 0%, var(--green) 100%);
-      padding: clamp(2.6rem, 6vw, 4.2rem) 0;
-      overflow: hidden;
-    }
-
-    .solution-strip::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(60% 140% at 50% 0%, rgba(198, 161, 91, 0.2), transparent 70%);
-      pointer-events: none;
-    }
-
-    .solution-strip-inner {
-      position: relative;
-      max-width: 760px;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 720ms var(--ease-out), transform 720ms var(--ease-out);
-    }
-
-    .solution-strip-inner.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    .solution-strip-eyebrow {
-      font-family: "Inter", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: clamp(0.75rem, 0.7rem + 0.4vw, 0.9rem);
-      font-weight: 700;
-      color: var(--gold-lt);
-      margin-bottom: 0.9rem;
-    }
-
-    .solution-strip-title {
-      font-family: "Fraunces", Georgia, serif;
-      font-size: clamp(1.5rem, 1.1rem + 2vw, 2.4rem);
-      line-height: 1.35;
-      color: var(--cream-on-dark);
-      margin-bottom: 0.9rem;
-    }
-
-    .solution-strip-title em {
-      font-family: "Cormorant Garamond", serif;
-      font-style: italic;
-      font-weight: 500;
-      color: var(--gold-lt);
-    }
-
-    .solution-strip-sub {
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
-      color: rgba(243, 236, 210, 0.85);
-      margin-bottom: 1.6rem;
-    }
-
-    .solution-strip-arrow {
-      display: inline-flex;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid rgba(230, 203, 130, 0.4);
-      align-items: center;
-      justify-content: center;
-      animation: solutionArrowBounce 1.8s ease-in-out infinite;
-    }
-
-    .solution-strip-arrow svg {
-      width: 16px;
-      height: 16px;
-      stroke: var(--gold-lt);
-      fill: none;
-      stroke-width: 2.4;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    @keyframes solutionArrowBounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(7px);
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .solution-strip-arrow {
-        animation: none;
-      }
     }
 
     /* ---------- Overwhelm symptoms ---------- */
@@ -3852,13 +3295,6 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .ba-before,
-    .ba-after {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-    }
-
     .ba-before {
       color: var(--ink-soft);
       font-size: 0.95rem;
@@ -3872,402 +3308,8 @@
     .ba-after {
       color: var(--green-deep);
       font-weight: 600;
-      justify-content: flex-end;
       text-align: right;
       font-size: 0.95rem;
-    }
-
-    .ba-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      font-size: 0.82rem;
-    }
-
-    .ba-icon svg {
-      width: 19px;
-      height: 19px;
-      overflow: visible;
-    }
-
-    .ba-icon-before {
-      order: -1;
-      background: rgba(122, 108, 84, 0.1);
-      color: var(--ink-soft);
-      animation: baWobble 2.8s ease-in-out infinite;
-    }
-
-    .ba-after .ba-icon-after {
-      order: 1;
-      background: rgba(48, 109, 41, 0.12);
-      color: var(--green-deep);
-      animation: baPulse 2.2s ease-in-out infinite;
-    }
-
-    /* Icons with their own inline-SVG animation don't need the container wobble/pulse too */
-    .ba-icon-before:has(svg),
-    .ba-after .ba-icon-after:has(svg) {
-      animation: none;
-    }
-
-    /* Sleep row: flickering moon + fading Zs (before) / steady glow + twinkling stars (after) */
-    .ba-moon-before {
-      animation: baMoonFlicker 2.6s ease-in-out infinite;
-      transform-origin: center;
-    }
-
-    .ba-z {
-      opacity: 0;
-      animation: baZFade 2.6s ease-in-out infinite;
-    }
-
-    .ba-z2 {
-      animation-delay: 0.5s;
-    }
-
-    .ba-star {
-      transform-origin: center;
-      animation: baTwinkle 1.9s ease-in-out infinite;
-    }
-
-    .ba-star2 {
-      animation-delay: 0.5s;
-    }
-
-    .ba-star3 {
-      animation-delay: 1s;
-    }
-
-    @keyframes baMoonFlicker {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      20% {
-        opacity: 0.4;
-      }
-
-      35% {
-        opacity: 1;
-      }
-
-      55% {
-        opacity: 0.55;
-      }
-    }
-
-    @keyframes baZFade {
-      0% {
-        opacity: 0;
-        transform: translate(0, 0);
-      }
-
-      15% {
-        opacity: 0.8;
-      }
-
-      45% {
-        opacity: 0;
-        transform: translate(3px, -5px);
-      }
-
-      100% {
-        opacity: 0;
-      }
-    }
-
-    @keyframes baTwinkle {
-
-      0%,
-      100% {
-        opacity: 0.25;
-        transform: scale(0.6);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.05);
-      }
-    }
-
-    /* Stress row: jittery zigzag (before) / slow calm breathing wave (after) */
-    .ba-stress-before {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baShake 0.5s ease-in-out infinite;
-    }
-
-    .ba-wave-after {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baBreathe 2.4s ease-in-out infinite;
-    }
-
-    @keyframes baShake {
-
-      0%,
-      100% {
-        transform: translateX(0);
-      }
-
-      20% {
-        transform: translateX(-1.1px);
-      }
-
-      40% {
-        transform: translateX(1px);
-      }
-
-      60% {
-        transform: translateX(-0.9px);
-      }
-
-      80% {
-        transform: translateX(1.1px);
-      }
-    }
-
-    @keyframes baBreathe {
-
-      0%,
-      100% {
-        transform: scaleY(1);
-      }
-
-      50% {
-        transform: scaleY(1.18);
-      }
-    }
-
-    /* Energy row: blinking near-empty battery (before) / repeatedly charging battery (after) */
-    .ba-battery-fill-before {
-      animation: baBlink 1s ease-in-out infinite;
-    }
-
-    .ba-battery-fill-after {
-      transform-box: fill-box;
-      transform-origin: left center;
-      animation: baCharge 2.2s ease-in-out infinite;
-    }
-
-    @keyframes baBlink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.15;
-      }
-    }
-
-    @keyframes baCharge {
-      0% {
-        transform: scaleX(0.15);
-      }
-
-      70% {
-        transform: scaleX(1);
-      }
-
-      100% {
-        transform: scaleX(1);
-      }
-    }
-
-    /* Clarity row: spinning tangled thought inside a cloud (before) / glowing idea rays (after) */
-    .ba-spin {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baSpin 1.4s linear infinite;
-    }
-
-    .ba-rays {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baGlow 1.8s ease-in-out infinite;
-    }
-
-    @keyframes baSpin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes baGlow {
-
-      0%,
-      100% {
-        opacity: 0.25;
-      }
-
-      50% {
-        opacity: 1;
-      }
-    }
-
-    /* Routine row: jittery X (before) / self-drawing checkmark (after) */
-    .ba-x {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baShake 0.5s ease-in-out infinite;
-    }
-
-    .ba-check {
-      animation: baDraw 2.2s ease-in-out infinite;
-    }
-
-    @keyframes baDraw {
-      0% {
-        stroke-dashoffset: 1;
-      }
-
-      40% {
-        stroke-dashoffset: 0;
-      }
-
-      80% {
-        stroke-dashoffset: 0;
-      }
-
-      100% {
-        stroke-dashoffset: 1;
-      }
-    }
-
-    /* Balance row: hourglass endlessly flipping (before) / scale settling near level (after) */
-    .ba-hourglass {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baFlip 2.6s ease-in-out infinite;
-    }
-
-    .ba-scale {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baTip 3s ease-in-out infinite;
-    }
-
-    @keyframes baFlip {
-
-      0%,
-      40% {
-        transform: rotate(0deg);
-      }
-
-      60%,
-      100% {
-        transform: rotate(180deg);
-      }
-    }
-
-    @keyframes baTip {
-
-      0%,
-      100% {
-        transform: rotate(0deg);
-      }
-
-      25% {
-        transform: rotate(-4deg);
-      }
-
-      75% {
-        transform: rotate(4deg);
-      }
-    }
-
-    /* Connection row: chain pulling apart (before) / heartbeat pulse rings (after) */
-    .ba-link1 {
-      transform-box: fill-box;
-      animation: baPullApart1 2s ease-in-out infinite;
-    }
-
-    .ba-link2 {
-      transform-box: fill-box;
-      animation: baPullApart2 2s ease-in-out infinite;
-    }
-
-    @keyframes baPullApart1 {
-
-      0%,
-      100% {
-        transform: translate(0, 0);
-      }
-
-      50% {
-        transform: translate(-1.5px, -1.5px);
-      }
-    }
-
-    @keyframes baPullApart2 {
-
-      0%,
-      100% {
-        transform: translate(0, 0);
-      }
-
-      50% {
-        transform: translate(1.5px, 1.5px);
-      }
-    }
-
-    .ba-ring {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: baRing 1.8s ease-out infinite;
-    }
-
-    @keyframes baRing {
-      0% {
-        transform: scale(0.6);
-        opacity: 0.9;
-      }
-
-      100% {
-        transform: scale(2.2);
-        opacity: 0;
-      }
-    }
-
-    @keyframes baWobble {
-
-      0%,
-      100% {
-        transform: rotate(0deg);
-        opacity: 0.65;
-      }
-
-      25% {
-        transform: rotate(-10deg);
-        opacity: 0.45;
-      }
-
-      75% {
-        transform: rotate(10deg);
-        opacity: 0.45;
-      }
-    }
-
-    @keyframes baPulse {
-
-      0%,
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(48, 109, 41, 0.28);
-      }
-
-      50% {
-        transform: scale(1.14);
-        box-shadow: 0 0 0 6px rgba(48, 109, 41, 0);
-      }
     }
 
     /* ---------- Corporate list ---------- */
@@ -4367,17 +3409,14 @@
     /* ---------- New sections responsive ---------- */
     @media (max-width: 1020px) {
 
+      .audience-grid,
       .pillar-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .who-row {
-        column-gap: 2rem;
       }
     }
 
     @media (max-width: 760px) {
-      .pain-check-grid {
+      .pain-list {
         grid-template-columns: 1fr;
       }
 
@@ -4389,49 +3428,13 @@
         grid-template-columns: 1fr 34px 1fr;
         padding: 0.8rem 0.9rem;
       }
-
-      .who-curve-line {
-        width: 60px;
-      }
-
-      .who-row {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        row-gap: 1.1rem;
-        min-height: 0;
-      }
-
-      .who-row.is-media-left .who-media,
-      .who-row.is-media-right .who-media {
-        justify-self: center;
-        margin: 0;
-      }
-
-      .who-row .who-points,
-      .who-row.is-media-right .who-points {
-        justify-self: center;
-      }
-
-      .who-points li,
-      .who-row.is-media-right .who-points li {
-        flex-direction: row;
-        text-align: left;
-        transform: translateY(14px);
-      }
-
-      .who-row.is-media-right .who-arrow {
-        transform: none;
-      }
     }
 
     @media (max-width: 560px) {
 
+      .audience-grid,
       .pillar-grid {
         grid-template-columns: 1fr;
-      }
-
-      .who-curve-line {
-        width: 40px;
       }
 
       .ba-before,
@@ -4959,7 +3962,9 @@
             Retreat Intro Video — Dummy Poster
           </div>
         </div>
-        <div class="play-btn" id="watchVideoBtn" role="button" tabindex="0">
+        <div class="play-btn"
+          onclick="alert('▶ Intro video plays here — replace with your retreat film / YouTube embed.')" role="button"
+          tabindex="0">
           <div class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg></div>
@@ -4998,168 +4003,123 @@
     <div class="container">
       <div class="section-head center">
         <p class="eyebrow" data-hi="यह रिट्रीट किनके लिए है">Who Is This Retreat For</p>
-        <h2 class="section-title"
-          data-hi="अगर आप इनमें से किसी भी समस्या से जूझ रहे हैं, तो <em>यह रिट्रीट आपके लिए ही बना है</em>">If you're
-          silently struggling with any of these, <em>this retreat was made for you</em></h2>
+        <h2 class="section-title" data-hi="अगर ज़िंदगी बोझिल लगती है, तो <em>यह आपके लिए ही बना है</em>">If life feels
+          heavy, <em>this was designed for you</em></h2>
         <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
       </div>
-      <div class="who-curve">
-        <svg class="who-curve-line" viewBox="0 0 200 1600" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="whoCurveGrad" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#C6A15B" />
-              <stop offset="50%" stop-color="#306D29" />
-              <stop offset="100%" stop-color="#C6A15B" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M100,0 C100,40 170,60 170,100 C170,140 100,160 100,200 C100,240 30,260 30,300 C30,340 100,360 100,400 C100,440 170,460 170,500 C170,540 100,560 100,600 C100,640 30,660 30,700 C30,740 100,760 100,800 C100,840 170,860 170,900 C170,940 100,960 100,1000 C100,1040 30,1060 30,1100 C30,1140 100,1160 100,1200 C100,1240 170,1260 170,1300 C170,1340 100,1360 100,1400 C100,1440 30,1460 30,1500 C30,1540 100,1560 100,1600" />
-          <circle cx="170" cy="100" r="6" />
-          <circle cx="30" cy="300" r="6" />
-          <circle cx="170" cy="500" r="6" />
-          <circle cx="30" cy="700" r="6" />
-          <circle cx="170" cy="900" r="6" />
-          <circle cx="30" cy="1100" r="6" />
-          <circle cx="170" cy="1300" r="6" />
-          <circle cx="30" cy="1500" r="6" />
-        </svg>
-
-        <div class="who-row is-media-left reveal-left">
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/1.png" alt="Corporate professional overwhelmed by late-night deadlines"
-                loading="lazy" />
-            </div>
-
+      <div class="audience-grid">
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/1.png" alt="Corporate professional overwhelmed by late-night deadlines"
+              loading="lazy" />
           </div>
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span
-                data-hi="बर्नआउट और डेडलाइन का दबाव">Burnout &amp; deadline pressure</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="वर्क-लाइफ़ बैलेंस की कमी">No
-                work-life balance</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="लैपटॉप से बंधी जीवनशैली">The laptop
-                lifestyle</span></li>
-          </ul>
-        </div>
-
-        <div class="who-row is-media-right reveal-right">
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="आर्थिक दबाव">Financial
-                pressure</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="निर्णय लेते-लेते थकान">Decision
-                fatigue</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span
-                data-hi="हर समय ज़िम्मेदारी का भार">Constant responsibility</span></li>
-          </ul>
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/2.png" alt="Business owner weighed down by financial pressure and bills"
-                loading="lazy" />
-            </div>
+          <div class="aud-body">
+            <h3 data-hi="कॉर्पोरेट प्रोफ़ेशनल">Corporate Professionals</h3>
+            <ul>
+              <li data-hi="बर्नआउट और डेडलाइन का दबाव">Burnout &amp; deadline pressure</li>
+              <li data-hi="वर्क-लाइफ़ बैलेंस की कमी">No work-life balance</li>
+              <li data-hi="लैपटॉप से बंधी जीवनशैली">The laptop lifestyle</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="who-row is-media-left reveal-left">
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/3.png" alt="Startup founder exhausted from funding crunch and sleepless nights"
-                loading="lazy" />
-            </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/2.png" alt="Business owner weighed down by financial pressure and bills"
+              loading="lazy" />
           </div>
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span
-                data-hi="तीव्र दबाव, अधूरी नींद">High pressure, little sleep</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="असफलता का डर">Fear of
-                failure</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span
-                data-hi="हर वक़्त काम में डूबे रहना">Always working</span></li>
-          </ul>
-        </div>
-
-        <div class="who-row is-media-right reveal-right">
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="लंबे कार्य घंटे">Long working
-                hours</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="करुणा की थकान">Compassion
-                fatigue</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="मानसिक थकावट">Mental
-                exhaustion</span></li>
-          </ul>
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/4.png" alt="Doctor sitting exhausted in a hospital corridor after a long shift"
-                loading="lazy" />
-            </div>
+          <div class="aud-body">
+            <h3 data-hi="व्यवसायी">Business Owners</h3>
+            <ul>
+              <li data-hi="आर्थिक दबाव">Financial pressure</li>
+              <li data-hi="निर्णय लेते-लेते थकान">Decision fatigue</li>
+              <li data-hi="हर समय ज़िम्मेदारी का भार">Constant responsibility</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="who-row is-media-left reveal-left">
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/5.png" alt="Teacher overwhelmed by paperwork late at night in an empty classroom"
-                loading="lazy" />
-            </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/3.png" alt="Startup founder exhausted from funding crunch and sleepless nights"
+              loading="lazy" />
           </div>
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="भावनात्मक थकान">Emotional
-                burnout</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="निरंतर ज़िम्मेदारी">Constant
-                responsibility</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="अपने लिए समय नहीं">No time for
-                yourself</span></li>
-          </ul>
-        </div>
-
-        <div class="who-row is-media-right reveal-right">
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="बेहतर संवाद">Better
-                communication</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="भावनात्मक जुड़ाव">Emotional
-                connection</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="साथ बिताया सार्थक समय">Real quality
-                time</span></li>
-          </ul>
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/6.png" alt="Couple sitting distant on the couch, disconnected on their phones"
-                loading="lazy" />
-            </div>
+          <div class="aud-body">
+            <h3 data-hi="स्टार्टअप संस्थापक">Startup Founders</h3>
+            <ul>
+              <li data-hi="तीव्र दबाव, अधूरी नींद">High pressure, little sleep</li>
+              <li data-hi="असफलता का डर">Fear of failure</li>
+              <li data-hi="हर वक़्त काम में डूबे रहना">Always working</li>
+            </ul>
           </div>
-        </div>
-
-        <div class="who-row is-media-left reveal-left">
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/7.png" alt="Yoga teacher journaling and deepening her practice at a retreat"
-                loading="lazy" />
-            </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/4.png" alt="Doctor sitting exhausted in a hospital corridor after a long shift"
+              loading="lazy" />
           </div>
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="व्यक्तिगत विकास">Personal
-                growth</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span
-                data-hi="स्व-अभ्यास को गहरा करना">Deepening self practice</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="उन्नत शिक्षा">Advanced
-                learning</span></li>
-          </ul>
-        </div>
-
-        <div class="who-row is-media-right reveal-right">
-          <ul class="who-points">
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="शांति और उपचार">Peace &amp;
-                healing</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="जीवन में उद्देश्य">A sense of
-                purpose</span></li>
-            <li><span class="who-arrow" aria-hidden="true"></span><span data-hi="एक नई शुरुआत">A new
-                beginning</span></li>
-          </ul>
-          <div class="who-media">
-            <div class="who-media-frame">
-              <img src="Image/cause/8.png" alt="Person meditating peacefully overlooking mountains at sunrise"
-                loading="lazy" />
-            </div>
+          <div class="aud-body">
+            <h3 data-hi="डॉक्टर एवं देखभालकर्ता">Doctors &amp; Caregivers</h3>
+            <ul>
+              <li data-hi="लंबे कार्य घंटे">Long working hours</li>
+              <li data-hi="करुणा की थकान">Compassion fatigue</li>
+              <li data-hi="मानसिक थकावट">Mental exhaustion</li>
+            </ul>
           </div>
-        </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/5.png" alt="Teacher overwhelmed by paperwork late at night in an empty classroom"
+              loading="lazy" />
+          </div>
+          <div class="aud-body">
+            <h3 data-hi="शिक्षक">Teachers</h3>
+            <ul>
+              <li data-hi="भावनात्मक थकान">Emotional burnout</li>
+              <li data-hi="निरंतर ज़िम्मेदारी">Constant responsibility</li>
+              <li data-hi="अपने लिए समय नहीं">No time for yourself</li>
+            </ul>
+          </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/6.png" alt="Couple sitting distant on the couch, disconnected on their phones"
+              loading="lazy" />
+          </div>
+          <div class="aud-body">
+            <h3 data-hi="दंपति">Couples</h3>
+            <ul>
+              <li data-hi="बेहतर संवाद">Better communication</li>
+              <li data-hi="भावनात्मक जुड़ाव">Emotional connection</li>
+              <li data-hi="साथ बिताया सार्थक समय">Real quality time</li>
+            </ul>
+          </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/7.png" alt="Yoga teacher journaling and deepening her practice at a retreat"
+              loading="lazy" />
+          </div>
+          <div class="aud-body">
+            <h3 data-hi="योग शिक्षक एवं कोच">Yoga Teachers &amp; Coaches</h3>
+            <ul>
+              <li data-hi="व्यक्तिगत विकास">Personal growth</li>
+              <li data-hi="स्व-अभ्यास को गहरा करना">Deepening self practice</li>
+              <li data-hi="उन्नत शिक्षा">Advanced learning</li>
+            </ul>
+          </div>
+        </article>
+        <article class="audience-card reveal">
+          <div class="aud-media">
+            <img src="Image/cause/8.png" alt="Person meditating peacefully overlooking mountains at sunrise"
+              loading="lazy" />
+          </div>
+          <div class="aud-body">
+            <h3 data-hi="नई शुरुआत चाहने वाले">Anyone Seeking a Fresh Start</h3>
+            <ul>
+              <li data-hi="शांति और उपचार">Peace &amp; healing</li>
+              <li data-hi="जीवन में उद्देश्य">A sense of purpose</li>
+              <li data-hi="एक नई शुरुआत">A new beginning</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   </section>
@@ -5169,96 +4129,37 @@
     <div class="container">
       <div class="section-head center">
         <p class="eyebrow" data-hi="क्या यह आप जैसा लगता है?">Does This Sound Like You?</p>
-        <p class="lead" data-hi="जो भी बिंदु आप पर लागू हों, उन्हें चुनें">Select the checkpoints that feel true for
-          you</p>
-        <h2 class="section-title" data-hi="फिर, स्वयं से <em>सच बोलिए</em>">Then, be honest with <em>yourself</em>
-        </h2>
+        <h2 class="section-title" data-hi="स्वयं से <em>सच बोलिए</em>">Be honest with <em>yourself</em></h2>
         <img class="section-flourish" src="Image/headline/headline1.avif" alt="" aria-hidden="true" loading="lazy" />
       </div>
-      <div class="pain-check-grid">
-        <label class="pain-tile" style="--i:0">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="मैं थका हुआ उठता हूँ।">I wake up tired.</span>
-        </label>
-        <label class="pain-tile" style="--i:1">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="मेरा मन सोचना बंद नहीं करता।">My mind never stops thinking.</span>
-        </label>
-        <label class="pain-tile" style="--i:2">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="वीकेंड पर भी तनाव महसूस होता है।">I feel stressed even on weekends.</span>
-        </label>
-        <label class="pain-tile" style="--i:3">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="मैं फ़ोन पास रखकर सोता हूँ।">I sleep with my phone beside me.</span>
-        </label>
-        <label class="pain-tile" style="--i:4">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="पुरानी ग़लतियाँ बार-बार याद आती हैं।">I keep replaying old mistakes.</span>
-        </label>
-        <label class="pain-tile" style="--i:5">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="भविष्य की चिंता सताती रहती है।">I worry about the future.</span>
-        </label>
-        <label class="pain-tile" style="--i:6">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="मैं सफल हूँ, पर शांत नहीं।">I'm successful, but not peaceful.</span>
-        </label>
-        <label class="pain-tile" style="--i:7">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="याद नहीं, आख़िरी बार कब पूरी तरह सहज महसूस किया था।">I can't remember the
-            last time I felt completely relaxed.</span>
-        </label>
-        <label class="pain-tile" style="--i:8">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="शरीर हमेशा तना हुआ रहता है।">My body always feels tense.</span>
-        </label>
-        <label class="pain-tile" style="--i:9">
-          <input type="checkbox" class="pain-input" />
-          <span class="pain-tick" aria-hidden="true"><svg viewBox="0 0 24 24">
-              <path d="M5 12.5l4.5 4.5L19 7" />
-            </svg></span>
-          <span class="pain-text" data-hi="मैं धीमा होना चाहता हूँ, पर तरीक़ा नहीं जानता।">I want to slow down, but I
-            don't know how.</span>
-        </label>
-      </div>
-
-      <div class="pain-verdict">
-        <p class="pain-count-line" id="painCountLine">
-          <span data-hi="आपने अभी">You just recognized</span>
-          <strong id="painCountNum">0</strong>
-          <span data-hi="में से 10 तनाव के संकेत पहचाने।">of 10 stress signs.</span>
-        </p>
-        <p class="big" data-hi="आपको एक और छुट्टी की नहीं, <strong>एक रीसेट की ज़रूरत है।</strong>">You don't need
-          another vacation. <strong>You need a reset.</strong></p>
-        <a href="#register" class="btn btn-gold btn-lg" data-hi="अपनी सीट सुरक्षित करें">Reserve Your Seat</a>
+      <div class="pain-card reveal">
+        <ul class="pain-list">
+          <li data-hi="<i class='fa-solid fa-check'></i> मैं थका हुआ उठता हूँ।"><i class="fa-solid fa-check"></i> I wake
+            up tired.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> मेरा मन सोचना बंद नहीं करता।"><i class="fa-solid fa-check"></i>
+            My mind never stops thinking.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> वीकेंड पर भी तनाव महसूस होता है।"><i
+              class="fa-solid fa-check"></i> I feel stressed even on weekends.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> मैं फ़ोन पास रखकर सोता हूँ।"><i class="fa-solid fa-check"></i>
+            I sleep with my phone beside me.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> पुरानी ग़लतियाँ बार-बार याद आती हैं।"><i
+              class="fa-solid fa-check"></i> I keep replaying old mistakes.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> भविष्य की चिंता सताती रहती है।"><i
+              class="fa-solid fa-check"></i> I worry about the future.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> मैं सफल हूँ, पर शांत नहीं।"><i class="fa-solid fa-check"></i>
+            I'm successful, but not peaceful.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> याद नहीं, आख़िरी बार कब पूरी तरह सहज महसूस किया था।"><i
+              class="fa-solid fa-check"></i> I can't remember the last time I felt completely relaxed.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> शरीर हमेशा तना हुआ रहता है।"><i class="fa-solid fa-check"></i>
+            My body always feels tense.</li>
+          <li data-hi="<i class='fa-solid fa-check'></i> मैं धीमा होना चाहता हूँ, पर तरीक़ा नहीं जानता।"><i
+              class="fa-solid fa-check"></i> I want to slow down, but I don't know how.</li>
+        </ul>
+        <div class="pain-close">
+          <p class="big" data-hi="आपको एक और छुट्टी की नहीं, <strong>एक रीसेट की ज़रूरत है।</strong>">You don't need
+            another vacation. <strong>You need a reset.</strong></p>
+          <a href="#register" class="btn btn-gold btn-lg" data-hi="अपनी सीट सुरक्षित करें">Reserve Your Seat</a>
+        </div>
       </div>
     </div>
   </section>
@@ -5356,23 +4257,6 @@
     </div>
   </section>
 
-  <!-- =================== SOLUTION BRIDGE STRIP =================== -->
-  <div class="solution-strip">
-    <div class="container solution-strip-inner">
-      <p class="solution-strip-eyebrow" data-hi="असली समाधान">The Real Solution</p>
-      <h3 class="solution-strip-title"
-        data-hi="अब समय है तनाव, चिंता <em>और अतीत के हर बोझ</em> को पीछे छोड़ने का।">Now, it's time to end the
-        stress, the anxiety <em>and everything from your past</em> that's been holding you back.</h3>
-      <p class="solution-strip-sub" data-hi="यहाँ है वह पद्धति, जो इसे संभव बनाती है।">Here's the method that makes it
-        possible.</p>
-      <span class="solution-strip-arrow" aria-hidden="true">
-        <svg viewBox="0 0 24 24">
-          <path d="M12 4v14M6 12l6 6 6-6" />
-        </svg>
-      </span>
-    </div>
-  </div>
-
   <!-- =================== VEDA RESET METHOD =================== -->
   <section class="section" id="method">
     <div class="container">
@@ -5469,64 +4353,6 @@
     </div>
   </section>
 
-  <!-- =================== GUEST EXPERIENCE (video coverflow) =================== -->
-  <section class="section" id="guest-experience">
-    <div class="container">
-      <div class="section-head center">
-        <p class="eyebrow" data-hi="अनुभव के बारे में और जानें">Know More About The Experience</p>
-        <h2 class="section-title" data-hi="उन्हीं की <em>ज़ुबानी सुनिए</em>">Hear It <em>In Their Own Words</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
-        <blockquote class="about-quote guest-quote">
-          <p data-hi="&quot;आप एक रिट्रीट में सिर्फ़ शामिल नहीं होते, आप इसे अपने साथ हमेशा के लिए ले जाते हैं।&quot;">
-            "You don't just attend a retreat, you carry it with you long after you leave."</p>
-          <cite data-hi="हमारे अतिथियों की ज़ुबानी">In the words of our guests</cite>
-        </blockquote>
-      </div>
-
-      <swiper-container id="guestSwiper" class="guest-swiper" pagination="true" effect="coverflow" grab-cursor="true"
-        centered-slides="true" slides-per-view="auto" space-between="20" coverflow-effect-rotate="30"
-        coverflow-effect-stretch="0" coverflow-effect-depth="120" coverflow-effect-modifier="1"
-        coverflow-effect-slide-shadows="true" loop="true"
-        breakpoints='{"768": {"spaceBetween": 24}, "1024": {"spaceBetween": 30}}'>
-        <swiper-slide>
-          <video src="./Video/test/1.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/2.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/3.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/4.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/5.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/6.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-        <swiper-slide>
-          <video src="./Video/test/7.mp4" muted loop playsinline></video>
-          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
-                class="fa-solid fa-volume-xmark"></i></span></button>
-        </swiper-slide>
-      </swiper-container>
-    </div>
-  </section>
-
   <!-- =================== ABOUT / WELCOME =================== -->
   <section class="section about" id="about">
     <div class="container">
@@ -5619,7 +4445,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="इस शिविर में क्यों शामिल हों">Why Join This Retreat</p>
         <h2 class="section-title" data-hi="आपके <em>मन, शरीर और आत्मा</em> के लिए नई शुरुआत">A reset for your <em>mind,
-            body <span class="amp-plain">&amp;</span> soul</em></h2>
+            body &amp; soul</em></h2>
         <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="benefit-grid">
@@ -5813,8 +4639,6 @@
         <p class="eyebrow" data-hi="7-दिवसीय यात्रा">The 7-Day Journey</p>
         <h2 class="section-title" data-hi="आपका सप्ताह, <em>दिन-प्रतिदिन</em>">Your week, <em>day by day</em></h2>
         <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
-        <p class="lead" data-hi="नीचे कोई भी दिन चुनें और देखें कि उस दिन आपको क्या मिलेगा।">Select any day below to
-          see what you'll get out of it.</p>
       </div>
 
       <div class="itinerary">
@@ -6062,149 +4886,39 @@
         <img class="bg-motif bg-motif-center" src="Image/background/3.png" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:640px; --motif-opacity:0.1; left:50%; top:50%;" />
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><path class='ba-moon-before' d='M15.8 4.3A7.6 7.6 0 1019.6 18a6.1 6.1 0 01-3.8-13.7z' fill='currentColor'/><text class='ba-z ba-z1' x='14' y='9' font-size='5' fill='currentColor'>z</text><text class='ba-z ba-z2' x='16.5' y='6' font-size='3.5' fill='currentColor'>z</text></svg></span>ख़राब नींद"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path class="ba-moon-before" d="M15.8 4.3A7.6 7.6 0 1019.6 18a6.1 6.1 0 01-3.8-13.7z"
-                  fill="currentColor" />
-                <text class="ba-z ba-z1" x="14" y="9" font-size="5" fill="currentColor">z</text>
-                <text class="ba-z ba-z2" x="16.5" y="6" font-size="3.5" fill="currentColor">z</text>
-              </svg></span>Poor sleep</span>
+          <span class="ba-before" data-hi="ख़राब नींद">Poor sleep</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="बेहतर नींद की दिनचर्या<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><path d='M15.8 4.3A7.6 7.6 0 1019.6 18a6.1 6.1 0 01-3.8-13.7z' fill='currentColor'/><circle class='ba-star ba-star1' cx='5' cy='6' r='1' fill='currentColor'/><circle class='ba-star ba-star2' cx='3' cy='11' r='0.7' fill='currentColor'/><circle class='ba-star ba-star3' cx='7.5' cy='15' r='0.6' fill='currentColor'/></svg></span>">A
-            better sleep routine<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path d="M15.8 4.3A7.6 7.6 0 1019.6 18a6.1 6.1 0 01-3.8-13.7z" fill="currentColor" />
-                <circle class="ba-star ba-star1" cx="5" cy="6" r="1" fill="currentColor" />
-                <circle class="ba-star ba-star2" cx="3" cy="11" r="0.7" fill="currentColor" />
-                <circle class="ba-star ba-star3" cx="7.5" cy="15" r="0.6" fill="currentColor" />
-              </svg></span></span>
+          <span class="ba-after" data-hi="बेहतर नींद की दिनचर्या">A better sleep routine</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><path class='ba-stress-before' d='M2 12l3-6 3 10 3-8 3 10 3-8 3 6' stroke='currentColor' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg></span>लगातार तनाव"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path class="ba-stress-before" d="M2 12l3-6 3 10 3-8 3 10 3-8 3 6" stroke="currentColor"
-                  stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></span>Constant stress</span>
+          <span class="ba-before" data-hi="लगातार तनाव">Constant stress</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="तनाव सँभालने के व्यावहारिक तरीक़े<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><path class='ba-wave-after' d='M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0' stroke='currentColor' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg></span>">Practical
-            stress management<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path class="ba-wave-after" d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0" stroke="currentColor"
-                  stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></span></span>
+          <span class="ba-after" data-hi="तनाव सँभालने के व्यावहारिक तरीक़े">Practical stress management</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><rect x='2' y='7' width='16' height='10' rx='2' stroke='currentColor' stroke-width='1.6' fill='none'/><rect x='19' y='10' width='2' height='4' rx='1' fill='currentColor'/><rect class='ba-battery-fill-before' x='4' y='9' width='3' height='6' fill='currentColor'/></svg></span>कम ऊर्जा"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="2" y="7" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.6"
-                  fill="none" />
-                <rect x="19" y="10" width="2" height="4" rx="1" fill="currentColor" />
-                <rect class="ba-battery-fill-before" x="4" y="9" width="3" height="6" fill="currentColor" />
-              </svg></span>Low energy</span>
+          <span class="ba-before" data-hi="कम ऊर्जा">Low energy</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="ऊँची, स्थिर ऊर्जा<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><rect x='2' y='7' width='16' height='10' rx='2' stroke='currentColor' stroke-width='1.6' fill='none'/><rect x='19' y='10' width='2' height='4' rx='1' fill='currentColor'/><rect class='ba-battery-fill-after' x='4' y='9' width='12' height='6' fill='currentColor'/></svg></span>">Higher,
-            steadier energy<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="2" y="7" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.6"
-                  fill="none" />
-                <rect x="19" y="10" width="2" height="4" rx="1" fill="currentColor" />
-                <rect class="ba-battery-fill-after" x="4" y="9" width="12" height="6" fill="currentColor" />
-              </svg></span></span>
+          <span class="ba-after" data-hi="ऊँची, स्थिर ऊर्जा">Higher, steadier energy</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><path d='M7 16a4 4 0 01.4-7.98A5.5 5.5 0 0118 10a3.3 3.3 0 01-1 6H7z' stroke='currentColor' stroke-width='1.4' fill='none' stroke-linejoin='round'/><path class='ba-spin' d='M12 11a2 2 0 11-2 2' stroke='currentColor' stroke-width='1.3' fill='none' stroke-linecap='round'/></svg></span>अत्यधिक सोचना"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path d="M7 16a4 4 0 01.4-7.98A5.5 5.5 0 0118 10a3.3 3.3 0 01-1 6H7z" stroke="currentColor"
-                  stroke-width="1.4" fill="none" stroke-linejoin="round" />
-                <path class="ba-spin" d="M12 11a2 2 0 11-2 2" stroke="currentColor" stroke-width="1.3" fill="none"
-                  stroke-linecap="round" />
-              </svg></span>Overthinking</span>
+          <span class="ba-before" data-hi="अत्यधिक सोचना">Overthinking</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="गहरी मानसिक स्पष्टता<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><path d='M9 18h6M10 21h4M8.5 15.5a4.5 4.5 0 117 0c-.6.7-1 1.3-1 2.5h-5c0-1.2-.4-1.8-1-2.5z' stroke='currentColor' stroke-width='1.4' fill='none' stroke-linejoin='round'/><g class='ba-rays'><line x1='12' y1='1.5' x2='12' y2='3.2' stroke='currentColor' stroke-width='1.3' stroke-linecap='round'/><line x1='4' y1='7' x2='5.6' y2='8' stroke='currentColor' stroke-width='1.3' stroke-linecap='round'/><line x1='20' y1='7' x2='18.4' y2='8' stroke='currentColor' stroke-width='1.3' stroke-linecap='round'/></g></svg></span>">Greater
-            mental clarity<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path d="M9 18h6M10 21h4M8.5 15.5a4.5 4.5 0 117 0c-.6.7-1 1.3-1 2.5h-5c0-1.2-.4-1.8-1-2.5z"
-                  stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round" />
-                <g class="ba-rays">
-                  <line x1="12" y1="1.5" x2="12" y2="3.2" stroke="currentColor" stroke-width="1.3"
-                    stroke-linecap="round" />
-                  <line x1="4" y1="7" x2="5.6" y2="8" stroke="currentColor" stroke-width="1.3"
-                    stroke-linecap="round" />
-                  <line x1="20" y1="7" x2="18.4" y2="8" stroke="currentColor" stroke-width="1.3"
-                    stroke-linecap="round" />
-                </g>
-              </svg></span></span>
+          <span class="ba-after" data-hi="गहरी मानसिक स्पष्टता">Greater mental clarity</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><rect x='3' y='5' width='18' height='16' rx='2' stroke='currentColor' stroke-width='1.4' fill='none'/><path d='M3 9h18' stroke='currentColor' stroke-width='1.4'/><path class='ba-x' d='M9.5 13.5l5 5M14.5 13.5l-5 5' stroke='currentColor' stroke-width='1.6' stroke-linecap='round'/></svg></span>बिना दिनचर्या के दिन"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"
-                  fill="none" />
-                <path d="M3 9h18" stroke="currentColor" stroke-width="1.4" />
-                <path class="ba-x" d="M9.5 13.5l5 5M14.5 13.5l-5 5" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" />
-              </svg></span>No daily routine</span>
+          <span class="ba-before" data-hi="बिना दिनचर्या के दिन">No daily routine</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="स्वस्थ दैनिक आदतें<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><rect x='3' y='5' width='18' height='16' rx='2' stroke='currentColor' stroke-width='1.4' fill='none'/><path d='M3 9h18' stroke='currentColor' stroke-width='1.4'/><path class='ba-check' d='M8.5 14.5l2.5 2.5 5-5' stroke='currentColor' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round' pathLength='1' stroke-dasharray='1' stroke-dashoffset='1'/></svg></span>">Healthy
-            daily habits<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"
-                  fill="none" />
-                <path d="M3 9h18" stroke="currentColor" stroke-width="1.4" />
-                <path class="ba-check" d="M8.5 14.5l2.5 2.5 5-5" stroke="currentColor" stroke-width="1.8"
-                  fill="none" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1"
-                  stroke-dashoffset="1" />
-              </svg></span></span>
+          <span class="ba-after" data-hi="स्वस्थ दैनिक आदतें">Healthy daily habits</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><path class='ba-hourglass' d='M6 3h12M6 21h12M7 3c0 5 4 6 5 9-1 3-5 4-5 9M17 3c0 5-4 6-5 9 1 3 5 4 5 9' stroke='currentColor' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg></span>हमेशा व्यस्त"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path class="ba-hourglass"
-                  d="M6 3h12M6 21h12M7 3c0 5 4 6 5 9-1 3-5 4-5 9M17 3c0 5-4 6-5 9 1 3 5 4 5 9" stroke="currentColor"
-                  stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-              </svg></span>Always busy</span>
+          <span class="ba-before" data-hi="हमेशा व्यस्त">Always busy</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="बेहतर वर्क-लाइफ़ संतुलन<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><line x1='12' y1='4' x2='12' y2='19' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/><path d='M8 19h8' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/><g class='ba-scale'><line x1='5' y1='8' x2='19' y2='8' stroke='currentColor' stroke-width='1.4' stroke-linecap='round'/><line x1='5' y1='8' x2='5' y2='9.5' stroke='currentColor' stroke-width='1.2'/><line x1='19' y1='8' x2='19' y2='9.5' stroke='currentColor' stroke-width='1.2'/><circle cx='5' cy='11.3' r='2.1' fill='currentColor'/><circle cx='19' cy='11.3' r='2.1' fill='currentColor'/></g></svg></span>">Better
-            work-life balance<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <line x1="12" y1="4" x2="12" y2="19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M8 19h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <g class="ba-scale">
-                  <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" stroke-width="1.4"
-                    stroke-linecap="round" />
-                  <line x1="5" y1="8" x2="5" y2="9.5" stroke="currentColor" stroke-width="1.2" />
-                  <line x1="19" y1="8" x2="19" y2="9.5" stroke="currentColor" stroke-width="1.2" />
-                  <circle cx="5" cy="11.3" r="2.1" fill="currentColor" />
-                  <circle cx="19" cy="11.3" r="2.1" fill="currentColor" />
-                </g>
-              </svg></span></span>
+          <span class="ba-after" data-hi="बेहतर वर्क-लाइफ़ संतुलन">Better work-life balance</span>
         </div>
         <div class="ba-row reveal">
-          <span class="ba-before"
-            data-hi="<span class='ba-icon ba-icon-before' aria-hidden='true'><svg viewBox='0 0 24 24'><path class='ba-link1' d='M8 9l-2-2a3 3 0 10-4 4l2 2' stroke='currentColor' stroke-width='1.6' fill='none' stroke-linecap='round'/><path class='ba-link2' d='M16 15l2 2a3 3 0 104-4l-2-2' stroke='currentColor' stroke-width='1.6' fill='none' stroke-linecap='round'/><line class='ba-link1' x1='9' y1='8' x2='12' y2='11' stroke='currentColor' stroke-width='1.6' stroke-linecap='round'/><line class='ba-link2' x1='12' y1='13' x2='15' y2='16' stroke='currentColor' stroke-width='1.6' stroke-linecap='round'/></svg></span>स्वयं से कटा हुआ अनुभव"><span
-              class="ba-icon ba-icon-before" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path class="ba-link1" d="M8 9l-2-2a3 3 0 10-4 4l2 2" stroke="currentColor" stroke-width="1.6"
-                  fill="none" stroke-linecap="round" />
-                <path class="ba-link2" d="M16 15l2 2a3 3 0 104-4l-2-2" stroke="currentColor" stroke-width="1.6"
-                  fill="none" stroke-linecap="round" />
-                <line class="ba-link1" x1="9" y1="8" x2="12" y2="11" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" />
-                <line class="ba-link2" x1="12" y1="13" x2="15" y2="16" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" />
-              </svg></span>Feeling disconnected</span>
+          <span class="ba-before" data-hi="स्वयं से कटा हुआ अनुभव">Feeling disconnected</span>
           <span class="ba-arrow"><i class="fa-solid fa-arrow-right-long"></i></span>
-          <span class="ba-after"
-            data-hi="गहरी आत्म-जागरूकता<span class='ba-icon ba-icon-after' aria-hidden='true'><svg viewBox='0 0 24 24'><path d='M12 20s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z' fill='currentColor'/><circle class='ba-ring' cx='12' cy='11' r='3' stroke='currentColor' stroke-width='1' fill='none'/></svg></span>">Greater
-            self-awareness<span class="ba-icon ba-icon-after" aria-hidden="true"><svg viewBox="0 0 24 24">
-                <path d="M12 20s-7-4.5-9-9a5 5 0 019-3 5 5 0 019 3c-2 4.5-9 9-9 9z" fill="currentColor" />
-                <circle class="ba-ring" cx="12" cy="11" r="3" stroke="currentColor" stroke-width="1" fill="none" />
-              </svg></span></span>
+          <span class="ba-after" data-hi="गहरी आत्म-जागरूकता">Greater self-awareness</span>
         </div>
       </div>
     </div>
@@ -6221,45 +4935,24 @@
       <div class="guru-grid">
         <article class="guru-card reveal">
           <div class="guru-photo"><img src="Image/teacher/1.avif" alt="Yogesh Dixit" loading="lazy" /></div>
-          <div class="guru-info">
-            <h3>Yogesh Dixit</h3>
-            <p class="guru-role">Founder</p>
-            <p class="guru-bio">20+ years of practice in the Himalayan tradition. RYT-500 certified, trained 5,000+
-              students worldwide.</p>
-            <div class="guru-trust">
-              <span><i class="fa-solid fa-award"></i> 20+ Years Experience</span>
-              <span><i class="fa-solid fa-certificate"></i> RYT-500 Certified</span>
-              <span><i class="fa-solid fa-users"></i> 5,000+ Students</span>
-            </div>
-          </div>
+          <h3>Yogesh Dixit</h3>
+          <p class="guru-role">Founder</p>
+          <p class="guru-bio">20+ years of practice in the Himalayan tradition. RYT-500 certified, trained 5,000+
+            students worldwide.</p>
         </article>
         <article class="guru-card reveal">
           <div class="guru-photo"><img src="Image/teacher/2.avif" alt="Neha Thakur" loading="lazy" /></div>
-          <div class="guru-info">
-            <h3>Neha Thakur</h3>
-            <p class="guru-role">Meditation &amp; Sound Healing</p>
-            <p class="guru-bio">A gentle guide into stillness. Specialist in Nada yoga, Tibetan bowl therapy and
-              silent meditation.</p>
-            <div class="guru-trust">
-              <span><i class="fa-solid fa-om"></i> Nada Yoga</span>
-              <span><i class="fa-solid fa-bell"></i> Tibetan Bowl Therapy</span>
-              <span><i class="fa-solid fa-spa"></i> Silent Meditation</span>
-            </div>
-          </div>
+          <h3>Neha Thakur</h3>
+          <p class="guru-role">Meditation &amp; Sound Healing</p>
+          <p class="guru-bio">A gentle guide into stillness. Specialist in Nada yoga, Tibetan bowl therapy and silent
+            meditation.</p>
         </article>
         <article class="guru-card reveal">
           <div class="guru-photo"><img src="Image/teacher/3.avif" alt="Rahul" loading="lazy" /></div>
-          <div class="guru-info">
-            <h3>Rahul</h3>
-            <p class="guru-role">Yoga , Meditation &amp; Pranayam</p>
-            <p class="guru-bio">Dedicated guide in yoga asana, meditation and pranayama, helping students build
-              strength, breath control and inner calm.</p>
-            <div class="guru-trust">
-              <span><i class="fa-solid fa-person-praying"></i> Yoga Asana</span>
-              <span><i class="fa-solid fa-wind"></i> Pranayama</span>
-              <span><i class="fa-solid fa-spa"></i> Meditation</span>
-            </div>
-          </div>
+          <h3>Rahul</h3>
+          <p class="guru-role">Yoga , Meditation &amp; Pranayam</p>
+          <p class="guru-bio">Dedicated guide in yoga asana, meditation and pranayama, helping students build strength,
+            breath control and inner calm.</p>
         </article>
       </div>
     </div>
@@ -6311,32 +5004,30 @@
     </div>
   </section>
 
-  <!-- =================== GROUP RETREATS =================== -->
+  <!-- =================== CORPORATE WELLNESS =================== -->
   <section class="section camp" id="corporate">
     <div class="camp-bg"></div>
     <div class="container">
       <div class="camp-card reveal">
         <div class="camp-card-head">
-          <p class="eyebrow eyebrow-light" data-hi="सिर्फ़ कंपनियों के लिए नहीं">Not Just for Companies</p>
-          <h2 class="section-title light" data-hi="निजी रिट्रीट <em>टीमों, समूहों और हर किसी के लिए</em>">
-            Private Retreats <em>for teams, circles, and everyone in between</em>
+          <p class="eyebrow eyebrow-light" data-hi="टीमों एवं संगठनों के लिए">For Teams &amp; Organisations</p>
+          <h2 class="section-title light" data-hi="कॉर्पोरेट वेलनेस <em>कार्यक्रम</em>">Corporate Wellness
+            <em>Programs</em>
           </h2>
           <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
           <p class="lead light"
-            data-hi="पद बदलते हैं, थकान नहीं। चाहे आप कोई कंपनी चलाते हों, घर संभालते हों, या बस अपने करीबी समूह से फिर से जुड़ना चाहते हों — हम टीमों, परिवारों, दोस्तों के समूहों और समुदायों के लिए निजी, पूरी तरह अनुकूलित रिट्रीट डिज़ाइन करते हैं।">
-            Titles change. The exhaustion doesn't. Whether you lead a company, run a household, or simply want to
-            reconnect with your closest circle, we design private, fully customised retreats for teams, families,
-            friend groups, and communities alike.</p>
+            data-hi="अपनी टीम को बर्नआउट से बाहर निकालिए। हम कंपनियों, संस्थापकों और HR टीमों के लिए निजी, अनुकूलित रिट्रीट आयोजित करते हैं।">
+            Bring your team back from burnout. We host private, customised retreats for companies, founders and HR
+            teams.</p>
         </div>
         <div class="corp-list">
-          <span data-hi="वर्क टीमें">Work Teams</span>
-          <span data-hi="दोस्तों के समूह">Friend Groups</span>
-          <span data-hi="पारिवारिक रिट्रीट">Family Retreats</span>
-          <span data-hi="सामुदायिक समूह">Community Circles</span>
-          <span data-hi="विशेष अवसर समूह">Milestone Groups</span>
+          <span data-hi="कर्मचारी रिट्रीट">Employee Retreats</span>
+          <span data-hi="लीडरशिप रिट्रीट">Leadership Retreats</span>
+          <span data-hi="संस्थापक रिट्रीट">Founder Retreats</span>
+          <span data-hi="HR वेलनेस कार्यक्रम">HR Wellness Programs</span>
+          <span data-hi="स्टार्टअप टीम वेलनेस">Startup Team Wellness</span>
         </div>
-        <a href="#register" class="btn btn-gold btn-lg" data-hi="अपने समूह का रिट्रीट डिज़ाइन करें">Design Your
-          Group's Retreat</a>
+        <a href="#register" class="btn btn-gold btn-lg" data-hi="निजी रिट्रीट बुक करें">Book a Private Retreat</a>
       </div>
     </div>
   </section>
@@ -6389,6 +5080,59 @@
     </div>
   </section>
 
+  <!-- =================== GUEST EXPERIENCE (video coverflow) =================== -->
+  <section class="section" id="guest-experience">
+    <div class="container">
+      <div class="section-head center">
+        <p class="eyebrow" data-hi="अतिथि अनुभव">Guest Experience</p>
+        <h2 class="section-title" data-hi="हमारे <em>शिविर के अनुभव</em> सुनें">Hear our <em>camp experience</em></h2>
+        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+      </div>
+
+      <swiper-container id="guestSwiper" class="guest-swiper" pagination="true" effect="coverflow" grab-cursor="true"
+        centered-slides="true" slides-per-view="auto" space-between="20" coverflow-effect-rotate="30"
+        coverflow-effect-stretch="0" coverflow-effect-depth="120" coverflow-effect-modifier="1"
+        coverflow-effect-slide-shadows="true" loop="true"
+        breakpoints='{"768": {"spaceBetween": 24}, "1024": {"spaceBetween": 30}}'>
+        <swiper-slide>
+          <video src="./Video/test/1.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/2.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/3.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/4.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/5.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/6.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+        <swiper-slide>
+          <video src="./Video/test/7.mp4" muted loop playsinline></video>
+          <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
+                class="fa-solid fa-volume-xmark"></i></span></button>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </section>
+
   <!-- =================== EXPLORE MORE (insta video coverflow) =================== -->
   <section class="section tinted" id="explore-more">
     <div class="container">
@@ -6402,7 +5146,7 @@
       <swiper-container id="exploreSwiper" class="explore-swiper" pagination="true" effect="coverflow"
         grab-cursor="true" centered-slides="true" slides-per-view="1.4" space-between="20" coverflow-effect-rotate="30"
         coverflow-effect-stretch="0" coverflow-effect-depth="120" coverflow-effect-modifier="1"
-        coverflow-effect-slide-shadows="false" loop="true"
+        coverflow-effect-slide-shadows="true" loop="true"
         breakpoints='{"640": {"slidesPerView": 2, "spaceBetween": 24}, "1024": {"slidesPerView": 3, "spaceBetween": 30}}'>
         <swiper-slide>
           <div class="explore-card">
@@ -6845,24 +5589,16 @@
       </div>
       <div class="footer-col">
         <h4 data-hi="खोजें">Explore</h4>
-        <a href="#about" data-hi="आश्रम">About Us</a>
-        <a href="#register" data-hi="आगामी शिविर">Upcoming Retreats</a>
-        <a href="#corporate" data-hi="ग्रुप रिट्रीट">Group Retreats</a>
+        <a href="#about" data-hi="आश्रम">The Ashram</a>
+        <a href="#camp" data-hi="शिविर">The Retreat</a>
+        <a href="#itinerary" data-hi="7-दिन योजना">7-Day Plan</a>
         <a href="#gurus" data-hi="हमारे गुरु">Our Gurus</a>
-        <a href="#faq" data-hi="सामान्य प्रश्न">FAQ</a>
+        <a href="#pricing" data-hi="पैकेज">Packages</a>
       </div>
       <div class="footer-col">
-        <h4 data-hi="संपर्क">Contact Us</h4>
+        <h4 data-hi="संपर्क">Contact</h4>
         <a href="mailto:hello@vedayogaashram.com"><i class='fa-solid fa-envelope'></i> hello@vedayogaashram.com</a>
         <a href="#location"><i class='fa-solid fa-location-dot'></i> Tapovan, Rishikesh</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-hi="कानूनी">Legal</h4>
-        <a href="privacy-policy.html" data-legal="privacy" data-hi="गोपनीयता नीति">Privacy Policy</a>
-        <a href="terms-and-conditions.html" data-legal="terms" data-hi="नियम एवं शर्तें">Terms &amp; Conditions</a>
-        <a href="refund-cancellation-policy.html" data-legal="refund" data-hi="धनवापसी एवं रद्दीकरण नीति">Refund
-          &amp; Cancellation Policy</a>
-        <a href="medical-disclaimer.html" data-legal="medical" data-hi="चिकित्सा अस्वीकरण">Medical Disclaimer</a>
       </div>
       <div class="footer-col">
         <h4 data-hi="फ़ॉलो करें">Follow</h4>
@@ -6886,279 +5622,6 @@
     <a href="#register" class="btn btn-gold btn-sm" data-hi="सीट बुक करें">Book Now</a>
   </div>
 
-  <!-- =================== VIDEO MODAL =================== -->
-  <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-box">
-      <button type="button" class="modal-close" aria-label="Close video" data-close>&times;</button>
-      <video class="modal-video" id="modalVideo" src="./Video/1.mp4" controls playsinline></video>
-    </div>
-  </div>
-
-  <!-- =================== LEGAL DIALOG =================== -->
-  <dialog class="ld-dialog" id="legalDialog">
-    <button type="button" class="ld-close" aria-label="Close" data-legal-close>&times;</button>
-    <div class="ld-body" id="legalDialogBody"></div>
-  </dialog>
-
-  <template id="legalPrivacyTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Privacy Policy</h2>
-   
-
-    <section>
-      <h3>Information We Collect</h3>
-      <p>When you use our website or register for a retreat, we may collect:</p>
-      <ul>
-        <li>Full Name</li>
-        <li>Mobile Number</li>
-        <li>Email Address</li>
-        <li>City, State &amp; Country</li>
-        <li>Age (if provided)</li>
-        <li>Emergency Contact</li>
-        <li>Health information voluntarily shared for retreat participation</li>
-        <li>Payment information (processed securely by third-party payment gateways)</li>
-        <li>Device information</li>
-        <li>IP address</li>
-        <li>Browser information</li>
-        <li>Cookies and analytics data</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>Why We Collect Your Information</h3>
-      <p>We collect your information to:</p>
-      <ul>
-        <li>Process retreat bookings</li>
-        <li>Confirm registrations</li>
-        <li>Communicate important updates</li>
-        <li>Provide customer support</li>
-        <li>Personalize your retreat experience</li>
-        <li>Improve our services</li>
-        <li>Comply with applicable legal obligations</li>
-      </ul>
-    </section>
-
-    <section>
-      <h3>Payment Security</h3>
-      <p>Payments are processed through secure third-party payment gateways.</p>
-      <p>We do not store your debit card, credit card, UPI PIN, or banking credentials on our servers.</p>
-    </section>
-
-    <section>
-      <h3>Marketing Communication</h3>
-      <p>With your consent, we may send retreat announcements, wellness newsletters, offers, and event updates. You
-        may unsubscribe at any time.</p>
-    </section>
-
-    <section>
-      <h3>Data Sharing</h3>
-      <p>We do not sell your personal information. Information may be shared only with payment providers,
-        government authorities when legally required, and service providers assisting in retreat operations.</p>
-    </section>
-
-    <section>
-      <h3>Cookies</h3>
-      <p>Our website uses cookies to improve performance, understand visitor behavior, enhance user experience, and
-        support advertising and analytics. You can disable cookies through your browser settings.</p>
-    </section>
-
-    <section>
-      <h3>Data Security</h3>
-      <p>We use reasonable administrative, technical, and organizational safeguards to protect your personal
-        information. However, no method of internet transmission or electronic storage is completely secure.</p>
-    </section>
-
-    <section>
-      <h3>Contact</h3>
-      <p>For privacy-related questions, email <a href="mailto:hello@vedayogaashram.com">hello@vedayogaashram.com</a>
-        or write to us at Tapovan, Rishikesh, Uttarakhand, India.</p>
-    </section>
-  </template>
-
-  <template id="legalTermsTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Terms &amp; Conditions</h2>
-   
-
-    <section>
-      <h3>Acceptance</h3>
-      <p>By accessing our website or booking any retreat, you agree to these Terms &amp; Conditions.</p>
-    </section>
-
-    <section>
-      <h3>Eligibility</h3>
-      <p>Participants should provide accurate registration details, meet the participation requirements described
-        for the retreat, and inform us of any relevant medical conditions or physical limitations before
-        attending.</p>
-    </section>
-
-    <section>
-      <h3>Participant Responsibilities</h3>
-      <p>Participants agree to respect instructors, staff, and fellow participants; follow all safety instructions;
-        practice within their physical capabilities; and maintain respectful behavior throughout the retreat.</p>
-    </section>
-
-    <section>
-      <h3>Health Responsibility</h3>
-      <p>Participants are responsible for informing us about pregnancy, recent surgeries, injuries, allergies,
-        chronic illnesses, medication requirements, and mental health conditions that may affect participation.</p>
-    </section>
-
-    <section>
-      <h3>Photography &amp; Media</h3>
-      <p>Photos and videos may be captured during the retreat for promotional purposes. If you prefer not to appear
-        in photographs or videos, please notify us before the retreat begins.</p>
-    </section>
-
-    <section>
-      <h3>Changes to Schedule</h3>
-      <p>We may adjust daily schedules, teachers, activities, and accommodation arrangements when reasonably
-        necessary due to operational or unforeseen circumstances.</p>
-    </section>
-
-    <section>
-      <h3>Prohibited Activities</h3>
-      <p>Alcohol, illegal drugs, smoking in non-designated areas, violence, harassment, property damage, and
-        disruptive behavior are prohibited. Participants who violate these rules may be asked to leave the retreat
-        without a refund, subject to applicable law.</p>
-    </section>
-
-    <section>
-      <h3>Liability</h3>
-      <p>Participation is voluntary. Participants accept responsibility for risks associated with yoga, outdoor
-        activities, and wellness practices. Veda Yoga Ashram shall not be liable for injuries, illnesses, accidents,
-        loss of personal belongings, or other damages except where liability cannot be excluded under applicable
-        law.</p>
-    </section>
-
-    <section>
-      <h3>Intellectual Property</h3>
-      <p>All content on this website, including text, logos, photographs, graphics, videos, and course materials, is
-        the intellectual property of Veda Yoga Ashram unless otherwise stated.</p>
-    </section>
-
-    <section>
-      <h3>Governing Law</h3>
-      <p>These Terms shall be governed by the laws of India. Any disputes shall be subject to the jurisdiction of
-        the courts located in Rishikesh, Uttarakhand, India.</p>
-    </section>
-  </template>
-
-  <template id="legalRefundTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Refund &amp; Cancellation Policy</h2>
-   
-
-    <section>
-      <h3>Participant Cancellation</h3>
-      <p>If you cancel your booking, the refund amount depends on how far in advance you notify us:</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Notice before the retreat</th>
-            <th>Refund</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>More than 30 days</td>
-            <td><strong>90% refund</strong> (administrative charges may apply)</td>
-          </tr>
-          <tr>
-            <td>15–29 days</td>
-            <td><strong>50% refund</strong></td>
-          </tr>
-          <tr>
-            <td>7–14 days</td>
-            <td><strong>25% refund</strong></td>
-          </tr>
-          <tr>
-            <td>Less than 7 days</td>
-            <td><strong>No refund</strong></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section>
-      <h3>Transfer Option</h3>
-      <p>Participants may request a one-time transfer to another scheduled retreat within 6 months, subject to
-        availability.</p>
-    </section>
-
-    <section>
-      <h3>Organizer Cancellation</h3>
-      <p>If Veda Yoga Ashram cancels the retreat due to operational reasons, participants may choose either a full
-        refund or a transfer to another available retreat date.</p>
-    </section>
-
-    <section>
-      <h3>No Show</h3>
-      <p>Failure to attend without prior notice is treated as a "No Show" and is not eligible for a refund.</p>
-    </section>
-
-    <section>
-      <h3>Early Departure</h3>
-      <p>No partial refund will be provided if a participant leaves the retreat before its scheduled completion.</p>
-    </section>
-
-    <section>
-      <h3>Force Majeure</h3>
-      <p>We are not responsible for cancellations or delays caused by events beyond our reasonable control,
-        including natural disasters, floods, government restrictions, pandemics, political unrest, and
-        transportation disruptions. Where feasible, we will offer an alternative retreat date or another reasonable
-        solution.</p>
-    </section>
-  </template>
-
-  <template id="legalMedicalTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Medical &amp; Meta Disclaimer</h2>
-
-
-    <section>
-      <h3>Wellness Disclaimer</h3>
-      <p>Our retreat programs are intended to promote general wellness, relaxation, mindfulness, healthy lifestyle
-        habits, and personal development. They are <strong>not</strong> intended to diagnose, treat, cure, or
-        prevent any disease or medical condition.</p>
-    </section>
-
-    <section>
-      <h3>Mental Health</h3>
-      <p>Meditation, breathwork, journaling, yoga, and wellness sessions are designed to support general wellbeing.
-        They are <strong>not</strong> a substitute for medical care, psychological counseling, psychiatric
-        treatment, or emergency mental health services. Individuals with serious medical or mental health conditions
-        should consult an appropriate healthcare professional before participating.</p>
-    </section>
-
-    <section>
-      <h3>Ayurveda</h3>
-      <p>Ayurveda sessions are educational and focus on traditional lifestyle practices. They are not intended to
-        replace medical advice, diagnosis, or treatment.</p>
-    </section>
-
-    <section>
-      <h3>Yoga</h3>
-      <p>Participants should practice within their own physical limits. Please consult a healthcare professional
-        before participating if you have heart disease, high blood pressure, recent surgery, pregnancy, chronic
-        pain, or other significant medical conditions.</p>
-    </section>
-
-    <section>
-      <h3>Individual Results</h3>
-      <p>Every participant is unique. Results depend on many factors, including participation, individual health,
-        and continued practice after the retreat. We do not guarantee any specific physical, emotional, financial,
-        or personal outcomes.</p>
-    </section>
-
-    <section>
-      <h3>Advertising Disclaimer (Meta &amp; Google)</h3>
-      <p>Any testimonials or participant experiences shared on this website reflect individual experiences. They
-        should not be interpreted as guarantees or promises that every participant will achieve similar results.</p>
-    </section>
-  </template>
-
   <!-- <script src="script.js"></script> -->
   <script>
     /* ============================================================
@@ -7174,7 +5637,7 @@
       const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
       /* ---------- Scroll reveal ---------- */
-      const revealEls = $$(".reveal, .reveal-left, .reveal-right, .bg-motif, .pain-check-grid, .pain-verdict, .solution-strip-inner");
+      const revealEls = $$(".reveal, .reveal-left, .reveal-right, .bg-motif");
       if (prefersReduced || !("IntersectionObserver" in window)) {
         revealEls.forEach((el) => el.classList.add("is-visible"));
       } else {
@@ -7184,94 +5647,6 @@
           });
         }, { threshold: 0.15, rootMargin: "0px 0px -60px 0px" });
         revealEls.forEach((el) => io.observe(el));
-      }
-
-      /* ---------- "Who is this for" curve draw-on-scroll ---------- */
-      const whoCurve = $(".who-curve");
-      const whoCurvePath = $(".who-curve-line path");
-      if (whoCurve && whoCurvePath) {
-        const len = whoCurvePath.getTotalLength();
-        whoCurvePath.style.strokeDasharray = len;
-        if (prefersReduced) {
-          whoCurvePath.style.strokeDashoffset = 0;
-        } else {
-          whoCurvePath.style.strokeDashoffset = len;
-          if ("IntersectionObserver" in window) {
-            const curveObs = new IntersectionObserver((entries, obs) => {
-              entries.forEach((e) => {
-                if (e.isIntersecting) {
-                  whoCurvePath.style.transition = "stroke-dashoffset 2200ms cubic-bezier(.16,.84,.44,1)";
-                  whoCurvePath.style.strokeDashoffset = 0;
-                  obs.unobserve(e.target);
-                }
-              });
-            }, { threshold: 0.05 });
-            curveObs.observe(whoCurve);
-          } else {
-            whoCurvePath.style.strokeDashoffset = 0;
-          }
-        }
-      }
-
-      /* ---------- Pain checklist live counter + severity-based quote ---------- */
-      const painInputs = $$(".pain-input");
-      const painCountNum = $("#painCountNum");
-      const painCountLine = $("#painCountLine");
-      const painBig = $(".pain-verdict .big");
-
-      const painVerdictTiers = [
-        {
-          max: 0,
-          en: "You don't need another vacation. <strong>You need a reset.</strong>",
-          hi: "आपको एक और छुट्टी की नहीं, <strong>एक रीसेट की ज़रूरत है।</strong>"
-        },
-        {
-          max: 3,
-          en: "Even a little of this adds up. <strong>You need a reset.</strong>",
-          hi: "इनमें से थोड़ा भी जमा होता जाता है। <strong>आपको एक रीसेट की ज़रूरत है।</strong>"
-        },
-        {
-          max: 6,
-          en: "This is more than just a busy season. <strong>You need a real reset.</strong>",
-          hi: "यह सिर्फ़ व्यस्त समय नहीं है। <strong>आपको एक असली रीसेट की ज़रूरत है।</strong>"
-        },
-        {
-          max: 10,
-          en: "This isn't stress anymore, it's a warning sign. <strong>You urgently need a reset.</strong>",
-          hi: "यह अब सिर्फ़ तनाव नहीं, यह एक चेतावनी है। <strong>आपको तुरंत रीसेट की ज़रूरत है।</strong>"
-        }
-      ];
-      const painTierFor = (n) => painVerdictTiers.find((t) => n <= t.max) || painVerdictTiers[painVerdictTiers.length - 1];
-      let painTierIndex = 0;
-
-      if (painInputs.length && painCountNum) {
-        const updatePainCount = () => {
-          const n = painInputs.filter((el) => el.checked).length;
-          painCountNum.textContent = n;
-          if (painCountLine) painCountLine.classList.toggle("is-active", n > 0);
-
-          if (painBig) {
-            const tier = painTierFor(n);
-            const idx = painVerdictTiers.indexOf(tier);
-            if (idx !== painTierIndex) {
-              painTierIndex = idx;
-              const applyTier = () => {
-                const hi = document.body.classList.contains("lang-hi");
-                painBig.innerHTML = hi ? tier.hi : tier.en;
-                painBig.setAttribute("data-hi", tier.hi);
-                painBig._en = tier.en;
-                painBig.classList.remove("is-swapping");
-              };
-              if (prefersReduced) {
-                applyTier();
-              } else {
-                painBig.classList.add("is-swapping");
-                window.setTimeout(applyTier, 220);
-              }
-            }
-          }
-        };
-        painInputs.forEach((el) => el.addEventListener("change", updatePainCount));
       }
 
       /* ---------- Animated stat counters ---------- */
@@ -7482,22 +5857,12 @@
       /* ---------- Video modal ---------- */
       const modal = $("#videoModal");
       const modalVideo = $("#modalVideo");
-      const defaultModalSrc = modalVideo ? modalVideo.getAttribute("src") : "";
-      let modalSourceVideo = null;
-      function openModal(src, sourceVideo) {
+      function openModal() {
         if (!modal) return;
         modal.classList.add("open");
         modal.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
-        if (modalVideo) {
-          modalVideo.src = src || defaultModalSrc;
-          try { modalVideo.currentTime = 0; } catch (e) { }
-          try { modalVideo.play(); } catch (e) { }
-        }
-        if (sourceVideo) {
-          sourceVideo.pause();
-          modalSourceVideo = sourceVideo;
-        }
+        if (modalVideo) { try { modalVideo.play(); } catch (e) { } }
       }
       function closeModal() {
         if (!modal) return;
@@ -7505,10 +5870,6 @@
         modal.setAttribute("aria-hidden", "true");
         document.body.style.overflow = "";
         if (modalVideo) modalVideo.pause();
-        if (modalSourceVideo) {
-          modalSourceVideo.play().catch(() => { });
-          modalSourceVideo = null;
-        }
       }
       $("#watchVideoBtn") && $("#watchVideoBtn").addEventListener("click", openModal);
       $("#testimonialPlay") && $("#testimonialPlay").addEventListener("click", openModal);
@@ -7517,38 +5878,6 @@
       });
       $$("[data-close]").forEach((el) => el.addEventListener("click", closeModal));
       document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-
-      /* ---------- Legal dialog ---------- */
-      (function legalDialog() {
-        const dialog = $("#legalDialog");
-        const body = $("#legalDialogBody");
-        if (!dialog || !body) return;
-
-        const templates = {
-          privacy: "#legalPrivacyTpl",
-          terms: "#legalTermsTpl",
-          refund: "#legalRefundTpl",
-          medical: "#legalMedicalTpl",
-        };
-
-        function openLegal(key) {
-          const tpl = $(templates[key]);
-          if (!tpl) return;
-          body.innerHTML = "";
-          body.appendChild(tpl.content.cloneNode(true));
-          body.scrollTop = 0;
-          dialog.showModal();
-        }
-
-        $$("[data-legal]").forEach((link) => {
-          link.addEventListener("click", (e) => {
-            e.preventDefault();
-            openLegal(link.dataset.legal);
-          });
-        });
-        $$("[data-legal-close]").forEach((el) => el.addEventListener("click", () => dialog.close()));
-        dialog.addEventListener("click", (e) => { if (e.target === dialog) dialog.close(); });
-      })();
 
       /* ---------- Video-coverflow swiper: center video auto-unmute, pause outside viewport ---------- */
       function initTestimonialSwiper(id) {
@@ -7607,19 +5936,13 @@
         // Delegated click handler so it also covers loop-mode clone slides.
         swiperEl.addEventListener("click", (e) => {
           const btn = e.target.closest(".guest-video-mute");
-          if (btn) {
-            e.stopPropagation();
-            const video = btn.closest("swiper-slide")?.querySelector("video");
-            if (!video) return;
-            video.muted = !video.muted;
-            const icon = btn.querySelector("i");
-            if (icon) icon.className = video.muted ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high";
-            return;
-          }
-          const video = e.target.closest("video");
-          if (video) {
-            openModal(video.currentSrc || video.getAttribute("src"), video);
-          }
+          if (!btn) return;
+          e.stopPropagation();
+          const video = btn.closest("swiper-slide")?.querySelector("video");
+          if (!video) return;
+          video.muted = !video.muted;
+          const icon = btn.querySelector("i");
+          if (icon) icon.className = video.muted ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high";
         });
       }
       initTestimonialSwiper("#guestSwiper");
