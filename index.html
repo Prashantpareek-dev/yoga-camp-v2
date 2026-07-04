@@ -8,18 +8,40 @@
   <meta name="description"
     content="Join the 7-Day Yoga & Meditation Retreat at Veda Yoga Ashram, Rishikesh. Sunrise yoga, meditation, healing, Ganga Aarti & Himalayan adventure. Limited seats — book now." />
 
+  <!-- ============ LCP — preload the hero banner so it starts fetching
+       immediately, in parallel with the rest of <head>, instead of waiting
+       for the preload scanner to reach the <img> in <body> ============ -->
+  <link rel="preload" as="image" href="Image/banners/desktop.avif" fetchpriority="high"
+    media="(min-width: 768px)" />
+  <link rel="preload" as="image" href="Image/banners/mobile.avif" fetchpriority="high"
+    media="(max-width: 767px)" />
+
   <!-- ============ FONTS — Latin: Fraunces, Inter, Cormorant Garamond.
-       Devanagari (loads only for Hindi): Tiro Devanagari Hindi (head), Noto Sans Devanagari (body) ============ -->
+       Devanagari (loads only for Hindi): Tiro Devanagari Hindi (head), Noto Sans Devanagari (body).
+       Loaded non-render-blocking (media="print" swapped to "all" on load) so
+       first paint doesn't wait on these two stylesheet round-trips. ============ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;" />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap"
+      rel="stylesheet" />
+  </noscript>
 
-
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'; this.onload=null;" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </noscript>
 
   <style>
     /* ============================================================
@@ -4906,7 +4928,7 @@
     <div class="container nav-inner">
       <a href="#hero" class="brand">
         <span class="brand-mark">
-          <img src="Image/logos/1.avif" alt="Veda Yoga Ashram Logo" />
+          <img src="Image/logos/1.avif" width="450" height="228" alt="Veda Yoga Ashram Logo" />
         </span>
         <span class="brand-text">
           <span class="brand-name">Veda Yoga Ashram</span>
@@ -4951,7 +4973,7 @@
   <section class="hero" id="hero">
     <picture class="hero-banner">
       <source media="(max-width: 767px)" srcset="Image/banners/mobile.avif" />
-      <img src="Image/banners/desktop.avif" alt="Veda Yoga Ashram — 7-Day Himalayan Yoga &amp; Meditation Retreat"
+      <img src="Image/banners/desktop.avif" width="1600" height="600" alt="Veda Yoga Ashram — 7-Day Himalayan Yoga &amp; Meditation Retreat"
         loading="eager" fetchpriority="high" />
     </picture>
   </section>
@@ -5075,7 +5097,7 @@
         <h2 class="section-title"
           data-hi="अगर आप इनमें से किसी भी समस्या से जूझ रहे हैं, तो <em>यह रिट्रीट आपके लिए ही बना है</em>">If you're
           silently struggling with any of these, <em>this retreat was made for you</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="who-curve">
         <svg class="who-curve-line" viewBox="0 0 200 1600" preserveAspectRatio="none" aria-hidden="true">
@@ -5101,7 +5123,7 @@
         <div class="who-row is-media-left reveal-left">
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/1.avif" alt="Corporate professional overwhelmed by late-night deadlines"
+              <img src="Image/cause/1.avif" width="1024" height="1024" alt="Corporate professional overwhelmed by late-night deadlines"
                 loading="lazy" />
             </div>
 
@@ -5127,7 +5149,7 @@
           </ul>
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/2.avif" alt="Business owner weighed down by financial pressure and bills"
+              <img src="Image/cause/2.avif" width="1024" height="1024" alt="Business owner weighed down by financial pressure and bills"
                 loading="lazy" />
             </div>
           </div>
@@ -5136,7 +5158,7 @@
         <div class="who-row is-media-left reveal-left">
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/3.avif" alt="Startup founder exhausted from funding crunch and sleepless nights"
+              <img src="Image/cause/3.avif" width="1024" height="1024" alt="Startup founder exhausted from funding crunch and sleepless nights"
                 loading="lazy" />
             </div>
           </div>
@@ -5161,7 +5183,7 @@
           </ul>
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/4.avif" alt="Doctor sitting exhausted in a hospital corridor after a long shift"
+              <img src="Image/cause/4.avif" width="1254" height="1254" alt="Doctor sitting exhausted in a hospital corridor after a long shift"
                 loading="lazy" />
             </div>
           </div>
@@ -5170,7 +5192,7 @@
         <div class="who-row is-media-left reveal-left">
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/5.avif" alt="Teacher overwhelmed by paperwork late at night in an empty classroom"
+              <img src="Image/cause/5.avif" width="1024" height="1024" alt="Teacher overwhelmed by paperwork late at night in an empty classroom"
                 loading="lazy" />
             </div>
           </div>
@@ -5195,7 +5217,7 @@
           </ul>
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/6.avif" alt="Couple sitting distant on the couch, disconnected on their phones"
+              <img src="Image/cause/6.avif" width="1254" height="1254" alt="Couple sitting distant on the couch, disconnected on their phones"
                 loading="lazy" />
             </div>
           </div>
@@ -5204,7 +5226,7 @@
         <div class="who-row is-media-left reveal-left">
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/7.avif" alt="Yoga teacher journaling and deepening her practice at a retreat"
+              <img src="Image/cause/7.avif" width="1254" height="1254" alt="Yoga teacher journaling and deepening her practice at a retreat"
                 loading="lazy" />
             </div>
           </div>
@@ -5229,7 +5251,7 @@
           </ul>
           <div class="who-media">
             <div class="who-media-frame">
-              <img src="Image/cause/8.avif" alt="Person meditating peacefully overlooking mountains at sunrise"
+              <img src="Image/cause/8.avif" width="1254" height="1254" alt="Person meditating peacefully overlooking mountains at sunrise"
                 loading="lazy" />
             </div>
           </div>
@@ -5247,7 +5269,7 @@
           you</p>
         <h2 class="section-title" data-hi="फिर, स्वयं से <em>सच बोलिए</em>">Then, be honest with <em>yourself</em>
         </h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="pain-check-grid">
         <label class="pain-tile" style="--i:0">
@@ -5344,7 +5366,7 @@
         <p class="eyebrow" data-hi="असली समस्या">The Real Problem</p>
         <h2 class="section-title" data-hi="आधुनिक जीवन इतना <em>भारी क्यों लगता है</em>">Why modern life feels <em>so
             overwhelming</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="split-text reveal">
         <p class="lead"
@@ -5381,12 +5403,12 @@
         <h2 class="section-title" data-hi="अधिकतर लोग <em>पूरी तरह क्यों नहीं उबर पाते</em>">Why most people never
           <em>truly recover</em>
         </h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="recover-grid">
         <div class="recover-card reveal">
           <div class="recover-media">
-            <img src="Image/temp/62.avif" alt="A weekend beach escape gives way to Monday morning stress again"
+            <img src="Image/temp/62.avif" width="450" height="450" alt="A weekend beach escape gives way to Monday morning stress again"
               loading="lazy" />
           </div>
           <div class="recover-body">
@@ -5398,7 +5420,7 @@
         </div>
         <div class="recover-card reveal">
           <div class="recover-media">
-            <img src="Image/temp/63.avif" alt="Motivational spark fades quickly, leaving burnout unresolved"
+            <img src="Image/temp/63.avif" width="450" height="450" alt="Motivational spark fades quickly, leaving burnout unresolved"
               loading="lazy" />
           </div>
           <div class="recover-body">
@@ -5410,7 +5432,7 @@
         </div>
         <div class="recover-card reveal">
           <div class="recover-media">
-            <img src="Image/temp/64.avif" alt="Endless phone scrolling leaves the mind more drained, not rested"
+            <img src="Image/temp/64.avif" width="450" height="450" alt="Endless phone scrolling leaves the mind more drained, not rested"
               loading="lazy" />
           </div>
           <div class="recover-body">
@@ -5453,14 +5475,14 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="हमारी विशेष पद्धति">Our Unique Approach</p>
         <h2 class="section-title" data-hi="वेद रीसेट™ <em>पद्धति</em>">The VEDA RESET™ <em>Method</em></h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
         <p class="lead" data-hi="सात स्तंभ, सात दिनों में एक साथ साधे जाते हैं।">Seven pillars, practiced together over
           seven days.</p>
       </div>
       <div class="pillar-grid">
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/1.avif" alt="Woman practicing an upward-facing dog yoga posture" loading="lazy" />
+            <img src="Image/method/1.avif" width="1254" height="1254" alt="Woman practicing an upward-facing dog yoga posture" loading="lazy" />
           </div>
           <div class="pillar-body">
             <h3 data-hi="शरीर">Body</h3>
@@ -5470,7 +5492,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/2.avif" alt="Woman practicing nostril breathing pranayama" loading="lazy" />
+            <img src="Image/method/2.avif" width="1254" height="1254" alt="Woman practicing nostril breathing pranayama" loading="lazy" />
           </div>
           <div class="pillar-body">
             <h3 data-hi="श्वास">Breath</h3>
@@ -5480,7 +5502,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/3.avif" alt="Woman meditating peacefully beside a Buddha statue" loading="lazy" />
+            <img src="Image/method/3.avif" width="1254" height="1254" alt="Woman meditating peacefully beside a Buddha statue" loading="lazy" />
           </div>
           <div class="pillar-body">
             <h3 data-hi="मन">Mind</h3>
@@ -5490,7 +5512,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/4.avif" alt="Woman journaling her thoughts and feelings by a window" loading="lazy" />
+            <img src="Image/method/4.avif" width="1254" height="1254" alt="Woman journaling her thoughts and feelings by a window" loading="lazy" />
           </div>
           <div class="pillar-body">
             <h3 data-hi="भावनाएँ">Emotions</h3>
@@ -5499,7 +5521,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/5.avif" alt="Woman sitting quietly by a mountain river in the forest"
+            <img src="Image/method/5.avif" width="1254" height="1254" alt="Woman sitting quietly by a mountain river in the forest"
               loading="lazy" />
           </div>
           <div class="pillar-body">
@@ -5509,7 +5531,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/6.avif"
+            <img src="Image/method/6.avif" width="1254" height="1254"
               alt="Collage of Ayurvedic daily routine: sattvic food, self-massage, yoga, sleep and gratitude"
               loading="lazy" />
           </div>
@@ -5520,7 +5542,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/7.avif" alt="Woman reflecting on her goals and purpose while journaling"
+            <img src="Image/method/7.avif" width="1254" height="1254" alt="Woman reflecting on her goals and purpose while journaling"
               loading="lazy" />
           </div>
           <div class="pillar-body">
@@ -5530,7 +5552,7 @@
         </article>
         <article class="pillar-card reveal">
           <div class="pillar-media">
-            <img src="Image/method/8.avif"
+            <img src="Image/method/8.avif" width="1254" height="1254"
               alt="Collage of the full journey: breathwork, journaling, yoga, nature, food, sleep and reflection"
               loading="lazy" />
           </div>
@@ -5549,7 +5571,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="अनुभव के बारे में और जानें">Know More About The Experience</p>
         <h2 class="section-title" data-hi="उन्हीं की <em>ज़ुबानी सुनिए</em>">Hear It <em>In Their Own Words</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
         <blockquote class="about-quote guest-quote">
           <p data-hi="&quot;आप एक रिट्रीट में सिर्फ़ शामिल नहीं होते, आप इसे अपने साथ हमेशा के लिए ले जाते हैं।&quot;">
             "You don't just attend a retreat, you carry it with you long after you leave."</p>
@@ -5607,7 +5629,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="आश्रम में आपका स्वागत है">Welcome to the Ashram</p>
         <h2 class="section-title" data-hi="जहाँ प्राचीन ज्ञान मिलता है <em>आधुनिक जीवन से</em>">Where Ancient Wisdom Meets <em>Modern Living</em></h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
     <div class="container split">
@@ -5622,7 +5644,7 @@
 
       </div>
       <div class="split-text reveal-right bg-motif-host">
-        <img class="bg-motif" src="Image/background/5.avif" alt="" aria-hidden="true" loading="lazy"
+        <img class="bg-motif" src="Image/background/5.avif" width="450" height="450" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:300px; --motif-opacity:0.11; top:-28px; right:-36px;" />
 
         <p class="lead" data-hi="ऋषिकेश में हिमालय की शांत सुंदरता और गंगा के पवित्र तटों के बीच बसा, वेद योग आश्रम उन लोगों के लिए एक शरणस्थल है जो संतुलन, आंतरिक शांति और प्रामाणिक योगिक जीवन की तलाश में हैं। हमारा मानना है कि योग केवल एक शारीरिक अभ्यास से कहीं अधिक है — यह आत्म-खोज, माइंडफुलनेस और परिवर्तन की एक आजीवन यात्रा है।">Nestled amidst the serene beauty of the Himalayas and the sacred banks of the Ganga in
@@ -5651,12 +5673,12 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="वेद योग आश्रम की विशिष्टता">The Veda Yoga Ashram Difference</p>
         <h2 class="section-title" data-hi="क्या चीज़ हमें बनाती है <em>अलग?</em>">What Sets Us <em>Apart?</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
     <div class="container split">
       <div class="split-text reveal-left bg-motif-host">
-        <img class="bg-motif" src="Image/background/1.avif" alt="" aria-hidden="true" loading="lazy"
+        <img class="bg-motif" src="Image/background/1.avif" width="450" height="450" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:340px; --motif-opacity:0.09; bottom:-50px; left:-56px;" />
         <p class="lead" data-hi="एक योग विद्यालय जो परंपरागत सीमाओं से आगे जाता है">The yoga school that goes beyond the conventional</p>
 
@@ -5682,7 +5704,7 @@
         <a href="#gurus" class="btn btn-primary" data-hi="हमारी विरासत जानें">Discover Our Legacy</a>
       </div>
       <div class="split-media reveal-right">
-        <img src="Image/yog.avif" alt="Group yoga practice session at Veda Yoga Ashram" loading="lazy" />
+        <img src="Image/yog.avif" width="4000" height="6000" alt="Group yoga practice session at Veda Yoga Ashram" loading="lazy" />
       </div>
     </div>
   </section>
@@ -5694,41 +5716,41 @@
         <p class="eyebrow" data-hi="इस शिविर में क्यों शामिल हों">Why Join This Retreat</p>
         <h2 class="section-title" data-hi="आपके <em>मन, शरीर और आत्मा</em> के लिए नई शुरुआत">A reset for your <em>mind,
             body <span class="amp-plain">&amp;</span> soul</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="benefit-grid">
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/1.avif" alt="Deep Inner Peace" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/1.avif" width="450" height="450" alt="Deep Inner Peace" loading="lazy" />
           <h3 data-hi="गहरी आंतरिक शांति">Deep Inner Peace</h3>
           <p data-hi="हिमालय की शांति और निर्देशित ध्यान से मन को शांत करें।">Quiet the mind through guided meditation
             and silence in the Himalayas.</p>
         </div>
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/2.avif" alt="Reduce Stress" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/2.avif" width="450" height="450" alt="Reduce Stress" loading="lazy" />
           <h3 data-hi="तनाव कम करें">Reduce Stress</h3>
           <p data-hi="प्राणायाम, ध्वनि चिकित्सा और प्रकृति में डूबकर तनाव दूर करें।">Release tension with pranayama,
             sound healing and nature immersion.</p>
         </div>
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/3.avif" alt="Strength & Flexibility" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/3.avif" width="450" height="450" alt="Strength & Flexibility" loading="lazy" />
           <h3 data-hi="शक्ति और लचीलापन">Strength &amp; Flexibility</h3>
           <p data-hi="शरीर को खोलने और ऊर्जावान बनाने के लिए प्रामाणिक हठ एवं विन्यास योग।">Authentic Hatha &amp;
             Vinyasa yoga to open and energise the body.</p>
         </div>
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/5.avif" alt="Digital Detox" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/5.avif" width="450" height="450" alt="Digital Detox" loading="lazy" />
           <h3 data-hi="डिजिटल डिटॉक्स">Digital Detox</h3>
           <p data-hi="स्क्रीन से दूर हटकर उस चीज़ से जुड़ें जो वास्तव में मायने रखती है।">Unplug from screens and
             reconnect with what truly matters.</p>
         </div>
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/4.avif" alt="Ayurvedic Healing" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/4.avif" width="450" height="450" alt="Ayurvedic Healing" loading="lazy" />
           <h3 data-hi="आयुर्वेदिक उपचार">Ayurvedic Healing</h3>
           <p data-hi="संतुलन बहाल करने के लिए मालिश, डिटॉक्स और ऊर्जा उपचार।">Massage, detox and energy healing to
             restore balance.</p>
         </div>
         <div class="benefit-card reveal">
-          <img class="benefit-card-image" src="./Image/Featured/6.avif" alt="Connect with Nature" loading="lazy" />
+          <img class="benefit-card-image" src="./Image/Featured/6.avif" width="450" height="450" alt="Connect with Nature" loading="lazy" />
           <h3 data-hi="प्रकृति से जुड़ें">Connect with Nature</h3>
           <p data-hi="गंगा तट पर सूर्योदय, वन भ्रमण और हिमालयी रोमांच।">Sunrise on the Ganga, forest walks and Himalayan
             adventure.</p>
@@ -5743,16 +5765,16 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="आपकी आंतरिक यात्रा">Your Journey Inward</p>
         <h2 class="section-title" data-hi="आप क्या <em>सीखेंगे?</em>">What Will You <em>Learn?</em></h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
     <div class="container split">
       <div class="split-media reveal-left">
-        <img src="Image/pooja.avif" alt="Guests taking part in a traditional pooja ceremony at Veda Yoga Ashram"
+        <img src="Image/pooja.avif" width="6000" height="4000" alt="Guests taking part in a traditional pooja ceremony at Veda Yoga Ashram"
           loading="lazy" />
       </div>
       <div class="split-text reveal-right bg-motif-host">
-        <img class="bg-motif" src="Image/background/6.avif" alt="" aria-hidden="true" loading="lazy"
+        <img class="bg-motif" src="Image/background/6.avif" width="450" height="450" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:280px; --motif-opacity:0.1; top:-24px; right:-40px;" />
         <p class="lead" style="font-weight: bold;" data-hi="ऋषिकेश में 7-दिवसीय योग एवं ध्यान शिविर">7-Day Yoga &amp; Meditation Retreat in Rishikesh</p>
 
@@ -5781,11 +5803,11 @@
         <p class="eyebrow" data-hi="आप क्या अनुभव करेंगे">What You'll Experience</p>
         <h2 class="section-title" data-hi="हर दिन आपको <em>स्वयं के करीब</em> लाता है">Every day brings you <em>closer
             to yourself</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="exp-grid">
         <article class="exp-card reveal">
-          <img src="Image/experience/1.avif" alt="Morning yoga asana" loading="lazy" />
+          <img src="Image/experience/1.avif" width="450" height="450" alt="Morning yoga asana" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="सूर्योदय योग">Sunrise Yoga</h3>
             <p data-hi="पर्वतों पर सूर्योदय के साथ हठ एवं विन्यास आसन।">Hatha &amp; Vinyasa asana as the sun rises over
@@ -5793,14 +5815,14 @@
           </div>
         </article>
         <article class="exp-card reveal">
-          <img src="Image/experience/2.avif" alt="Riverside meditation" loading="lazy" />
+          <img src="Image/experience/2.avif" width="450" height="450" alt="Riverside meditation" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="निर्देशित ध्यान">Guided Meditation</h3>
             <p data-hi="पवित्र गंगा के तट पर शांति की साधना।">Stillness practices on the banks of the holy Ganga.</p>
           </div>
         </article>
         <article class="exp-card reveal">
-          <img src="Image/experience/3.avif" alt="Pranayama breathwork" loading="lazy" />
+          <img src="Image/experience/3.avif" width="450" height="450" alt="Pranayama breathwork" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="प्राणायाम">Pranayama</h3>
             <p data-hi="ऊर्जा, एकाग्रता और शांति बढ़ाने के लिए श्वास-साधना।">Breathwork to expand energy, focus and
@@ -5808,7 +5830,7 @@
           </div>
         </article>
         <article class="exp-card reveal">
-          <img src="Image/experience/4.avif" alt="Sound healing session" loading="lazy" />
+          <img src="Image/experience/4.avif" width="450" height="450" alt="Sound healing session" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="ध्वनि चिकित्सा">Sound Healing</h3>
             <p data-hi="तिब्बती कटोरे और मंत्र जो तंत्रिका तंत्र को संतुलित करते हैं।">Tibetan bowls and chants that
@@ -5816,14 +5838,14 @@
           </div>
         </article>
         <article class="exp-card reveal">
-          <img src="Image/experience/5.avif" alt="Ganga Aarti ceremony" loading="lazy" />
+          <img src="Image/experience/5.avif" width="450" height="450" alt="Ganga Aarti ceremony" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="गंगा आरती">Ganga Aarti</h3>
             <p data-hi="राम झूला पर पवित्र संध्या अग्नि अनुष्ठान।">The sacred evening fire ceremony at Ram Jhula.</p>
           </div>
         </article>
         <article class="exp-card reveal">
-          <img src="Image/experience/6.avif" alt="River rafting adventure" loading="lazy" />
+          <img src="Image/experience/6.avif" width="450" height="450" alt="River rafting adventure" loading="lazy" />
           <div class="exp-body">
             <h3 data-hi="हिमालयी रोमांच">Himalayan Adventure</h3>
             <p data-hi="रिवर राफ्टिंग, देवप्रयाग ट्रेक और वन भ्रमण।">River rafting, Devprayag trek and forest nature
@@ -5843,7 +5865,7 @@
           <p class="eyebrow eyebrow-light" data-hi="सीमित सीटें · अभी पंजीकरण करें">Limited Seats · Register Now</p>
           <h2 class="section-title light" data-hi="आगामी 7-दिवसीय योग एवं ध्यान शिविर">Upcoming 7-Day Yoga &amp;
             Meditation Retreat</h2>
-          <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+          <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
           <p class="lead light" data-hi="ऋषिकेश के हृदय में योग, उपचार, रोमांच और आनंद का एक सप्ताह।">A week of yoga,
             healing, adventure &amp; joy in the heart of Rishikesh.</p>
         </div>
@@ -5886,7 +5908,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="7-दिवसीय यात्रा">The 7-Day Journey</p>
         <h2 class="section-title" data-hi="आपका सप्ताह, <em>दिन-प्रतिदिन</em>">Your week, <em>day by day</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
         <p class="lead" data-hi="नीचे कोई भी दिन चुनें और देखें कि उस दिन आपको क्या मिलेगा।">Select any day below to
           see what you'll get out of it.</p>
       </div>
@@ -5909,19 +5931,17 @@
                 autoplay-disable-on-interaction="false">
                 <!-- cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94" -->
-                <swiper-slide><img src="./Image/Day1/1.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/1.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/2.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/2.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/3.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/3.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/4.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/4.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/5.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/5.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/6.avif" alt="Arrival & orientation"
-                    loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/Day1/7.avif" alt="Arrival & orientation"
+                <swiper-slide><img src="./Image/Day1/7.avif" width="450" height="450" alt="Arrival & orientation"
                     loading="lazy" /></swiper-slide>
               </swiper-container>
             </div>
@@ -5944,19 +5964,19 @@
               <swiper-container class="day-swiper" effect="cube" grab-cursor="true" loop="true" autoplay-delay="5000"
                 autoplay-disable-on-interaction="false" cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-                <swiper-slide><img src="./Image/day2/1.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/1.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/2.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/2.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/3.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/3.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/4.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/4.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/5.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/5.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/6.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/6.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day2/7.avif" alt="Cleansing, yoga & relaxation"
+                <swiper-slide><img src="./Image/day2/7.avif" width="450" height="450" alt="Cleansing, yoga & relaxation"
                     loading="lazy" /></swiper-slide>
               </swiper-container>
             </div>
@@ -5980,17 +6000,17 @@
               <swiper-container class="day-swiper" effect="cube" grab-cursor="true" loop="true" autoplay-delay="5000"
                 autoplay-disable-on-interaction="false" cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-                <swiper-slide><img src="./Image/day3/1.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/1.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day3/2.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/2.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day3/3.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/3.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day3/4.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/4.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day3/5.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/5.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day3/6.avif" alt="Yoga, hiking & Devprayag"
+                <swiper-slide><img src="./Image/day3/6.avif" width="450" height="450" alt="Yoga, hiking & Devprayag"
                     loading="lazy" /></swiper-slide>
               </swiper-container>
             </div>
@@ -6014,12 +6034,12 @@
               <swiper-container class="day-swiper" effect="cube" grab-cursor="true" loop="true" autoplay-delay="5000"
                 autoplay-disable-on-interaction="false" cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-                <swiper-slide><img src="./Image/day4/1.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day4/2.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day4/3.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day4/4.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day4/5.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day4/6.avif" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/1.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/2.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/3.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/4.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/5.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day4/6.avif" width="450" height="450" alt="Adventure & healing" loading="lazy" /></swiper-slide>
 
               </swiper-container>
             </div>
@@ -6043,19 +6063,19 @@
               <swiper-container class="day-swiper" effect="cube" grab-cursor="true" loop="true" autoplay-delay="5000"
                 autoplay-disable-on-interaction="false" cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-                <swiper-slide><img src="./Image/day5/1.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/1.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/2.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/2.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/3.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/3.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/4.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/4.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/5.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/5.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/6.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/6.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day5/7.avif" alt="Beach yoga & celebration"
+                <swiper-slide><img src="./Image/day5/7.avif" width="450" height="450" alt="Beach yoga & celebration"
                     loading="lazy" /></swiper-slide>
               </swiper-container>
             </div>
@@ -6080,11 +6100,11 @@
               <swiper-container class="day-swiper" effect="cube" grab-cursor="true" loop="true" autoplay-delay="5000"
                 autoplay-disable-on-interaction="false" cube-effect-shadow="true" cube-effect-slide-shadows="true"
                 cube-effect-shadow-offset="20" cube-effect-shadow-scale="0.94">
-                <swiper-slide><img src="./Image/day6/1.avif" alt="Closing day" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day6/2.avif" alt="Closing day" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day6/3.avif" alt="Closing day" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day6/4.avif" alt="Closing day" loading="lazy" /></swiper-slide>
-                <swiper-slide><img src="./Image/day6/5.avif" alt="Closing day" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day6/1.avif" width="450" height="450" alt="Closing day" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day6/2.avif" width="450" height="450" alt="Closing day" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day6/3.avif" width="450" height="450" alt="Closing day" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day6/4.avif" width="450" height="450" alt="Closing day" loading="lazy" /></swiper-slide>
+                <swiper-slide><img src="./Image/day6/5.avif" width="450" height="450" alt="Closing day" loading="lazy" /></swiper-slide>
               </swiper-container>
             </div>
             <div class="day-info">
@@ -6130,10 +6150,10 @@
         <p class="eyebrow" data-hi="7 दिनों के बाद क्या बदलता है?">What Changes After 7 Days?</p>
         <h2 class="section-title" data-hi="आप वैसे नहीं लौटते, <em>जैसे आए थे</em>">You don't return <em>the way you
             came</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="ba-table bg-motif-host">
-        <img class="bg-motif bg-motif-center" src="Image/background/3.avif" alt="" aria-hidden="true" loading="lazy"
+        <img class="bg-motif bg-motif-center" src="Image/background/3.avif" width="450" height="450" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:640px; --motif-opacity:0.1; left:50%; top:50%;" />
         <div class="ba-row reveal">
           <span class="ba-before"
@@ -6290,11 +6310,11 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="अपने गुरुओं से मिलें">Meet Your Gurus</p>
         <h2 class="section-title" data-hi="<em>अनुभवी गुरुओं</em> से सीखें">Learn from <em>experienced masters</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="guru-grid">
         <article class="guru-card reveal">
-          <div class="guru-photo"><img src="Image/teacher/1.avif" alt="Yogesh Dixit" loading="lazy" /></div>
+          <div class="guru-photo"><img src="Image/teacher/1.avif" width="306" height="305" alt="Yogesh Dixit" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Yogesh Dixit</h3>
             <p class="guru-role" data-hi="संस्थापक">Founder</p>
@@ -6308,7 +6328,7 @@
           </div>
         </article>
         <article class="guru-card reveal">
-          <div class="guru-photo"><img src="Image/teacher/2.avif" alt="Neha Thakur" loading="lazy" /></div>
+          <div class="guru-photo"><img src="Image/teacher/2.avif" width="2048" height="2048" alt="Neha Thakur" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Neha Thakur</h3>
             <p class="guru-role" data-hi="ध्यान एवं ध्वनि चिकित्सा">Meditation &amp; Sound Healing</p>
@@ -6322,7 +6342,7 @@
           </div>
         </article>
         <article class="guru-card reveal">
-          <div class="guru-photo"><img src="Image/teacher/3.avif" alt="Rahul" loading="lazy" /></div>
+          <div class="guru-photo"><img src="Image/teacher/3.avif" width="2048" height="2048" alt="Rahul" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Rahul</h3>
             <p class="guru-role" data-hi="योग, ध्यान एवं प्राणायाम">Yoga , Meditation &amp; Pranayam</p>
@@ -6345,7 +6365,7 @@
       <div class="split-text ">
         <p class="eyebrow" data-hi="आवास एवं भोजन">Stay &amp; Nourish</p>
         <h2 class="section-title" data-hi="<em>प्रकृति में</em> घर जैसा अनुभव">Feel at home <em>in nature</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
         <p class="lead"
           data-hi="पर्वत और नदी के दृश्यों वाले स्वच्छ, आरामदायक कमरे — और शुद्ध सात्विक भोजन जो भीतर से स्वस्थ करता है।">
           Clean, comfortable rooms with mountain and river views — and pure Satvik food that heals from within.</p>
@@ -6373,14 +6393,14 @@
     </div>
     <div class="container">
       <div class="masonry stay-masonry">
-        <img class="reveal" src="Image/rest/1.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/2.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/3.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/4.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/5.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/6.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/7.avif" alt="Rest area" loading="lazy" />
-        <img class="reveal" src="Image/rest/8.avif" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/1.avif" width="960" height="1280" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/2.avif" width="1280" height="960" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/3.avif" width="1280" height="960" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/4.avif" width="1280" height="960" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/5.avif" width="960" height="1280" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/6.avif" width="1280" height="960" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/7.avif" width="1600" height="1200" alt="Rest area" loading="lazy" />
+        <img class="reveal" src="Image/rest/8.avif" width="1040" height="468" alt="Rest area" loading="lazy" />
       </div>
     </div>
   </section>
@@ -6395,7 +6415,7 @@
           <h2 class="section-title light" data-hi="निजी रिट्रीट <em>टीमों, समूहों और हर किसी के लिए</em>">
             Private Retreats <em>for teams, circles, and everyone in between</em>
           </h2>
-          <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+          <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
           <p class="lead light"
             data-hi="पद बदलते हैं, थकान नहीं। चाहे आप कोई कंपनी चलाते हों, घर संभालते हों, या बस अपने करीबी समूह से फिर से जुड़ना चाहते हों — हम टीमों, परिवारों, दोस्तों के समूहों और समुदायों के लिए निजी, पूरी तरह अनुकूलित रिट्रीट डिज़ाइन करते हैं।">
             Titles change. The exhaustion doesn't. Whether you lead a company, run a household, or simply want to
@@ -6422,43 +6442,43 @@
         <p class="eyebrow" data-hi="शिविर गैलरी">Camp Gallery</p>
         <h2 class="section-title" data-hi="वे पल जो <em>सदा याद रहेंगे</em>">Moments you'll <em>remember forever</em>
         </h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="masonry">
-        <img class="reveal" src="Image/gallary/DSC00326.avif" alt="Yoga camp moment 1" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00329.avif" alt="Yoga camp moment 2" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00356.avif" alt="Yoga camp moment 3" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00359.avif" alt="Yoga camp moment 4" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00393.avif" alt="Yoga camp moment 5" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00414.avif" alt="Yoga camp moment 6" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00415.avif" alt="Yoga camp moment 7" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00494.avif" alt="Yoga camp moment 8" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00497.avif" alt="Yoga camp moment 9" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00498.avif" alt="Yoga camp moment 10" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00503.avif" alt="Yoga camp moment 11" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00507.avif" alt="Yoga camp moment 12" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00514.avif" alt="Yoga camp moment 13" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00534.avif" alt="Yoga camp moment 14" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00536.avif" alt="Yoga camp moment 15" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00537.avif" alt="Yoga camp moment 16" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00540.avif" alt="Yoga camp moment 17" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00544.avif" alt="Yoga camp moment 18" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00545.avif" alt="Yoga camp moment 19" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00602.avif" alt="Yoga camp moment 20" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00603.avif" alt="Yoga camp moment 21" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00612.avif" alt="Yoga camp moment 22" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00759.avif" alt="Yoga camp moment 23" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00760.avif" alt="Yoga camp moment 24" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00772.avif" alt="Yoga camp moment 25" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00793.avif" alt="Yoga camp moment 26" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00805.avif" alt="Yoga camp moment 27" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00826.avif" alt="Yoga camp moment 28" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00843.avif" alt="Yoga camp moment 29" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00910.avif" alt="Yoga camp moment 30" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00912.avif" alt="Yoga camp moment 31" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00934.avif" alt="Yoga camp moment 32" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00976.avif" alt="Yoga camp moment 33" loading="lazy" />
-        <img class="reveal" src="Image/gallary/DSC00986.avif" alt="Yoga camp moment 34" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00326.avif" width="4000" height="6000" alt="Yoga camp moment 1" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00329.avif" width="4000" height="6000" alt="Yoga camp moment 2" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00356.avif" width="6000" height="4000" alt="Yoga camp moment 3" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00359.avif" width="6000" height="4000" alt="Yoga camp moment 4" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00393.avif" width="4000" height="6000" alt="Yoga camp moment 5" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00414.avif" width="4000" height="6000" alt="Yoga camp moment 6" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00415.avif" width="4000" height="6000" alt="Yoga camp moment 7" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00494.avif" width="4000" height="6000" alt="Yoga camp moment 8" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00497.avif" width="4000" height="6000" alt="Yoga camp moment 9" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00498.avif" width="4000" height="6000" alt="Yoga camp moment 10" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00503.avif" width="6000" height="4000" alt="Yoga camp moment 11" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00507.avif" width="4000" height="6000" alt="Yoga camp moment 12" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00514.avif" width="4000" height="6000" alt="Yoga camp moment 13" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00534.avif" width="4000" height="6000" alt="Yoga camp moment 14" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00536.avif" width="4000" height="6000" alt="Yoga camp moment 15" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00537.avif" width="4000" height="6000" alt="Yoga camp moment 16" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00540.avif" width="4000" height="6000" alt="Yoga camp moment 17" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00544.avif" width="6000" height="4000" alt="Yoga camp moment 18" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00545.avif" width="4000" height="6000" alt="Yoga camp moment 19" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00602.avif" width="4000" height="6000" alt="Yoga camp moment 20" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00603.avif" width="4000" height="6000" alt="Yoga camp moment 21" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00612.avif" width="4000" height="6000" alt="Yoga camp moment 22" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00759.avif" width="4000" height="6000" alt="Yoga camp moment 23" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00760.avif" width="4000" height="6000" alt="Yoga camp moment 24" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00772.avif" width="6000" height="4000" alt="Yoga camp moment 25" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00793.avif" width="6000" height="4000" alt="Yoga camp moment 26" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00805.avif" width="4000" height="6000" alt="Yoga camp moment 27" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00826.avif" width="4000" height="6000" alt="Yoga camp moment 28" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00843.avif" width="4000" height="6000" alt="Yoga camp moment 29" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00910.avif" width="4000" height="6000" alt="Yoga camp moment 30" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00912.avif" width="4000" height="6000" alt="Yoga camp moment 31" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00934.avif" width="4000" height="6000" alt="Yoga camp moment 32" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00976.avif" width="4000" height="6000" alt="Yoga camp moment 33" loading="lazy" />
+        <img class="reveal" src="Image/gallary/DSC00986.avif" width="4000" height="6000" alt="Yoga camp moment 34" loading="lazy" />
       </div>
     </div>
   </section>
@@ -6470,7 +6490,7 @@
         <p class="eyebrow" data-hi="और भी बहुत कुछ">Explore More</p>
         <h2 class="section-title" data-hi="हर पल में <em>कुछ नया खोजें</em>">Discover what <em>every moment
             explores</em></h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
 
       <swiper-container id="exploreSwiper" class="explore-swiper" pagination="true" effect="coverflow"
@@ -6545,7 +6565,7 @@
         <p class="eyebrow" data-hi="परिवर्तन की कहानियाँ">Transformation Stories</p>
         <h2 class="section-title" data-hi="सच्ची कहानियाँ। <em>सच्चा परिवर्तन।</em>">Real stories. <em>Real
             transformation.</em></h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
 
       <div class="quote-grid reveal">
@@ -6559,7 +6579,7 @@
               <p data-hi="“मैं बर्नआउट की हालत में आई थी और वर्षों बाद जितना हल्का महसूस हुआ, उतना हल्का होकर लौटी। गंगा किनारे सूर्योदय ध्यान ने मेरे भीतर कुछ बदल दिया।”">“I arrived burnt out and left lighter than I've felt in years. The sunrise meditations by the Ganga
                 changed
                 something in me.”</p>
-              <footer><img src="Image/review/1.avif" alt="" /><span><strong>Sophie L.</strong><em
+              <footer><img src="Image/review/1.avif" width="315" height="438" alt="" /><span><strong>Sophie L.</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> फ़्रांस"><i
                       class="fa-solid fa-location-dot"></i> France</em></span>
               </footer>
@@ -6571,7 +6591,7 @@
               <p data-hi="“यहाँ के शिक्षक असली हैं। प्रामाणिक, विनम्र और गहराई से जानकार। यह छुट्टी नहीं थी — यह एक रीसेट थी।”">“The teachers are the real deal. Authentic, humble and deeply knowledgeable. This wasn't a holiday — it
                 was
                 a reset.”</p>
-              <footer><img src="Image/review/7.avif" alt="" /><span><strong>Daniel R.</strong><em
+              <footer><img src="Image/review/7.avif" width="2048" height="2048" alt="" /><span><strong>Daniel R.</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> जर्मनी"><i
                       class="fa-solid fa-location-dot"></i> Germany</em></span>
               </footer>
@@ -6583,7 +6603,7 @@
               <p data-hi="“सात दिनों में चिंता से शांति तक। खाना, लोग, पहाड़ — सब कुछ मुझे संभाले रहा। मैं फिर से बुकिंग कर रही हूँ।”">“From anxiety to calm in seven days. The food, the people, the mountains — everything held me. I'm
                 already
                 booking again.”</p>
-              <footer><img src="Image/review/3.avif" alt="" /><span><strong>Aarti M.</strong><em
+              <footer><img src="Image/review/3.avif" width="450" height="450" alt="" /><span><strong>Aarti M.</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> भारत"><i
                       class="fa-solid fa-location-dot"></i> India</em></span>
               </footer>
@@ -6594,7 +6614,7 @@
               <div class="stars">★★★★★</div>
               <p data-hi="“सच कहूँ तो आने से पहले दो बार बुकिंग रद्द करने वाली थी। बहुत अच्छा हुआ कि नहीं की — सालों में पहली बार मेरा दिमाग़ सच में शांत महसूस हो रहा है।”">“honestly almost cancelled twice before I came. so glad I didn't — first time in years my head actually
                 feels quiet.”</p>
-              <footer><img src="Image/review/4.avif" alt="" /><span><strong>Priya Nair</strong><em
+              <footer><img src="Image/review/4.avif" width="450" height="450" alt="" /><span><strong>Priya Nair</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> बेंगलुरु, भारत"><i
                       class="fa-solid fa-location-dot"></i> Bengaluru, India</em></span>
               </footer>
@@ -6606,7 +6626,7 @@
               <p data-hi="“आया था योग के लिए, रुक गया खाने की वजह से, सच कहूँ तो। महीनों बाद पहली बार ठीक से सोया भी, पता नहीं उन्होंने ये कैसे किया।”">“came for the yoga, stayed for the food tbh. also slept properly for the first time in months, no idea
                 how
                 they did that.”</p>
-              <footer><img src="Image/review/5.avif" alt="" /><span><strong>Rohit Malhotra</strong><em
+              <footer><img src="Image/review/5.avif" width="450" height="450" alt="" /><span><strong>Rohit Malhotra</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> दिल्ली, भारत"><i
                       class="fa-solid fa-location-dot"></i> Delhi, India</em></span>
               </footer>
@@ -6617,7 +6637,7 @@
               <div class="stars">★★★★★</div>
               <p data-hi="“अकेले आई थी, किसी को नहीं जानती थी, और 5 नए दोस्त और एक असली सुबह की दिनचर्या लेकर लौटी, जिसे मैं दो महीने बाद भी बनाए हुए हूँ।”">“did this alone not knowing anyone and left with 5 new friends and an actual morning routine I still keep
                 two months later.”</p>
-              <footer><img src="Image/review/6.avif" alt="" /><span><strong>Ananya Iyer</strong><em
+              <footer><img src="Image/review/6.avif" width="450" height="450" alt="" /><span><strong>Ananya Iyer</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> चेन्नई, भारत"><i
                       class="fa-solid fa-location-dot"></i> Chennai, India</em></span>
               </footer>
@@ -6628,7 +6648,7 @@
               <div class="stars">★★★★☆</div>
               <p data-hi="“गंगा आरती वाली शाम ने मुझे थोड़ा भावुक कर दिया, झूठ नहीं बोलूँगा। हर रुपया वसूल था, सच कहूँ तो दोगुना भी देता।”">“the Ganga aarti evening got me a bit emotional not gonna lie. worth every rupee, would've paid double
                 honestly.”</p>
-              <footer><img src="Image/review/8.avif" alt="" /><span><strong>Karan Deshmukh</strong><em
+              <footer><img src="Image/review/8.avif" width="2048" height="2048" alt="" /><span><strong>Karan Deshmukh</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> पुणे, भारत"><i
                       class="fa-solid fa-location-dot"></i> Pune, India</em></span>
               </footer>
@@ -6640,7 +6660,7 @@
               <p data-hi="“मेरी कमर का दर्द जिसे कोई फिजियो ठीक नहीं कर पाया? चौथे दिन तक गायब। शिक्षक सच में आपकी मुद्रा ठीक करते हैं, बस गिनती करके आगे नहीं बढ़ जाते।”">“my back pain that no physio could fix? gone by day 4. teachers actually correct your form, not just
                 count
                 reps and move on.”</p>
-              <footer><img src="Image/review/2.avif" alt="" /><span><strong>Meera Pillai</strong><em
+              <footer><img src="Image/review/2.avif" width="292" height="450" alt="" /><span><strong>Meera Pillai</strong><em
                     data-hi="<i class='fa-solid fa-location-dot'></i> कोच्चि, भारत"><i
                       class="fa-solid fa-location-dot"></i> Kochi, India</em></span>
               </footer>
@@ -6660,7 +6680,7 @@
         <p class="eyebrow" data-hi="क्या-क्या शामिल है एवं पैकेज">What's Included &amp; Packages</p>
         <h2 class="section-title" data-hi="आपकी <em>7-दिवसीय यात्रा</em> के लिए सब कुछ">Everything for your <em>7-day
             journey</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
 
       <div class="included">
@@ -6736,10 +6756,10 @@
     <div class="container narrow">
       <div class="section-head center">
         <p class="eyebrow" data-hi="आपके नाम एक पत्र">A Letter To You</p>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="letter-card reveal bg-motif-host">
-        <img class="bg-motif" src="Image/background/7.avif" alt="" aria-hidden="true" loading="lazy"
+        <img class="bg-motif" src="Image/background/7.avif" width="450" height="450" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:260px; --motif-opacity:0.14; bottom:-30px; right:-20px;" />
         <p class="lead"
           data-hi="अगर आप यहाँ तक पहुँचे हैं, तो शायद आपके भीतर कुछ पहले से ही इस अनुभव की तलाश कर रहा था।">If you've
@@ -6768,7 +6788,7 @@
         <h2 class="section-title" data-hi="<em>आंतरिक शांति</em> की अपनी यात्रा शुरू करें">Begin your journey to
           <em>inner peace</em>
         </h2>
-        <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline3.png" width="450" height="72" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
     <div class="container " style="display:flex;
@@ -6855,7 +6875,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="सामान्य प्रश्न">FAQ</p>
         <h2 class="section-title" data-hi="वह सब जो आपको <em>जानना चाहिए</em>">Everything you <em>need to know</em></h2>
-        <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline1.png" width="450" height="69" alt="" aria-hidden="true" loading="lazy" />
       </div>
       <div class="faq-list" id="faqList">
         <div class="faq-item"><button class="faq-q"><span data-hi="क्या मुझे पहले से योग का अनुभव चाहिए?">Do I need
@@ -6926,7 +6946,7 @@
       <div class="section-head center">
         <p class="eyebrow" data-hi="स्थान एवं पहुँचने का तरीका">Location &amp; How to Reach</p>
         <h2 class="section-title" data-hi="हमें <em>ऋषिकेश</em> में खोजें">Find us in <em>Rishikesh</em></h2>
-        <img class="section-flourish" src="Image/headline/headline2.avif" alt="" aria-hidden="true" loading="lazy" />
+        <img class="section-flourish" src="Image/headline/headline2.png" width="450" height="100" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
     <div class="container split">
@@ -6956,7 +6976,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <span class="brand-mark1"><img src="Image/logos/2.avif" alt="Veda Yoga Ashram Logo" /></span>
+        <span class="brand-mark1"><img src="Image/logos/2.avif" width="450" height="229" alt="Veda Yoga Ashram Logo" /></span>
         <h2 style="font-size: 1.5rem;">Veda Yoga Ashram</h2>
         <p data-hi="अनुशासन से दिव्यता तक">Discipline Meets Divinity</p>
         <p class="footer-vals" data-hi="<i class='fa-solid fa-spa'></i> अनुशासन · भक्ति · जागरूकता · परिवर्तन"><i
@@ -7008,14 +7028,6 @@
     <a href="#register" class="btn btn-gold btn-sm" data-hi="सीट बुक करें">Book Now</a>
   </div>
 
-  <!-- =================== VIDEO MODAL =================== -->
-  <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-box">
-      <button type="button" class="modal-close" aria-label="Close video" data-close>&times;</button>
-      <video class="modal-video" id="modalVideo" src="./Video/1.mp4" controls playsinline></video>
-    </div>
-  </div>
 
   <!-- =================== LEGAL DIALOG =================== -->
   <dialog class="ld-dialog" id="legalDialog">
