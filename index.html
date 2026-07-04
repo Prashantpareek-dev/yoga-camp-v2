@@ -7325,7 +7325,10 @@
       const whoCurve = $(".who-curve");
       const whoCurvePath = $(".who-curve-line path");
       if (whoCurve && whoCurvePath) {
-        const len = whoCurvePath.getTotalLength();
+        // Path shape is fixed (see the "d" attribute), so its length is
+        // constant — hardcoded from getTotalLength() to avoid forcing a
+        // synchronous layout/reflow on every page load just to draw it.
+        const len = 2016.88;
         whoCurvePath.style.strokeDasharray = len;
         if (prefersReduced) {
           whoCurvePath.style.strokeDashoffset = 0;
@@ -7942,7 +7945,7 @@
     })();
 
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-element-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-element-bundle.min.js" fetchpriority="low"></script>
 </body>
 
 </html>
