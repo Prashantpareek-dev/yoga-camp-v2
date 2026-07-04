@@ -33,17 +33,212 @@
       rel="stylesheet" />
   </noscript>
 
-  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'; this.onload=null;" />
-  <noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </noscript>
-
   <style>
+    /* ---------- Font Awesome subset ----------
+       The full all.min.css is ~18KB (gzipped) of rules for ~2000 icons;
+       this site only ever uses the 44 solid icons below, so instead of
+       loading the whole library we ship just the @font-face (same hosted
+       file, font-display:swap instead of Font Awesome's own font-display:
+       block, which otherwise hides icon glyphs for up to 3s while it
+       loads) plus each used icon's content mapping. Add a new
+       .fa-xxx:before rule here if a new icon is used anywhere on the page. */
+    @font-face {
+      font-family: "Font Awesome 6 Free";
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+      src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2") format("woff2"),
+        url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.ttf") format("truetype");
+    }
+
+    .fa-solid {
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-font-smoothing: antialiased;
+      display: inline-block;
+      font-style: normal;
+      font-variant: normal;
+      line-height: 1;
+      text-rendering: auto;
+    }
+
+    .fa-arrow-right-long:before {
+      content: "\f178";
+    }
+
+    .fa-arrows-to-dot:before {
+      content: "\e4be";
+    }
+
+    .fa-award:before {
+      content: "\f559";
+    }
+
+    .fa-battery-quarter:before {
+      content: "\f243";
+    }
+
+    .fa-bed:before {
+      content: "\f236";
+    }
+
+    .fa-bell:before {
+      content: "\f0f3";
+    }
+
+    .fa-bolt:before {
+      content: "\f0e7";
+    }
+
+    .fa-book-open:before {
+      content: "\f518";
+    }
+
+    .fa-bowl-food:before {
+      content: "\e4c6";
+    }
+
+    .fa-car:before {
+      content: "\f1b9";
+    }
+
+    .fa-certificate:before {
+      content: "\f0a3";
+    }
+
+    .fa-check:before {
+      content: "\f00c";
+    }
+
+    .fa-chevron-down:before {
+      content: "\f078";
+    }
+
+    .fa-circle-play:before {
+      content: "\f144";
+    }
+
+    .fa-cloud-rain:before {
+      content: "\f73d";
+    }
+
+    .fa-envelope:before {
+      content: "\f0e0";
+    }
+
+    .fa-fire:before {
+      content: "\f06d";
+    }
+
+    .fa-gift:before {
+      content: "\f06b";
+    }
+
+    .fa-globe:before {
+      content: "\f0ac";
+    }
+
+    .fa-hand-holding-heart:before {
+      content: "\f4be";
+    }
+
+    .fa-heart-pulse:before {
+      content: "\f21e";
+    }
+
+    .fa-hourglass-half:before {
+      content: "\f252";
+    }
+
+    .fa-location-dot:before {
+      content: "\f3c5";
+    }
+
+    .fa-lock:before {
+      content: "\f023";
+    }
+
+    .fa-mobile-screen:before {
+      content: "\f3cf";
+    }
+
+    .fa-moon:before {
+      content: "\f186";
+    }
+
+    .fa-mountain:before {
+      content: "\f6fc";
+    }
+
+    .fa-mug-hot:before {
+      content: "\f7b6";
+    }
+
+    .fa-om:before {
+      content: "\f679";
+    }
+
+    .fa-person-praying:before {
+      content: "\f683";
+    }
+
+    .fa-plane:before {
+      content: "\f072";
+    }
+
+    .fa-scale-balanced:before {
+      content: "\f24e";
+    }
+
+    .fa-shower:before {
+      content: "\f2cc";
+    }
+
+    .fa-spa:before {
+      content: "\f5bb";
+    }
+
+    .fa-suitcase-rolling:before {
+      content: "\f5c1";
+    }
+
+    .fa-train:before {
+      content: "\f238";
+    }
+
+    .fa-triangle-exclamation:before {
+      content: "\f071";
+    }
+
+    .fa-user-check:before {
+      content: "\f4fc";
+    }
+
+    .fa-user-group:before {
+      content: "\f500";
+    }
+
+    .fa-users:before {
+      content: "\f0c0";
+    }
+
+    .fa-volume-high:before {
+      content: "\f028";
+    }
+
+    .fa-volume-xmark:before {
+      content: "\f6a9";
+    }
+
+    .fa-wifi:before {
+      content: "\f1eb";
+    }
+
+    .fa-wind:before {
+      content: "\f72e";
+    }
+
     /* ============================================================
    VEDA YOGA ASHRAM — Landing Page Styles
    Palette: #FBF5DD #E7E1B1 #306D29 #0D530E (+ derived gold)
@@ -7531,15 +7726,19 @@
       const header = $("#siteHeader");
       const stickyBook = $("#stickyBook");
       const hero = $("#hero");
+      // Cache hero height instead of reading offsetHeight on every scroll
+      // event (that forces a synchronous layout on every tick while scrolling).
+      let heroHeight = hero ? hero.offsetHeight : 0;
       function onScroll() {
         const y = window.scrollY;
         if (header) header.classList.toggle("scrolled", y > 20);
         if (stickyBook && hero) {
-          const past = y > hero.offsetHeight - 200;
+          const past = y > heroHeight - 200;
           stickyBook.classList.toggle("show", past);
         }
       }
       window.addEventListener("scroll", onScroll, { passive: true });
+      window.addEventListener("resize", () => { if (hero) heroHeight = hero.offsetHeight; }, { passive: true });
       onScroll();
 
       /* ---------- Mobile nav ---------- */
