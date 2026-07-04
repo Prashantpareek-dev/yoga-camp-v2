@@ -7008,7 +7008,14 @@
     <a href="#register" class="btn btn-gold btn-sm" data-hi="सीट बुक करें">Book Now</a>
   </div>
 
-  
+  <!-- =================== VIDEO MODAL =================== -->
+  <div class="modal" id="videoModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-box">
+      <button type="button" class="modal-close" aria-label="Close video" data-close>&times;</button>
+      <video class="modal-video" id="modalVideo" src="./Video/1.mp4" controls playsinline></video>
+    </div>
+  </div>
 
   <!-- =================== LEGAL DIALOG =================== -->
   <dialog class="ld-dialog" id="legalDialog">
@@ -7739,7 +7746,8 @@
             if (icon) icon.className = video.muted ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high";
             return;
           }
-          const video = e.target.closest("video");
+          const slide = e.target.closest("swiper-slide");
+          const video = slide && slide.querySelector("video");
           if (video) {
             openModal(video.currentSrc || video.getAttribute("src"), video);
           }
