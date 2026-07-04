@@ -1931,33 +1931,24 @@
     }
 
     .quote-grid {
-      overflow: hidden;
       width: 100%;
-      padding: 0.5rem 0 1.5rem;
+      padding: 0.5rem 0 2.4rem;
       -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
       mask-image: linear-gradient(90deg, transparent 0, #000 4%, #000 96%, transparent 100%);
     }
 
-    .quote-track {
-      display: flex;
-      gap: 1.4rem;
-      width: max-content;
-      animation: quoteMarquee 48s linear infinite;
+    .quote-swiper {
+      width: 100%;
+      padding-bottom: 0.5rem;
     }
 
-    .quote-grid:hover .quote-track,
-    .quote-grid:focus-within .quote-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes quoteMarquee {
-      to {
-        transform: translateX(-50%);
-      }
+    .quote-swiper swiper-slide {
+      width: min(85vw, 340px);
+      height: auto;
     }
 
     .quote-card {
-      flex: 0 0 min(85vw, 340px);
+      height: 100%;
       background: var(--white);
       border-radius: var(--radius);
       padding: 1.8rem;
@@ -2266,6 +2257,20 @@
       color: #8a2f1c;
     }
 
+    .form-privacy-note {
+      grid-column: 1 / -1;
+      text-align: center;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      opacity: 0.7;
+      margin-top: 0.2rem;
+    }
+
+    .form-privacy-note i {
+      margin-right: 0.3rem;
+    }
+
     /* ---------- FAQ ---------- */
     .faq-list {
       display: grid;
@@ -2338,7 +2343,7 @@
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
       gap: 2rem;
       padding-bottom: 2.5rem;
     }
@@ -2392,6 +2397,60 @@
     .footer-col a:hover {
       color: var(--gold);
       padding-left: 4px;
+    }
+
+    /* ---------- Footer accordion (mobile) ---------- */
+    .footer-col-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 0;
+      margin-bottom: 1rem;
+      font-family: "Inter", sans-serif;
+      color: var(--cream);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-align: left;
+      cursor: default;
+    }
+
+    .footer-col-caret {
+      display: none;
+      margin-left: auto;
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.6);
+      transition: transform 240ms var(--ease-out);
+    }
+
+    @media (max-width: 768px) {
+      .footer-col-toggle {
+        cursor: pointer;
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      }
+
+      .footer-col-caret {
+        display: inline-block;
+      }
+
+      .footer-col-toggle[aria-expanded="true"] .footer-col-caret {
+        transform: rotate(180deg);
+      }
+
+      .footer-col-links {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 320ms var(--ease-out);
+      }
+
+      .footer-col-toggle[aria-expanded="true"]+.footer-col-links {
+        max-height: 400px;
+      }
     }
 
     .footer-bottom {
@@ -2871,6 +2930,25 @@
 
       .footer-grid {
         grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+      }
+
+      .footer-brand {
+        order: 0;
+      }
+
+      .footer-col:not(.footer-col-collapsible) {
+        order: 1;
+      }
+
+      .footer-col-collapsible {
+        order: 2;
       }
     }
 
@@ -4504,8 +4582,7 @@
         filter: none !important;
       }
 
-      .announce-track,
-      .quote-track {
+      .announce-track {
         animation: none;
       }
     }
@@ -4515,7 +4592,17 @@
       background: linear-gradient(165deg, #0F2E22 0%, #143A2C 45%, #1a4433 100%);
       color: var(--cream-on-dark);
       overflow: hidden;
-      padding-block: clamp(46px, 7vw, 74px) 25px
+    }
+
+    .hero-banner {
+      display: block;
+      line-height: 0;
+    }
+
+    .hero-banner img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
 
     .hero-sun {
@@ -4695,8 +4782,8 @@
     }
 
     .play-ring {
-      width: 82px;
-      height: 82px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       background: rgba(255, 251, 244, .14);
       backdrop-filter: blur(4px);
@@ -4739,20 +4826,10 @@
     }
 
     .play-ring svg {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
       fill: #fff;
-      margin-left: 4px
-    }
-
-    .play-btn .vlabel {
-      font-size: .86rem;
-      font-weight: 600;
-      letter-spacing: .06em;
-      background: rgba(13, 42, 32, .55);
-      padding: 7px 16px;
-      border-radius: 40px;
-      backdrop-filter: blur(4px)
+      margin-left: 3px
     }
 
     /* trust strip */
@@ -4833,7 +4910,7 @@
         </span>
         <span class="brand-text">
           <span class="brand-name">Veda Yoga Ashram</span>
-          <span class="brand-tag">Discipline Meets Divinity</span>
+          <span class="brand-tag" data-hi="अनुशासन से दिव्यता तक">Discipline Meets Divinity</span>
         </span>
       </a>
 
@@ -4871,35 +4948,16 @@
   </nav>
 
   <!-- =================== HERO — Swiper image banner =================== -->
-  <!-- <section class="hero" id="hero">
-    <div class="hero-slides" id="heroSlides">
-      <swiper-container class="hero-swiper"
-        style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff; --swiper-pagination-bullet-inactive-opacity: 0.55; --swiper-pagination-bullet-size: 10px;"
-        pagination="true" pagination-clickable="true" space-between="0" effect="fade" keyboard="true" grab-cursor="true"
-        autoplay-delay="4500" autoplay-disable-on-interaction="false" loop="true"
-        aria-label="Veda Yoga Ashram banner slideshow">
-        <swiper-slide>
-          <img src="Image/banners/1.avif" alt="Veda Yoga Ashram — Banner 4" loading="lazy" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="Image/banners/2.avif" alt="Veda Yoga Ashram — Banner 4" loading="lazy" />
-        </swiper-slide>
-        <swiper-slide>
-        <img src="Image/banners/3.avif" alt="Veda Yoga Ashram — Banner 4" loading="lazy" />
-        </swiper-slide>
-        <swiper-slide>
-         <img src="Image/banners/4.avif" alt="Veda Yoga Ashram — Banner 4" loading="lazy" />
-        </swiper-slide>
-        <swiper-slide>
-          <img src="Image/banners/5.avif" alt="Veda Yoga Ashram — Banner 4" loading="lazy" />
-        </swiper-slide>
-      </swiper-container>
-    </div>
-
-  </section> -->
-
-
   <section class="hero" id="hero">
+    <picture class="hero-banner">
+      <source media="(max-width: 767px)" srcset="Image/banners/mobile.avif" />
+      <img src="Image/banners/desktop.avif" alt="Veda Yoga Ashram — 7-Day Himalayan Yoga &amp; Meditation Retreat"
+        loading="eager" fetchpriority="high" />
+    </picture>
+  </section>
+
+
+  <!-- <section class="hero" id="hero">
     <div class="hero-glow"></div>
     <svg class="hero-sun" viewBox="0 0 400 400" aria-hidden="true">
       <g id="rays" stroke="rgba(230,203,130,.28)" stroke-width="1.4">
@@ -4941,65 +4999,70 @@
     </svg>
     <div class="hero-in">
      
-      <h1 class="reveal in d1">
+      <h1 class="reveal in d1" data-hi="<span class='soft'>कभी-कभी, सबसे बड़ी यात्रा दुनिया घूमने की नहीं होती…</span> यह यात्रा है <em>अपने भीतर वापस लौटने की।</em>">
         <span class="soft">Sometimes, the greatest journey isn't around the world…</span>
         It's the journey <em>back to yourself.</em>
       </h1>
-      <p class="hero-sub reveal in d2">Seven unforgettable days in the majestic Himalayas — authentic yoga,
+      <p class="hero-sub reveal in d2" data-hi="राजसी हिमालय में सात अविस्मरणीय दिन — प्रामाणिक योग, पवित्र गंगा के किनारे ध्यान, सात्विक भोजन, और एक डिजिटल डिटॉक्स जो आपको उस व्यक्ति से फिर से जोड़ने में मदद करता है जो आप हमेशा से रहे हैं।">Seven unforgettable days in the majestic Himalayas — authentic yoga,
         meditation beside the sacred Ganga, satvik food, and a digital detox that helps you reconnect with the
         person you've always been.</p>
       <div class="hero-tags reveal in d2">
-        <span>Yoga</span><span>Meditation</span><span>Breathwork</span><span>Ayurveda</span><span>Nature</span><span>Self-Discovery</span>
+        <span data-hi="योग">Yoga</span><span data-hi="ध्यान">Meditation</span><span data-hi="श्वास अभ्यास">Breathwork</span><span data-hi="आयुर्वेद">Ayurveda</span><span data-hi="प्रकृति">Nature</span><span data-hi="आत्म-खोज">Self-Discovery</span>
       </div>
       <div class="hero-cta reveal in d3">
-        <a href="#register" class="btn btn-gold">Reserve Your Seat Today
+        <a href="#register" class="btn btn-gold" data-hi="आज ही अपनी सीट सुरक्षित करें
+          <svg class='ico' viewBox='0 0 24 24' aria-hidden='true'>
+            <path d='M5 12h14M13 6l6 6-6 6' />
+          </svg>">Reserve Your Seat Today
           <svg class="ico" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 12h14M13 6l6 6-6 6" />
           </svg>
         </a>
-        <a href="#journey" class="btn btn-ghost">See the 7-Day Journey</a>
+        <a href="#journey" class="btn btn-ghost" data-hi="7-दिवसीय यात्रा देखें">See the 7-Day Journey</a>
       </div>
 
-      <!-- INTRO VIDEO -->
+      INTRO VIDEO
       <div class="hero-video reveal in d3">
         <div class="imgph wide">
-          <div class="ph-label">
+          <div class="ph-label" data-hi="<svg viewBox='0 0 24 24' aria-hidden='true'>
+              <path d='M4 5h16v14H4zM10 9l5 3-5 3z' />
+            </svg>
+            रिट्रीट परिचय वीडियो — डमी पोस्टर">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 5h16v14H4zM10 9l5 3-5 3z" />
             </svg>
             Retreat Intro Video — Dummy Poster
           </div>
         </div>
-        <div class="play-btn" id="watchVideoBtn" role="button" tabindex="0">
+        <div class="play-btn" id="watchVideoBtn" role="button" tabindex="0" aria-label="Watch a 90-second look inside the retreat">
           <div class="play-ring"><svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg></div>
-          <span class="vlabel">Watch a 90-second look inside the retreat</span>
         </div>
       </div>
     </div>
 
 
-  </section>
+  </section> -->
 
   <!-- =================== TRUST STATS =================== -->
   <section class="stats" id="stats">
     <div class="container stats-grid">
       <div class="stat reveal"><span class="stat-value"><span class="stat-num" data-count="20">0</span><span
             class="stat-plus">+</span></span>
-        <p>Years of Practice</p>
+        <p data-hi="वर्षों का अभ्यास">Years of Practice</p>
       </div>
       <div class="stat reveal"><span class="stat-value"><span class="stat-num" data-count="10000">0</span><span
             class="stat-plus">+</span></span>
-        <p>Happy Students</p>
+        <p data-hi="प्रसन्न शिष्य">Happy Students</p>
       </div>
       <div class="stat reveal"><span class="stat-value"><span class="stat-num" data-count="45">0</span><span
             class="stat-plus">+</span></span>
-        <p>Countries</p>
+        <p data-hi="देश">Countries</p>
       </div>
       <div class="stat reveal"><span class="stat-value"><span class="stat-num" data-count="49"
             data-decimal="1">0</span><span class="stat-plus">/5</span></span>
-        <p>Rated by 500+ Yogis</p>
+        <p data-hi="500+ योगियों द्वारा रेटेड">Rated by 500+ Yogis</p>
       </div>
     </div>
   </section>
@@ -5542,8 +5605,8 @@
   <section class="section about" id="about">
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">Welcome to the Ashram</p>
-        <h2 class="section-title">Where Ancient Wisdom Meets <em>Modern Living</em></h2>
+        <p class="eyebrow" data-hi="आश्रम में आपका स्वागत है">Welcome to the Ashram</p>
+        <h2 class="section-title" data-hi="जहाँ प्राचीन ज्ञान मिलता है <em>आधुनिक जीवन से</em>">Where Ancient Wisdom Meets <em>Modern Living</em></h2>
         <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
@@ -5562,19 +5625,19 @@
         <img class="bg-motif" src="Image/background/5.avif" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:300px; --motif-opacity:0.11; top:-28px; right:-36px;" />
 
-        <p class="lead">Nestled amidst the serene beauty of the Himalayas and the sacred banks of the Ganga in
+        <p class="lead" data-hi="ऋषिकेश में हिमालय की शांत सुंदरता और गंगा के पवित्र तटों के बीच बसा, वेद योग आश्रम उन लोगों के लिए एक शरणस्थल है जो संतुलन, आंतरिक शांति और प्रामाणिक योगिक जीवन की तलाश में हैं। हमारा मानना है कि योग केवल एक शारीरिक अभ्यास से कहीं अधिक है — यह आत्म-खोज, माइंडफुलनेस और परिवर्तन की एक आजीवन यात्रा है।">Nestled amidst the serene beauty of the Himalayas and the sacred banks of the Ganga in
           Rishikesh, Veda Yog Ashram is a sanctuary for those seeking balance, inner peace, and authentic yogic living.
           We believe yoga is more than a physical practice — it's a lifelong journey of self-discovery, mindfulness, and
           transformation.</p>
 
-        <p>At Veda Yog Ashram, every sunrise begins with purpose, every practice inspires growth, and every moment
+        <p data-hi="वेद योग आश्रम में, हर सूर्योदय उद्देश्य के साथ शुरू होता है, हर अभ्यास विकास को प्रेरित करता है, और हर पल आपको आपके सच्चे स्वरूप के और क़रीब लाता है। चाहे आप अपने अभ्यास को गहरा करना चाहते हों, प्रमाणित योग शिक्षक बनना चाहते हों, या बस रोज़मर्रा के तनाव से दूर जाना चाहते हों, हमारा आश्रम खुले दिल से आपका स्वागत करता है।">At Veda Yog Ashram, every sunrise begins with purpose, every practice inspires growth, and every moment
           brings you closer to your true self. Whether you are looking to deepen your practice, become a certified yoga
           teacher, or simply escape the stress of everyday life, our ashram welcomes you with open hearts.</p>
         <blockquote class="about-quote">
-          <p>"Yoga is not just practiced on the mat — it is experienced in every breath, every thought, and every moment
+          <p data-hi="“योग केवल मैट पर अभ्यास की जाने वाली चीज़ नहीं है — इसे हर श्वास, हर विचार और जीवन के हर पल में अनुभव किया जाता है। वेद योग आश्रम में, हम आपको एक ऐसी यात्रा पर मार्गदर्शन देते हैं जो न सिर्फ़ आपके शरीर, बल्कि आपके मन, हृदय और आत्मा को भी रूपांतरित करती है।”">"Yoga is not just practiced on the mat — it is experienced in every breath, every thought, and every moment
             of life. At Veda Yog Ashram, we guide you on a journey that transforms not only your body but your mind,
             heart, and soul."</p>
-          <cite>— Founder, Veda Yog Ashram</cite>
+          <cite data-hi="— संस्थापक, वेद योग आश्रम">— Founder, Veda Yog Ashram</cite>
         </blockquote>
       </div>
     </div>
@@ -5586,8 +5649,8 @@
   <section class="section tinted" id="apart">
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">The Veda Yoga Ashram Difference</p>
-        <h2 class="section-title">What Sets Us <em>Apart?</em></h2>
+        <p class="eyebrow" data-hi="वेद योग आश्रम की विशिष्टता">The Veda Yoga Ashram Difference</p>
+        <h2 class="section-title" data-hi="क्या चीज़ हमें बनाती है <em>अलग?</em>">What Sets Us <em>Apart?</em></h2>
         <img class="section-flourish" src="Image/headline/headline3.png" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
@@ -5595,28 +5658,28 @@
       <div class="split-text reveal-left bg-motif-host">
         <img class="bg-motif" src="Image/background/1.avif" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:340px; --motif-opacity:0.09; bottom:-50px; left:-56px;" />
-        <p class="lead">The yoga school that goes beyond the conventional</p>
+        <p class="lead" data-hi="एक योग विद्यालय जो परंपरागत सीमाओं से आगे जाता है">The yoga school that goes beyond the conventional</p>
 
-        <p>At Veda Yoga Ashram we have complete faith in the purity of the yoga tradition. Our ashram is not just a
+        <p data-hi="वेद योग आश्रम में हमें योग परंपरा की शुद्धता पर पूर्ण विश्वास है। हमारा आश्रम केवल एक प्रशिक्षण स्थल नहीं है — इसे एक ऐसा “घर से दूर घर” कहिए जिसने समय की कसौटी पर खरा उतरा है। यदि आप प्राचीन तकनीकों के माध्यम से योग और ध्यान का सच्चा हस्तांतरण देखना चाहते हैं, तो यही वह स्थान है। हमारे विद्यार्थी-हितैषी शिक्षक आपको एक सुरक्षित मार्ग पर मार्गदर्शन देते हैं, जो शारीरिक गतिविधि से परे जाकर इस पर ध्यान केंद्रित करता है कि आपके हृदय, मन और आत्मा में क्या हो रहा है।">At Veda Yoga Ashram we have complete faith in the purity of the yoga tradition. Our ashram is not just a
           training ground — call it a "home away from home" that has withstood the test of time. If you want to witness
           the true transmission of yoga and meditation through ancient techniques, this is the place to be. Our
           student-friendly teachers guide you on a safe path that goes beyond physical activity, to focus on what's
           happening in your heart, mind and soul.</p>
 
         <ul class="check-list">
-          <li><i class="fa-solid fa-scale-balanced"></i> <span><strong>Balance of discipline and
+          <li data-hi="<i class='fa-solid fa-scale-balanced'></i> <span><strong>अनुशासन और कायाकल्प का संतुलन</strong><br>ऋषिकेश के हृदय में, एक अनुशासित फिर भी पोषण देने वाला वातावरण।</span>"><i class="fa-solid fa-scale-balanced"></i> <span><strong>Balance of discipline and
                 rejuvenation</strong><br>A disciplined yet nurturing environment, in the heart of Rishikesh.</span>
           </li>
-          <li><i class="fa-solid fa-hand-holding-heart"></i> <span><strong>Personalised attention</strong><br>Every
+          <li data-hi="<i class='fa-solid fa-hand-holding-heart'></i> <span><strong>व्यक्तिगत ध्यान</strong><br>शुरुआती से लेकर उन्नत अभ्यासी तक, हर अतिथि को शरीर, श्वास और मन को संतुलित करने के लिए मार्गदर्शन मिलता है।</span>"><i class="fa-solid fa-hand-holding-heart"></i> <span><strong>Personalised attention</strong><br>Every
               guest, from beginner to advanced practitioner, gets guidance to align body, breath and mind.</span></li>
-          <li><i class="fa-solid fa-book-open"></i> <span><strong>Easy-to-understand teaching</strong><br>Practices
+          <li data-hi="<i class='fa-solid fa-book-open'></i> <span><strong>आसानी से समझ में आने वाली शिक्षा</strong><br>ऐसे तरीक़े से समझाए गए अभ्यास, जिन्हें आप रोज़मर्रा के जीवन में अपना सकें।</span>"><i class="fa-solid fa-book-open"></i> <span><strong>Easy-to-understand teaching</strong><br>Practices
               explained in a way you can carry into everyday life.</span></li>
-          <li><i class="fa-solid fa-om"></i> <span><strong>The ashram experience</strong><br>Hatha, Ashtanga and
+          <li data-hi="<i class='fa-solid fa-om'></i> <span><strong>आश्रम का अनुभव</strong><br>सच्ची आत्म-जागरूकता और आंतरिक शांति के लिए, दर्शनशास्त्र और ध्वनि चिकित्सा के साथ हठ, अष्टांग और विन्यास योग।</span>"><i class="fa-solid fa-om"></i> <span><strong>The ashram experience</strong><br>Hatha, Ashtanga and
               Vinyasa yoga alongside philosophy and sound healing, for real self-awareness and inner peace.</span>
           </li>
         </ul>
 
-        <a href="#gurus" class="btn btn-primary">Discover Our Legacy</a>
+        <a href="#gurus" class="btn btn-primary" data-hi="हमारी विरासत जानें">Discover Our Legacy</a>
       </div>
       <div class="split-media reveal-right">
         <img src="Image/yog.avif" alt="Group yoga practice session at Veda Yoga Ashram" loading="lazy" />
@@ -5678,8 +5741,8 @@
   <section class="section" id="learn">
     <div class="container">
       <div class="section-head center">
-        <p class="eyebrow">Your Journey Inward</p>
-        <h2 class="section-title">What Will You <em>Learn?</em></h2>
+        <p class="eyebrow" data-hi="आपकी आंतरिक यात्रा">Your Journey Inward</p>
+        <h2 class="section-title" data-hi="आप क्या <em>सीखेंगे?</em>">What Will You <em>Learn?</em></h2>
         <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
       </div>
     </div>
@@ -5691,22 +5754,22 @@
       <div class="split-text reveal-right bg-motif-host">
         <img class="bg-motif" src="Image/background/6.avif" alt="" aria-hidden="true" loading="lazy"
           style="--motif-size:280px; --motif-opacity:0.1; top:-24px; right:-40px;" />
-        <p class="lead" style="font-weight: bold;">7-Day Yoga &amp; Meditation Retreat in Rishikesh</p>
+        <p class="lead" style="font-weight: bold;" data-hi="ऋषिकेश में 7-दिवसीय योग एवं ध्यान शिविर">7-Day Yoga &amp; Meditation Retreat in Rishikesh</p>
 
-        <p><strong>Going beyond the asanas.</strong> Yoga is a practice of transforming from the inside out, gaining
+        <p data-hi="<strong>आसनों से परे जाना।</strong> योग भीतर से बाहर तक रूपांतरण का अभ्यास है, जो हज़ारों वर्षों से खोजी गई अंतर्दृष्टि और जागरूकता प्रदान करता है। वेद योग आश्रम में हमारा रिट्रीट व्यक्तिगत और आध्यात्मिक विकास दोनों को पोषित करने के लिए संरचित है, ताकि हर सत्र केवल मुद्राओं के समूह से कहीं अधिक हो।"><strong>Going beyond the asanas.</strong> Yoga is a practice of transforming from the inside out, gaining
           insight and awareness explored for thousands of years. Our retreat at Veda Yoga Ashram is structured to
           nurture both personal and spiritual growth, so every session is more than just a set of postures.</p>
 
-        <p><strong>Practical life techniques.</strong> This retreat is not just about learning facts — it's about
+        <p data-hi="<strong>व्यावहारिक जीवन तकनीकें।</strong> यह रिट्रीट केवल तथ्य सीखने के बारे में नहीं है — यह प्रत्यक्ष अनुभव के माध्यम से चेतना विकसित करने के बारे में है। आसन, प्राणायाम, ध्यान और योगिक दर्शन के माध्यम से, आप आत्म-रूपांतरण की व्यावहारिक तकनीकें सीखेंगे, जो जाने के बहुत बाद तक स्पष्टता, स्थिरता और आंतरिक शांति लाती हैं।"><strong>Practical life techniques.</strong> This retreat is not just about learning facts — it's about
           developing consciousness through first-hand experience. Through asana, pranayama, meditation and yogic
           philosophy, you'll pick up practical techniques for self-transformation that bring clarity, stability and
           inner peace long after you leave.</p>
 
-        <p><strong>Wisdom rooted in ancient lineage.</strong> We practice yoga as a living science — a science of
+        <p data-hi="<strong>प्राचीन परंपरा में निहित ज्ञान।</strong> हम योग का अभ्यास एक जीवंत विज्ञान के रूप में करते हैं — भक्ति का विज्ञान। यहाँ आप हिमालयी और वैदिक परंपरा से शिक्षाएँ सीखते, अभ्यास करते और आत्मसात करते हैं — वही मार्ग जिससे सुख, आंतरिक संतुलन और आत्म-अन्वेषण सदैव उत्पन्न हुए हैं।"><strong>Wisdom rooted in ancient lineage.</strong> We practice yoga as a living science — a science of
           devotion. Here you get to learn, practice and inherit teachings from the Himalayan and Vedic tradition, the
           same path through which happiness, inner equilibrium and self-exploration have always arisen.</p>
 
-        <a href="#itinerary" class="btn btn-primary">View More</a>
+        <a href="#itinerary" class="btn btn-primary" data-hi="और जानें">View More</a>
       </div>
     </div>
   </section>
@@ -5830,13 +5893,13 @@
 
       <div class="itinerary">
         <div class="day-tabs" id="dayTabs">
-          <button class="day-tab is-active" data-day="1">Day 1</button>
-          <button class="day-tab" data-day="2">Day 2</button>
-          <button class="day-tab" data-day="3">Day 3</button>
-          <button class="day-tab" data-day="4">Day 4</button>
-          <button class="day-tab" data-day="5">Day 5</button>
-          <button class="day-tab" data-day="6">Day 6</button>
-          <button class="day-tab" data-day="7">Day 7</button>
+          <button class="day-tab is-active" data-day="1" data-hi="दिन 1">Day 1</button>
+          <button class="day-tab" data-day="2" data-hi="दिन 2">Day 2</button>
+          <button class="day-tab" data-day="3" data-hi="दिन 3">Day 3</button>
+          <button class="day-tab" data-day="4" data-hi="दिन 4">Day 4</button>
+          <button class="day-tab" data-day="5" data-hi="दिन 5">Day 5</button>
+          <button class="day-tab" data-day="6" data-hi="दिन 6">Day 6</button>
+          <button class="day-tab" data-day="7" data-hi="दिन 7">Day 7</button>
         </div>
 
         <div class="day-panels" id="dayPanels">
@@ -5864,12 +5927,12 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="रीसेट">Reset</span>
-              <span class="day-kicker">24 July · Arrival &amp; Orientation</span>
-              <h3>Welcome Home</h3>
+              <span class="day-kicker" data-hi="24 जुलाई · आगमन एवं परिचय">24 July · Arrival &amp; Orientation</span>
+              <h3 data-hi="स्वागत है आपका">Welcome Home</h3>
               <ul class="schedule">
-                <li><span>12:00 PM</span> Check-in &amp; soft beverage ceremony</li>
-                <li><span>4:30 PM</span> Orientation &amp; opening circle</li>
-                <li><span>5:45 PM</span> Departure for Ganga Aarti at Ram Jhula</li>
+                <li data-hi="<span>12:00 PM</span> चेक-इन एवं शीतल पेय स्वागत समारोह"><span>12:00 PM</span> Check-in &amp; soft beverage ceremony</li>
+                <li data-hi="<span>4:30 PM</span> परिचय सत्र एवं उद्घाटन मंडली"><span>4:30 PM</span> Orientation &amp; opening circle</li>
+                <li data-hi="<span>5:45 PM</span> राम झूला में गंगा आरती के लिए प्रस्थान"><span>5:45 PM</span> Departure for Ganga Aarti at Ram Jhula</li>
               </ul>
               <p class="day-outcome" data-hi="<strong>परिणाम:</strong> दिनभर का तनाव पीछे छोड़ें और धीमे होकर पहुँचें।">
                 <strong>Outcome:</strong> Arrive, slow down and leave daily stress behind.
@@ -5899,13 +5962,13 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="शरीर">Body</span>
-              <span class="day-kicker">25 July · Cleansing, Yoga &amp; Relaxation</span>
-              <h3>Purify &amp; Begin</h3>
+              <span class="day-kicker" data-hi="25 जुलाई · शुद्धिकरण, योग एवं विश्राम">25 July · Cleansing, Yoga &amp; Relaxation</span>
+              <h3 data-hi="शुद्धि एवं आरंभ">Purify &amp; Begin</h3>
               <ul class="schedule">
-                <li><span>6:30 AM</span> Morning cleansing practice</li>
-                <li><span>7:15 AM</span> Yoga asana session</li>
-                <li><span>11:00 AM</span> Breathwork &amp; meditation</li>
-                <li><span>6:00 PM</span> Evening meditation &amp; tea time</li>
+                <li data-hi="<span>6:30 AM</span> प्रातःकालीन शुद्धिकरण अभ्यास"><span>6:30 AM</span> Morning cleansing practice</li>
+                <li data-hi="<span>7:15 AM</span> योग आसन सत्र"><span>7:15 AM</span> Yoga asana session</li>
+                <li data-hi="<span>11:00 AM</span> श्वास अभ्यास एवं ध्यान"><span>11:00 AM</span> Breathwork &amp; meditation</li>
+                <li data-hi="<span>6:00 PM</span> सांध्यकालीन ध्यान एवं चाय का समय"><span>6:00 PM</span> Evening meditation &amp; tea time</li>
               </ul>
               <p class="day-outcome" data-hi="<strong>परिणाम:</strong> शरीर का जमा हुआ तनाव मुक्त करें।">
                 <strong>Outcome:</strong> Release the physical tension your body has been holding.
@@ -5933,13 +5996,13 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="प्रकृति">Nature</span>
-              <span class="day-kicker">26 July · Yoga, Hiking &amp; Devprayag</span>
-              <h3>Into the Mountains</h3>
+              <span class="day-kicker" data-hi="26 जुलाई · योग, ट्रेकिंग एवं देवप्रयाग">26 July · Yoga, Hiking &amp; Devprayag</span>
+              <h3 data-hi="पर्वतों की ओर">Into the Mountains</h3>
               <ul class="schedule">
-                <li><span>6:30 AM</span> Yoga &amp; pranayama</li>
-                <li><span>9:00 AM</span> Journey to Devprayag</li>
-                <li><span>Day</span> Whole day at the sacred confluence</li>
-                <li><span>8:30 PM</span> Free time &amp; rest</li>
+                <li data-hi="<span>6:30 AM</span> योग एवं प्राणायाम"><span>6:30 AM</span> Yoga &amp; pranayama</li>
+                <li data-hi="<span>9:00 AM</span> देवप्रयाग की यात्रा"><span>9:00 AM</span> Journey to Devprayag</li>
+                <li data-hi="<span>दिनभर</span> पवित्र संगम पर पूरा दिन"><span>Day</span> Whole day at the sacred confluence</li>
+                <li data-hi="<span>8:30 PM</span> निजी समय एवं विश्राम"><span>8:30 PM</span> Free time &amp; rest</li>
               </ul>
               <p class="day-outcome" data-hi="<strong>परिणाम:</strong> स्क्रीन से दूर, प्रकृति और स्थिरता से जुड़ें।">
                 <strong>Outcome:</strong> Unplug from screens and reconnect with nature and stillness.
@@ -5962,13 +6025,13 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="श्वास एवं उपचार">Breath &amp; Healing</span>
-              <span class="day-kicker">27 July · Adventure &amp; Healing</span>
-              <h3>Flow &amp; Restore</h3>
+              <span class="day-kicker" data-hi="27 जुलाई · रोमांच एवं उपचार">27 July · Adventure &amp; Healing</span>
+              <h3 data-hi="प्रवाह एवं पुनर्स्थापन">Flow &amp; Restore</h3>
               <ul class="schedule">
-                <li><span>7:00 AM</span> River rafting on the Ganga</li>
-                <li><span>12:00 PM</span> Breathwork session</li>
-                <li><span>4:30 PM</span> Yoga asana session</li>
-                <li><span>6:30 PM</span> Sound healing session</li>
+                <li data-hi="<span>7:00 AM</span> गंगा में रिवर राफ्टिंग"><span>7:00 AM</span> River rafting on the Ganga</li>
+                <li data-hi="<span>12:00 PM</span> श्वास अभ्यास सत्र"><span>12:00 PM</span> Breathwork session</li>
+                <li data-hi="<span>4:30 PM</span> योग आसन सत्र"><span>4:30 PM</span> Yoga asana session</li>
+                <li data-hi="<span>6:30 PM</span> ध्वनि चिकित्सा सत्र"><span>6:30 PM</span> Sound healing session</li>
               </ul>
               <p class="day-outcome" data-hi="<strong>परिणाम:</strong> श्वास के ज़रिए तनाव को नियंत्रित करना सीखें।">
                 <strong>Outcome:</strong> Learn to regulate stress through your breath.
@@ -5998,13 +6061,13 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="भावनाएँ एवं आनंद">Emotions &amp; Joy</span>
-              <span class="day-kicker">28 July · Beach Yoga &amp; Celebration</span>
-              <h3>Joy by the River</h3>
+              <span class="day-kicker" data-hi="28 जुलाई · बीच योग एवं उत्सव">28 July · Beach Yoga &amp; Celebration</span>
+              <h3 data-hi="नदी किनारे आनंद">Joy by the River</h3>
               <ul class="schedule">
-                <li><span>6:30 AM</span> Riverside beach yoga</li>
-                <li><span>12:00 PM</span> In-house massage sessions</li>
-                <li><span>4:30 PM</span> Yoga asana session</li>
-                <li><span>6:30 PM</span> Talent show, dance &amp; bonfire</li>
+                <li data-hi="<span>6:30 AM</span> नदी किनारे बीच योग"><span>6:30 AM</span> Riverside beach yoga</li>
+                <li data-hi="<span>12:00 PM</span> आश्रम में मालिश सत्र"><span>12:00 PM</span> In-house massage sessions</li>
+                <li data-hi="<span>4:30 PM</span> योग आसन सत्र"><span>4:30 PM</span> Yoga asana session</li>
+                <li data-hi="<span>6:30 PM</span> टैलेंट शो, नृत्य एवं अलाव"><span>6:30 PM</span> Talent show, dance &amp; bonfire</li>
               </ul>
               <p class="day-outcome"
                 data-hi="<strong>परिणाम:</strong> भावनाओं से जुड़ने के स्वस्थ तरीक़े विकसित करें और खुलकर आनंद लें।">
@@ -6026,12 +6089,12 @@
             </div>
             <div class="day-info">
               <span class="day-theme" data-hi="उद्देश्य एवं कृतज्ञता">Purpose &amp; Gratitude</span>
-              <span class="day-kicker">29 July · Closing Day</span>
-              <h3>Gratitude &amp; Kirtan</h3>
+              <span class="day-kicker" data-hi="29 जुलाई · समापन दिवस">29 July · Closing Day</span>
+              <h3 data-hi="कृतज्ञता एवं कीर्तन">Gratitude &amp; Kirtan</h3>
               <ul class="schedule">
-                <li><span>Morning</span> Cleansing practice &amp; asana</li>
-                <li><span>11:00 AM</span> Ganga dip &amp; return</li>
-                <li><span>6:00 PM</span> Gathering, kirtan music &amp; gratitude celebration</li>
+                <li data-hi="<span>प्रातः</span> शुद्धिकरण अभ्यास एवं आसन"><span>Morning</span> Cleansing practice &amp; asana</li>
+                <li data-hi="<span>11:00 AM</span> गंगा स्नान एवं वापसी"><span>11:00 AM</span> Ganga dip &amp; return</li>
+                <li data-hi="<span>6:00 PM</span> सामूहिक सभा, कीर्तन संगीत एवं कृतज्ञता उत्सव"><span>6:00 PM</span> Gathering, kirtan music &amp; gratitude celebration</li>
               </ul>
               <p class="day-outcome"
                 data-hi="<strong>परिणाम:</strong> स्वयं से और अपने साथियों से गहराई से दोबारा जुड़ें।">
@@ -6043,12 +6106,12 @@
 
             <div class="day-info">
               <span class="day-theme" data-hi="समावेश">Integration</span>
-              <span class="day-kicker">30 July · Check Out</span>
-              <h3>Carry the Calm Home</h3>
+              <span class="day-kicker" data-hi="30 जुलाई · चेक-आउट">30 July · Check Out</span>
+              <h3 data-hi="शांति को अपने साथ घर ले जाएँ">Carry the Calm Home</h3>
               <ul class="schedule">
-                <li><span>Morning</span> Closing circle &amp; meditation</li>
-                <li><span>9:00 AM</span> Farewell breakfast</li>
-                <li><span>11:00 AM</span> Check out &amp; departure</li>
+                <li data-hi="<span>प्रातः</span> समापन मंडली एवं ध्यान"><span>Morning</span> Closing circle &amp; meditation</li>
+                <li data-hi="<span>9:00 AM</span> विदाई नाश्ता"><span>9:00 AM</span> Farewell breakfast</li>
+                <li data-hi="<span>11:00 AM</span> चेक-आउट एवं प्रस्थान"><span>11:00 AM</span> Check out &amp; departure</li>
               </ul>
               <p class="day-outcome" data-hi="<strong>परिणाम:</strong> एक व्यावहारिक वेलनेस दिनचर्या के साथ घर लौटें।">
                 <strong>Outcome:</strong> Return home with a practical wellness routine you can keep.
@@ -6234,13 +6297,13 @@
           <div class="guru-photo"><img src="Image/teacher/1.avif" alt="Yogesh Dixit" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Yogesh Dixit</h3>
-            <p class="guru-role">Founder</p>
-            <p class="guru-bio">20+ years of practice in the Himalayan tradition. RYT-500 certified, trained 5,000+
+            <p class="guru-role" data-hi="संस्थापक">Founder</p>
+            <p class="guru-bio" data-hi="हिमालयी परंपरा में 20+ वर्षों का अभ्यास। RYT-500 प्रमाणित, दुनिया भर में 5,000+ छात्रों को प्रशिक्षित किया।">20+ years of practice in the Himalayan tradition. RYT-500 certified, trained 5,000+
               students worldwide.</p>
             <div class="guru-trust">
-              <span><i class="fa-solid fa-award"></i> 20+ Years Experience</span>
-              <span><i class="fa-solid fa-certificate"></i> RYT-500 Certified</span>
-              <span><i class="fa-solid fa-users"></i> 5,000+ Students</span>
+              <span data-hi="<i class='fa-solid fa-award'></i> 20+ वर्षों का अनुभव"><i class="fa-solid fa-award"></i> 20+ Years Experience</span>
+              <span data-hi="<i class='fa-solid fa-certificate'></i> RYT-500 प्रमाणित"><i class="fa-solid fa-certificate"></i> RYT-500 Certified</span>
+              <span data-hi="<i class='fa-solid fa-users'></i> 5,000+ छात्र"><i class="fa-solid fa-users"></i> 5,000+ Students</span>
             </div>
           </div>
         </article>
@@ -6248,13 +6311,13 @@
           <div class="guru-photo"><img src="Image/teacher/2.avif" alt="Neha Thakur" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Neha Thakur</h3>
-            <p class="guru-role">Meditation &amp; Sound Healing</p>
-            <p class="guru-bio">A gentle guide into stillness. Specialist in Nada yoga, Tibetan bowl therapy and
+            <p class="guru-role" data-hi="ध्यान एवं ध्वनि चिकित्सा">Meditation &amp; Sound Healing</p>
+            <p class="guru-bio" data-hi="स्थिरता की ओर एक सौम्य मार्गदर्शक। नाद योग, तिब्बती कटोरा चिकित्सा और मौन ध्यान की विशेषज्ञ।">A gentle guide into stillness. Specialist in Nada yoga, Tibetan bowl therapy and
               silent meditation.</p>
             <div class="guru-trust">
-              <span><i class="fa-solid fa-om"></i> Nada Yoga</span>
-              <span><i class="fa-solid fa-bell"></i> Tibetan Bowl Therapy</span>
-              <span><i class="fa-solid fa-spa"></i> Silent Meditation</span>
+              <span data-hi="<i class='fa-solid fa-om'></i> नाद योग"><i class="fa-solid fa-om"></i> Nada Yoga</span>
+              <span data-hi="<i class='fa-solid fa-bell'></i> तिब्बती कटोरा चिकित्सा"><i class="fa-solid fa-bell"></i> Tibetan Bowl Therapy</span>
+              <span data-hi="<i class='fa-solid fa-spa'></i> मौन ध्यान"><i class="fa-solid fa-spa"></i> Silent Meditation</span>
             </div>
           </div>
         </article>
@@ -6262,13 +6325,13 @@
           <div class="guru-photo"><img src="Image/teacher/3.avif" alt="Rahul" loading="lazy" /></div>
           <div class="guru-info">
             <h3>Rahul</h3>
-            <p class="guru-role">Yoga , Meditation &amp; Pranayam</p>
-            <p class="guru-bio">Dedicated guide in yoga asana, meditation and pranayama, helping students build
+            <p class="guru-role" data-hi="योग, ध्यान एवं प्राणायाम">Yoga , Meditation &amp; Pranayam</p>
+            <p class="guru-bio" data-hi="योग आसन, ध्यान और प्राणायाम में समर्पित मार्गदर्शक, जो छात्रों को शक्ति, श्वास नियंत्रण और आंतरिक शांति विकसित करने में मदद करते हैं।">Dedicated guide in yoga asana, meditation and pranayama, helping students build
               strength, breath control and inner calm.</p>
             <div class="guru-trust">
-              <span><i class="fa-solid fa-person-praying"></i> Yoga Asana</span>
-              <span><i class="fa-solid fa-wind"></i> Pranayama</span>
-              <span><i class="fa-solid fa-spa"></i> Meditation</span>
+              <span data-hi="<i class='fa-solid fa-person-praying'></i> योग आसन"><i class="fa-solid fa-person-praying"></i> Yoga Asana</span>
+              <span data-hi="<i class='fa-solid fa-wind'></i> प्राणायाम"><i class="fa-solid fa-wind"></i> Pranayama</span>
+              <span data-hi="<i class='fa-solid fa-spa'></i> ध्यान"><i class="fa-solid fa-spa"></i> Meditation</span>
             </div>
           </div>
         </article>
@@ -6411,7 +6474,7 @@
       </div>
 
       <swiper-container id="exploreSwiper" class="explore-swiper" pagination="true" effect="coverflow"
-        grab-cursor="true" centered-slides="true" slides-per-view="1.4" space-between="20" coverflow-effect-rotate="30"
+        grab-cursor="true" centered-slides="true" slides-per-view="1.7" space-between="10" coverflow-effect-rotate="30"
         coverflow-effect-stretch="0" coverflow-effect-depth="120" coverflow-effect-modifier="1"
         coverflow-effect-slide-shadows="false" loop="true"
         breakpoints='{"640": {"slidesPerView": 2, "spaceBetween": 24}, "1024": {"slidesPerView": 3, "spaceBetween": 30}}'>
@@ -6421,7 +6484,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Sunrise meditation by the Ganga — where the day begins in stillness."</p>
+          <p class="explore-quote" data-hi="“गंगा किनारे सूर्योदय ध्यान — जहाँ दिन की शुरुआत सन्नाटे में होती है।”">"Sunrise meditation by the Ganga — where the day begins in stillness."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6429,7 +6492,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Guided yoga flows that awaken the body and the breath."</p>
+          <p class="explore-quote" data-hi="“निर्देशित योग प्रवाह जो शरीर और श्वास को जागृत करता है।”">"Guided yoga flows that awaken the body and the breath."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6437,7 +6500,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Ganga Aarti at dusk — devotion lit by a thousand flames."</p>
+          <p class="explore-quote" data-hi="“संध्या में गंगा आरती — हज़ारों दीपों से रोशन भक्ति।”">"Ganga Aarti at dusk — devotion lit by a thousand flames."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6445,7 +6508,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Mountain trails and forest air — a walking meditation."</p>
+          <p class="explore-quote" data-hi="“पर्वतीय पगडंडियाँ और वन की हवा — चलता-फिरता ध्यान।”">"Mountain trails and forest air — a walking meditation."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6453,7 +6516,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Sound healing sessions that melt the noise away."</p>
+          <p class="explore-quote" data-hi="“ध्वनि चिकित्सा सत्र जो हर शोर को शांत कर देते हैं।”">"Sound healing sessions that melt the noise away."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6461,7 +6524,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Sattvic meals shared over stories, like family."</p>
+          <p class="explore-quote" data-hi="“परिवार की तरह कहानियों के साथ बाँटा गया सात्विक भोजन।”">"Sattvic meals shared over stories, like family."</p>
         </swiper-slide>
         <swiper-slide>
           <div class="explore-card">
@@ -6469,7 +6532,7 @@
             <button type="button" class="guest-video-mute swiper-no-swiping" aria-label="Toggle sound"><span><i
                   class="fa-solid fa-volume-xmark"></i></span></button>
           </div>
-          <p class="explore-quote">"Campfire nights under a wide Himalayan sky."</p>
+          <p class="explore-quote" data-hi="“विशाल हिमालयी आकाश के नीचे अलाव की रातें।”">"Campfire nights under a wide Himalayan sky."</p>
         </swiper-slide>
       </swiper-container>
     </div>
@@ -6485,78 +6548,105 @@
         <img class="section-flourish" src="Image/headline/headline1.png" alt="" aria-hidden="true" loading="lazy" />
       </div>
 
-      <div class="quote-grid">
-        <div class="quote-track" id="quoteTrack">
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“I arrived burnt out and left lighter than I've felt in years. The sunrise meditations by the Ganga
-              changed
-              something in me.”</p>
-            <footer><img src="Image/review/1.avif" alt="" /><span><strong>Sophie L.</strong><em><i
-                    class="fa-solid fa-location-dot"></i> France</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“The teachers are the real deal. Authentic, humble and deeply knowledgeable. This wasn't a holiday — it
-              was
-              a reset.”</p>
-            <footer><img src="Image/review/7.avif" alt="" /><span><strong>Daniel R.</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Germany</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“From anxiety to calm in seven days. The food, the people, the mountains — everything held me. I'm
-              already
-              booking again.”</p>
-            <footer><img src="Image/review/3.avif" alt="" /><span><strong>Aarti M.</strong><em><i
-                    class="fa-solid fa-location-dot"></i> India</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“honestly almost cancelled twice before I came. so glad I didn't — first time in years my head actually
-              feels quiet.”</p>
-            <footer><img src="Image/review/4.avif" alt="" /><span><strong>Priya Nair</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Bengaluru, India</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“came for the yoga, stayed for the food tbh. also slept properly for the first time in months, no idea
-              how
-              they did that.”</p>
-            <footer><img src="Image/review/5.avif" alt="" /><span><strong>Rohit Malhotra</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Delhi, India</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“did this alone not knowing anyone and left with 5 new friends and an actual morning routine I still keep
-              two months later.”</p>
-            <footer><img src="Image/review/6.avif" alt="" /><span><strong>Ananya Iyer</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Chennai, India</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★☆</div>
-            <p>“the Ganga aarti evening got me a bit emotional not gonna lie. worth every rupee, would've paid double
-              honestly.”</p>
-            <footer><img src="Image/review/8.avif" alt="" /><span><strong>Karan Deshmukh</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Pune, India</em></span>
-            </footer>
-          </blockquote>
-          <blockquote class="quote-card reveal">
-            <div class="stars">★★★★★</div>
-            <p>“my back pain that no physio could fix? gone by day 4. teachers actually correct your form, not just
-              count
-              reps and move on.”</p>
-            <footer><img src="Image/review/2.avif" alt="" /><span><strong>Meera Pillai</strong><em><i
-                    class="fa-solid fa-location-dot"></i> Kochi, India</em></span>
-            </footer>
-          </blockquote>
-        </div>
+      <div class="quote-grid reveal">
+        <swiper-container class="quote-swiper" id="quoteSwiper" slides-per-view="auto" space-between="22"
+          grab-cursor="true" loop="true" speed="700" autoplay-delay="4200" autoplay-disable-on-interaction="false"
+          pagination="true"
+          style="--swiper-pagination-color: #a9863f; --swiper-pagination-bullet-inactive-opacity: 0.35;">
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“मैं बर्नआउट की हालत में आई थी और वर्षों बाद जितना हल्का महसूस हुआ, उतना हल्का होकर लौटी। गंगा किनारे सूर्योदय ध्यान ने मेरे भीतर कुछ बदल दिया।”">“I arrived burnt out and left lighter than I've felt in years. The sunrise meditations by the Ganga
+                changed
+                something in me.”</p>
+              <footer><img src="Image/review/1.avif" alt="" /><span><strong>Sophie L.</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> फ़्रांस"><i
+                      class="fa-solid fa-location-dot"></i> France</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“यहाँ के शिक्षक असली हैं। प्रामाणिक, विनम्र और गहराई से जानकार। यह छुट्टी नहीं थी — यह एक रीसेट थी।”">“The teachers are the real deal. Authentic, humble and deeply knowledgeable. This wasn't a holiday — it
+                was
+                a reset.”</p>
+              <footer><img src="Image/review/7.avif" alt="" /><span><strong>Daniel R.</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> जर्मनी"><i
+                      class="fa-solid fa-location-dot"></i> Germany</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“सात दिनों में चिंता से शांति तक। खाना, लोग, पहाड़ — सब कुछ मुझे संभाले रहा। मैं फिर से बुकिंग कर रही हूँ।”">“From anxiety to calm in seven days. The food, the people, the mountains — everything held me. I'm
+                already
+                booking again.”</p>
+              <footer><img src="Image/review/3.avif" alt="" /><span><strong>Aarti M.</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> भारत"><i
+                      class="fa-solid fa-location-dot"></i> India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“सच कहूँ तो आने से पहले दो बार बुकिंग रद्द करने वाली थी। बहुत अच्छा हुआ कि नहीं की — सालों में पहली बार मेरा दिमाग़ सच में शांत महसूस हो रहा है।”">“honestly almost cancelled twice before I came. so glad I didn't — first time in years my head actually
+                feels quiet.”</p>
+              <footer><img src="Image/review/4.avif" alt="" /><span><strong>Priya Nair</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> बेंगलुरु, भारत"><i
+                      class="fa-solid fa-location-dot"></i> Bengaluru, India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“आया था योग के लिए, रुक गया खाने की वजह से, सच कहूँ तो। महीनों बाद पहली बार ठीक से सोया भी, पता नहीं उन्होंने ये कैसे किया।”">“came for the yoga, stayed for the food tbh. also slept properly for the first time in months, no idea
+                how
+                they did that.”</p>
+              <footer><img src="Image/review/5.avif" alt="" /><span><strong>Rohit Malhotra</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> दिल्ली, भारत"><i
+                      class="fa-solid fa-location-dot"></i> Delhi, India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“अकेले आई थी, किसी को नहीं जानती थी, और 5 नए दोस्त और एक असली सुबह की दिनचर्या लेकर लौटी, जिसे मैं दो महीने बाद भी बनाए हुए हूँ।”">“did this alone not knowing anyone and left with 5 new friends and an actual morning routine I still keep
+                two months later.”</p>
+              <footer><img src="Image/review/6.avif" alt="" /><span><strong>Ananya Iyer</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> चेन्नई, भारत"><i
+                      class="fa-solid fa-location-dot"></i> Chennai, India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★☆</div>
+              <p data-hi="“गंगा आरती वाली शाम ने मुझे थोड़ा भावुक कर दिया, झूठ नहीं बोलूँगा। हर रुपया वसूल था, सच कहूँ तो दोगुना भी देता।”">“the Ganga aarti evening got me a bit emotional not gonna lie. worth every rupee, would've paid double
+                honestly.”</p>
+              <footer><img src="Image/review/8.avif" alt="" /><span><strong>Karan Deshmukh</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> पुणे, भारत"><i
+                      class="fa-solid fa-location-dot"></i> Pune, India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+          <swiper-slide>
+            <blockquote class="quote-card">
+              <div class="stars">★★★★★</div>
+              <p data-hi="“मेरी कमर का दर्द जिसे कोई फिजियो ठीक नहीं कर पाया? चौथे दिन तक गायब। शिक्षक सच में आपकी मुद्रा ठीक करते हैं, बस गिनती करके आगे नहीं बढ़ जाते।”">“my back pain that no physio could fix? gone by day 4. teachers actually correct your form, not just
+                count
+                reps and move on.”</p>
+              <footer><img src="Image/review/2.avif" alt="" /><span><strong>Meera Pillai</strong><em
+                    data-hi="<i class='fa-solid fa-location-dot'></i> कोच्चि, भारत"><i
+                      class="fa-solid fa-location-dot"></i> Kochi, India</em></span>
+              </footer>
+            </blockquote>
+          </swiper-slide>
+        </swiper-container>
       </div>
     </div>
   </section>
@@ -6685,52 +6775,71 @@
       align-items: center;
       justify-content: center;">
       <form class="reg-form reveal-right" id="regForm" novalidate>
-        <h3 class="reg-section-title">Basic Registration Form</h3>
+        <h3 class="reg-section-title" data-hi="बुनियादी पंजीकरण फ़ॉर्म">Basic Registration Form</h3>
 
-        <div class="field"><label for="fullName">Full Name <span class="req">*</span></label>
+        <div class="field"><label for="fullName" data-hi="पूरा नाम <span class='req'>*</span>">Full Name <span class="req">*</span></label>
           <input id="fullName" name="fullName" type="text" placeholder="Your full name" required />
         </div>
 
-        <div class="field"><label for="mobile">Mobile Number <span class="req">*</span></label>
+        <div class="field"><label for="mobile" data-hi="मोबाइल नंबर <span class='req'>*</span>">Mobile Number <span class="req">*</span></label>
           <input id="mobile" name="mobile" type="tel" maxlength="10" pattern="[6-9][0-9]{9}" placeholder="+91 …"
             required />
         </div>
 
-        <div class="field"><label for="stateCity">State / City <span class="req">*</span></label>
+        <div class="field"><label for="stateCity" data-hi="राज्य / शहर <span class='req'>*</span>">State / City <span class="req">*</span></label>
           <input id="stateCity" name="stateCity" type="text" placeholder="e.g. Maharashtra / Mumbai" required />
         </div>
 
-        <div class="field"><label for="age">Age <span class="req">*</span></label>
+        <div class="field"><label for="age" data-hi="आयु <span class='req'>*</span>">Age <span class="req">*</span></label>
           <input id="age" name="age" type="number" maxlength="2" min="1" max="120" placeholder="Your age" required />
         </div>
 
-        <div class="field field-full"><label for="gender">Gender <span class="req">*</span></label>
+        <div class="field field-full"><label for="gender" data-hi="लिंग <span class='req'>*</span>">Gender <span class="req">*</span></label>
           <select id="gender" name="gender" required>
-            <option value="" disabled selected>Select gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
+            <option value="" disabled selected data-hi="लिंग चुनें">Select gender</option>
+            <option data-hi="पुरुष">Male</option>
+            <option data-hi="महिला">Female</option>
+            <option data-hi="अन्य">Other</option>
           </select>
         </div>
 
-        <h3 class="reg-section-title">Camp Details</h3>
+        <h3 class="reg-section-title" data-hi="शिविर विवरण">Camp Details</h3>
 
-        <div class="field"><label for="campDate">Select Camp Date</label>
-          <input id="campDate" name="campDate" type="date" />
+        <div class="field"><label for="joinTimeframe" data-hi="आप कब जुड़ना चाहेंगे? <span class='req'>*</span>">When
+            do you want to join? <span class="req">*</span></label>
+          <select id="joinTimeframe" name="joinTimeframe" required>
+            <option value="" disabled selected data-hi="समय सीमा चुनें">Choose a timeframe</option>
+            <option data-hi="इस महीने">This month</option>
+            <option data-hi="अगले महीने">Next month</option>
+            <option data-hi="1–3 महीनों में">In 1–3 months</option>
+            <option data-hi="3–6 महीनों में">In 3–6 months</option>
+            <option data-hi="अभी तय नहीं — बताइए">Not sure yet — advise me</option>
+          </select>
         </div>
 
-        <div class="field"><label for="participants">Number of Participants</label>
-          <input id="participants" name="participants" type="number" min="1" value="1" />
+        <div class="field"><label for="accommodation" data-hi="आवास प्राथमिकता">Accommodation preference</label>
+          <select id="accommodation" name="accommodation">
+            <option value="" selected data-hi="चुनें (वैकल्पिक)">Choose (optional)</option>
+            <option data-hi="साझा">Shared</option>
+            <option data-hi="निजी">Private</option>
+            <option data-hi="कपल">Couple</option>
+            <option data-hi="अभी तय नहीं — बताइए">Not sure yet — advise me</option>
+          </select>
         </div>
 
-        <div class="field field-full"><label for="message">Message / Preferences</label>
-          <textarea id="message" name="message" rows="4"
-            placeholder="Tell us about your room preference, dietary needs or anything else we should know"></textarea>
-          <span class="field-hint" id="messageCount">0 / 30 words</span>
+        <div class="field field-full"><label for="message" data-hi="आप अभी किस चीज़ से जूझ रहे हैं? <span class='req'>*</span>">What are you struggling with right now? <span class="req">*</span></label>
+          <textarea id="message" name="message" rows="4" required
+            placeholder="e.g. constant stress, burnout, overthinking, need for a break, wanting to reconnect with myself…"></textarea>
+          <span class="field-hint" id="messageCount" data-hi="0 / 30 शब्द">0 / 30 words</span>
         </div>
 
         <button type="submit" class="btn btn-gold btn-lg btn-block" data-hi="मेरी सीट सुरक्षित करें">Reserve My
           Seat</button>
+        <p class="form-privacy-note"
+          data-hi="<i class='fa-solid fa-lock'></i> हम आपकी जानकारी केवल आपकी सहमति से, आपके प्रश्न का उत्तर देने के लिए एकत्र करते हैं। आपकी व्यक्तिगत जानकारी गोपनीय और सुरक्षित रखी जाती है, और इसे कभी भी किसी अनधिकृत तीसरे पक्ष को बेचा या साझा नहीं किया जाता।">
+          <i class="fa-solid fa-lock"></i> We collect your information only with your consent to respond to your
+          inquiry. Your personal information is kept confidential, protected, and is never sold or shared with
+          unauthorized third parties.</p>
         <p class="form-note form-note-error" id="formError" hidden
           data-hi="<i class='fa-solid fa-triangle-exclamation'></i> कुछ गड़बड़ हो गई — कृपया पुनः प्रयास करें।">
           <i class='fa-solid fa-triangle-exclamation'></i>
@@ -6854,37 +6963,39 @@
             class='fa-solid fa-spa'></i> Discipline · Devotion · Awareness ·
           Transformation</p>
       </div>
-      <div class="footer-col">
-        <h4 data-hi="खोजें">Explore</h4>
-        <a href="#about" data-hi="आश्रम">About Us</a>
-        <a href="#register" data-hi="आगामी शिविर">Upcoming Retreats</a>
-        <a href="#corporate" data-hi="ग्रुप रिट्रीट">Group Retreats</a>
-        <a href="#gurus" data-hi="हमारे गुरु">Our Gurus</a>
-        <a href="#faq" data-hi="सामान्य प्रश्न">FAQ</a>
+      <div class="footer-col footer-col-collapsible">
+        <button type="button" class="footer-col-toggle" aria-expanded="false"
+          data-hi="खोजें<i class='fa-solid fa-chevron-down footer-col-caret' aria-hidden='true'></i>">Explore<i
+            class="fa-solid fa-chevron-down footer-col-caret" aria-hidden="true"></i></button>
+        <div class="footer-col-links">
+          <a href="#about" data-hi="आश्रम">About Us</a>
+          <a href="#register" data-hi="आगामी शिविर">Upcoming Retreats</a>
+          <a href="#corporate" data-hi="ग्रुप रिट्रीट">Group Retreats</a>
+          <a href="#gurus" data-hi="हमारे गुरु">Our Gurus</a>
+          <a href="#faq" data-hi="सामान्य प्रश्न">FAQ</a>
+        </div>
       </div>
       <div class="footer-col">
         <h4 data-hi="संपर्क">Contact Us</h4>
         <a href="mailto:hello@vedayogaashram.com"><i class='fa-solid fa-envelope'></i> hello@vedayogaashram.com</a>
-        <a href="#location"><i class='fa-solid fa-location-dot'></i> Tapovan, Rishikesh</a>
+        <a href="#location" data-hi="<i class='fa-solid fa-location-dot'></i> तपोवन, ऋषिकेश"><i class='fa-solid fa-location-dot'></i> Tapovan, Rishikesh</a>
       </div>
-      <div class="footer-col">
-        <h4 data-hi="कानूनी">Legal</h4>
-        <a href="privacy-policy.html" data-legal="privacy" data-hi="गोपनीयता नीति">Privacy Policy</a>
-        <a href="terms-and-conditions.html" data-legal="terms" data-hi="नियम एवं शर्तें">Terms &amp; Conditions</a>
-        <a href="refund-cancellation-policy.html" data-legal="refund" data-hi="धनवापसी एवं रद्दीकरण नीति">Refund
-          &amp; Cancellation Policy</a>
-        <a href="medical-disclaimer.html" data-legal="medical" data-hi="चिकित्सा अस्वीकरण">Medical Disclaimer</a>
-      </div>
-      <div class="footer-col">
-        <h4 data-hi="फ़ॉलो करें">Follow</h4>
-        <a href="https://www.instagram.com/veda.yogaashram?utm_source=qr&igsh=aGM3NTZteHl3dGs2" target="_blank"
-          rel="noopener">Instagram</a>
-        <a href="https://www.facebook.com/share/1EHYdoGEFA/" target="_blank" rel="noopener">Facebook</a>
+      <div class="footer-col footer-col-collapsible">
+        <button type="button" class="footer-col-toggle" aria-expanded="false"
+          data-hi="कानूनी<i class='fa-solid fa-chevron-down footer-col-caret' aria-hidden='true'></i>">Legal<i
+            class="fa-solid fa-chevron-down footer-col-caret" aria-hidden="true"></i></button>
+        <div class="footer-col-links">
+          <a href="privacy-policy.html" data-legal="privacy" data-hi="गोपनीयता नीति">Privacy Policy</a>
+          <a href="terms-and-conditions.html" data-legal="terms" data-hi="नियम एवं शर्तें">Terms &amp; Conditions</a>
+          <a href="refund-cancellation-policy.html" data-legal="refund" data-hi="धनवापसी एवं रद्दीकरण नीति">Refund
+            &amp; Cancellation Policy</a>
+          <a href="medical-disclaimer.html" data-legal="medical" data-hi="चिकित्सा अस्वीकरण">Medical Disclaimer</a>
+        </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>© 2026 Veda Yoga Ashram, Rishikesh. All rights reserved.</p>
+      <p data-hi="© 2026 वेद योग आश्रम, ऋषिकेश। सर्वाधिकार सुरक्षित।">© 2026 Veda Yoga Ashram, Rishikesh. All rights reserved.</p>
     </div>
   </footer>
 
@@ -6897,14 +7008,7 @@
     <a href="#register" class="btn btn-gold btn-sm" data-hi="सीट बुक करें">Book Now</a>
   </div>
 
-  <!-- =================== VIDEO MODAL =================== -->
-  <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="modal-backdrop" data-close></div>
-    <div class="modal-box">
-      <button type="button" class="modal-close" aria-label="Close video" data-close>&times;</button>
-      <video class="modal-video" id="modalVideo" src="./Video/1.mp4" controls playsinline></video>
-    </div>
-  </div>
+  
 
   <!-- =================== LEGAL DIALOG =================== -->
   <dialog class="ld-dialog" id="legalDialog">
@@ -6913,210 +7017,210 @@
   </dialog>
 
   <template id="legalPrivacyTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Privacy Policy</h2>
-   
+    <p class="ld-eyebrow" data-hi="कानूनी">Legal</p>
+    <h2 data-hi="गोपनीयता नीति">Privacy Policy</h2>
+
 
     <section>
-      <h3>Information We Collect</h3>
-      <p>When you use our website or register for a retreat, we may collect:</p>
+      <h3 data-hi="हम जो जानकारी एकत्र करते हैं">Information We Collect</h3>
+      <p data-hi="जब आप हमारी वेबसाइट का उपयोग करते हैं या किसी रिट्रीट के लिए पंजीकरण करते हैं, तो हम निम्नलिखित जानकारी एकत्र कर सकते हैं:">When you use our website or register for a retreat, we may collect:</p>
       <ul>
-        <li>Full Name</li>
-        <li>Mobile Number</li>
-        <li>Email Address</li>
-        <li>City, State &amp; Country</li>
-        <li>Age (if provided)</li>
-        <li>Emergency Contact</li>
-        <li>Health information voluntarily shared for retreat participation</li>
-        <li>Payment information (processed securely by third-party payment gateways)</li>
-        <li>Device information</li>
-        <li>IP address</li>
-        <li>Browser information</li>
-        <li>Cookies and analytics data</li>
+        <li data-hi="पूरा नाम">Full Name</li>
+        <li data-hi="मोबाइल नंबर">Mobile Number</li>
+        <li data-hi="ईमेल पता">Email Address</li>
+        <li data-hi="शहर, राज्य और देश">City, State &amp; Country</li>
+        <li data-hi="आयु (यदि प्रदान की गई हो)">Age (if provided)</li>
+        <li data-hi="आपातकालीन संपर्क">Emergency Contact</li>
+        <li data-hi="रिट्रीट में भाग लेने हेतु स्वेच्छा से साझा की गई स्वास्थ्य संबंधी जानकारी">Health information voluntarily shared for retreat participation</li>
+        <li data-hi="भुगतान जानकारी (तृतीय-पक्ष भुगतान गेटवे द्वारा सुरक्षित रूप से संसाधित)">Payment information (processed securely by third-party payment gateways)</li>
+        <li data-hi="डिवाइस जानकारी">Device information</li>
+        <li data-hi="आईपी पता">IP address</li>
+        <li data-hi="ब्राउज़र जानकारी">Browser information</li>
+        <li data-hi="कुकीज़ और एनालिटिक्स डेटा">Cookies and analytics data</li>
       </ul>
     </section>
 
     <section>
-      <h3>Why We Collect Your Information</h3>
-      <p>We collect your information to:</p>
+      <h3 data-hi="हम आपकी जानकारी क्यों एकत्र करते हैं">Why We Collect Your Information</h3>
+      <p data-hi="हम आपकी जानकारी निम्नलिखित उद्देश्यों के लिए एकत्र करते हैं:">We collect your information to:</p>
       <ul>
-        <li>Process retreat bookings</li>
-        <li>Confirm registrations</li>
-        <li>Communicate important updates</li>
-        <li>Provide customer support</li>
-        <li>Personalize your retreat experience</li>
-        <li>Improve our services</li>
-        <li>Comply with applicable legal obligations</li>
+        <li data-hi="रिट्रीट बुकिंग की प्रक्रिया पूरी करने हेतु">Process retreat bookings</li>
+        <li data-hi="पंजीकरण की पुष्टि करने हेतु">Confirm registrations</li>
+        <li data-hi="महत्वपूर्ण अपडेट की जानकारी देने हेतु">Communicate important updates</li>
+        <li data-hi="ग्राहक सहायता प्रदान करने हेतु">Provide customer support</li>
+        <li data-hi="आपके रिट्रीट अनुभव को व्यक्तिगत बनाने हेतु">Personalize your retreat experience</li>
+        <li data-hi="हमारी सेवाओं में सुधार करने हेतु">Improve our services</li>
+        <li data-hi="लागू कानूनी दायित्वों का पालन करने हेतु">Comply with applicable legal obligations</li>
       </ul>
     </section>
 
     <section>
-      <h3>Payment Security</h3>
-      <p>Payments are processed through secure third-party payment gateways.</p>
-      <p>We do not store your debit card, credit card, UPI PIN, or banking credentials on our servers.</p>
+      <h3 data-hi="भुगतान सुरक्षा">Payment Security</h3>
+      <p data-hi="भुगतान सुरक्षित तृतीय-पक्ष भुगतान गेटवे के माध्यम से संसाधित किए जाते हैं।">Payments are processed through secure third-party payment gateways.</p>
+      <p data-hi="हम आपके डेबिट कार्ड, क्रेडिट कार्ड, यूपीआई पिन या बैंकिंग जानकारी को अपने सर्वर पर संग्रहीत नहीं करते हैं।">We do not store your debit card, credit card, UPI PIN, or banking credentials on our servers.</p>
     </section>
 
     <section>
-      <h3>Marketing Communication</h3>
-      <p>With your consent, we may send retreat announcements, wellness newsletters, offers, and event updates. You
+      <h3 data-hi="मार्केटिंग संचार">Marketing Communication</h3>
+      <p data-hi="आपकी सहमति से, हम रिट्रीट की घोषणाएँ, वेलनेस न्यूज़लेटर, ऑफ़र और इवेंट अपडेट भेज सकते हैं। आप किसी भी समय सदस्यता समाप्त कर सकते हैं।">With your consent, we may send retreat announcements, wellness newsletters, offers, and event updates. You
         may unsubscribe at any time.</p>
     </section>
 
     <section>
-      <h3>Data Sharing</h3>
-      <p>We do not sell your personal information. Information may be shared only with payment providers,
+      <h3 data-hi="डेटा साझाकरण">Data Sharing</h3>
+      <p data-hi="हम आपकी व्यक्तिगत जानकारी नहीं बेचते हैं। जानकारी केवल भुगतान प्रदाताओं, कानूनी रूप से आवश्यक होने पर सरकारी प्राधिकरणों, तथा रिट्रीट संचालन में सहायता करने वाले सेवा प्रदाताओं के साथ ही साझा की जा सकती है।">We do not sell your personal information. Information may be shared only with payment providers,
         government authorities when legally required, and service providers assisting in retreat operations.</p>
     </section>
 
     <section>
-      <h3>Cookies</h3>
-      <p>Our website uses cookies to improve performance, understand visitor behavior, enhance user experience, and
+      <h3 data-hi="कुकीज़">Cookies</h3>
+      <p data-hi="हमारी वेबसाइट प्रदर्शन में सुधार, विज़िटर व्यवहार को समझने, उपयोगकर्ता अनुभव बढ़ाने, तथा विज्ञापन और एनालिटिक्स का समर्थन करने के लिए कुकीज़ का उपयोग करती है। आप अपनी ब्राउज़र सेटिंग्स के माध्यम से कुकीज़ को अक्षम कर सकते हैं।">Our website uses cookies to improve performance, understand visitor behavior, enhance user experience, and
         support advertising and analytics. You can disable cookies through your browser settings.</p>
     </section>
 
     <section>
-      <h3>Data Security</h3>
-      <p>We use reasonable administrative, technical, and organizational safeguards to protect your personal
+      <h3 data-hi="डेटा सुरक्षा">Data Security</h3>
+      <p data-hi="हम आपकी व्यक्तिगत जानकारी की सुरक्षा के लिए उचित प्रशासनिक, तकनीकी और संगठनात्मक सुरक्षा उपाय अपनाते हैं। हालाँकि, इंटरनेट प्रसारण या इलेक्ट्रॉनिक भंडारण की कोई भी विधि पूर्णतः सुरक्षित नहीं होती।">We use reasonable administrative, technical, and organizational safeguards to protect your personal
         information. However, no method of internet transmission or electronic storage is completely secure.</p>
     </section>
 
     <section>
-      <h3>Contact</h3>
-      <p>For privacy-related questions, email <a href="mailto:hello@vedayogaashram.com">hello@vedayogaashram.com</a>
+      <h3 data-hi="संपर्क करें">Contact</h3>
+      <p data-hi="गोपनीयता संबंधी प्रश्नों के लिए, <a href='mailto:hello@vedayogaashram.com'>hello@vedayogaashram.com</a> पर ईमेल करें या हमें तपोवन, ऋषिकेश, उत्तराखंड, भारत के पते पर लिखें।">For privacy-related questions, email <a href="mailto:hello@vedayogaashram.com">hello@vedayogaashram.com</a>
         or write to us at Tapovan, Rishikesh, Uttarakhand, India.</p>
     </section>
   </template>
 
   <template id="legalTermsTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Terms &amp; Conditions</h2>
-   
+    <p class="ld-eyebrow" data-hi="कानूनी">Legal</p>
+    <h2 data-hi="नियम एवं शर्तें">Terms &amp; Conditions</h2>
+
 
     <section>
-      <h3>Acceptance</h3>
-      <p>By accessing our website or booking any retreat, you agree to these Terms &amp; Conditions.</p>
+      <h3 data-hi="स्वीकृति">Acceptance</h3>
+      <p data-hi="हमारी वेबसाइट का उपयोग करके या किसी भी रिट्रीट की बुकिंग करके, आप इन नियम एवं शर्तों से सहमत होते हैं।">By accessing our website or booking any retreat, you agree to these Terms &amp; Conditions.</p>
     </section>
 
     <section>
-      <h3>Eligibility</h3>
-      <p>Participants should provide accurate registration details, meet the participation requirements described
+      <h3 data-hi="पात्रता">Eligibility</h3>
+      <p data-hi="प्रतिभागियों को सटीक पंजीकरण विवरण प्रदान करना चाहिए, रिट्रीट के लिए बताई गई भागीदारी आवश्यकताओं को पूरा करना चाहिए, तथा रिट्रीट में शामिल होने से पहले हमें किसी भी प्रासंगिक चिकित्सा स्थिति या शारीरिक सीमाओं के बारे में सूचित करना चाहिए।">Participants should provide accurate registration details, meet the participation requirements described
         for the retreat, and inform us of any relevant medical conditions or physical limitations before
         attending.</p>
     </section>
 
     <section>
-      <h3>Participant Responsibilities</h3>
-      <p>Participants agree to respect instructors, staff, and fellow participants; follow all safety instructions;
+      <h3 data-hi="प्रतिभागी की जिम्मेदारियां">Participant Responsibilities</h3>
+      <p data-hi="प्रतिभागी प्रशिक्षकों, स्टाफ और साथी प्रतिभागियों का सम्मान करने; सभी सुरक्षा निर्देशों का पालन करने; अपनी शारीरिक क्षमताओं के भीतर अभ्यास करने; तथा पूरे रिट्रीट के दौरान सम्मानजनक व्यवहार बनाए रखने के लिए सहमत होते हैं।">Participants agree to respect instructors, staff, and fellow participants; follow all safety instructions;
         practice within their physical capabilities; and maintain respectful behavior throughout the retreat.</p>
     </section>
 
     <section>
-      <h3>Health Responsibility</h3>
-      <p>Participants are responsible for informing us about pregnancy, recent surgeries, injuries, allergies,
+      <h3 data-hi="स्वास्थ्य संबंधी जिम्मेदारी">Health Responsibility</h3>
+      <p data-hi="प्रतिभागी गर्भावस्था, हाल की सर्जरी, चोटों, एलर्जी, दीर्घकालिक बीमारियों, दवा संबंधी आवश्यकताओं तथा मानसिक स्वास्थ्य स्थितियों के बारे में हमें सूचित करने के लिए जिम्मेदार हैं, जो भागीदारी को प्रभावित कर सकती हैं।">Participants are responsible for informing us about pregnancy, recent surgeries, injuries, allergies,
         chronic illnesses, medication requirements, and mental health conditions that may affect participation.</p>
     </section>
 
     <section>
-      <h3>Photography &amp; Media</h3>
-      <p>Photos and videos may be captured during the retreat for promotional purposes. If you prefer not to appear
+      <h3 data-hi="फ़ोटोग्राफ़ी और मीडिया">Photography &amp; Media</h3>
+      <p data-hi="प्रचार उद्देश्यों के लिए रिट्रीट के दौरान फ़ोटो और वीडियो लिए जा सकते हैं। यदि आप फ़ोटो या वीडियो में दिखना नहीं चाहते हैं, तो कृपया रिट्रीट शुरू होने से पहले हमें सूचित करें।">Photos and videos may be captured during the retreat for promotional purposes. If you prefer not to appear
         in photographs or videos, please notify us before the retreat begins.</p>
     </section>
 
     <section>
-      <h3>Changes to Schedule</h3>
-      <p>We may adjust daily schedules, teachers, activities, and accommodation arrangements when reasonably
+      <h3 data-hi="कार्यक्रम में परिवर्तन">Changes to Schedule</h3>
+      <p data-hi="परिचालन या अप्रत्याशित परिस्थितियों के कारण उचित रूप से आवश्यक होने पर हम दैनिक कार्यक्रम, शिक्षकों, गतिविधियों और आवास व्यवस्था में बदलाव कर सकते हैं।">We may adjust daily schedules, teachers, activities, and accommodation arrangements when reasonably
         necessary due to operational or unforeseen circumstances.</p>
     </section>
 
     <section>
-      <h3>Prohibited Activities</h3>
-      <p>Alcohol, illegal drugs, smoking in non-designated areas, violence, harassment, property damage, and
+      <h3 data-hi="निषिद्ध गतिविधियां">Prohibited Activities</h3>
+      <p data-hi="शराब, अवैध नशीले पदार्थ, गैर-निर्धारित क्षेत्रों में धूम्रपान, हिंसा, उत्पीड़न, संपत्ति को नुकसान, और विघटनकारी व्यवहार निषिद्ध हैं। इन नियमों का उल्लंघन करने वाले प्रतिभागियों को, लागू कानून के अधीन, बिना धनवापसी के रिट्रीट छोड़ने के लिए कहा जा सकता है।">Alcohol, illegal drugs, smoking in non-designated areas, violence, harassment, property damage, and
         disruptive behavior are prohibited. Participants who violate these rules may be asked to leave the retreat
         without a refund, subject to applicable law.</p>
     </section>
 
     <section>
-      <h3>Liability</h3>
-      <p>Participation is voluntary. Participants accept responsibility for risks associated with yoga, outdoor
+      <h3 data-hi="उत्तरदायित्व">Liability</h3>
+      <p data-hi="भागीदारी स्वैच्छिक है। प्रतिभागी योग, बाहरी गतिविधियों और वेलनेस अभ्यासों से जुड़े जोखिमों की जिम्मेदारी स्वीकार करते हैं। वेद योग आश्रम चोट, बीमारी, दुर्घटना, व्यक्तिगत सामान की हानि, या अन्य नुकसान के लिए उत्तरदायी नहीं होगा, सिवाय उन मामलों के जहां लागू कानून के तहत उत्तरदायित्व को बाहर नहीं किया जा सकता।">Participation is voluntary. Participants accept responsibility for risks associated with yoga, outdoor
         activities, and wellness practices. Veda Yoga Ashram shall not be liable for injuries, illnesses, accidents,
         loss of personal belongings, or other damages except where liability cannot be excluded under applicable
         law.</p>
     </section>
 
     <section>
-      <h3>Intellectual Property</h3>
-      <p>All content on this website, including text, logos, photographs, graphics, videos, and course materials, is
+      <h3 data-hi="बौद्धिक संपदा">Intellectual Property</h3>
+      <p data-hi="इस वेबसाइट की सभी सामग्री, जिसमें टेक्स्ट, लोगो, फ़ोटोग्राफ़, ग्राफ़िक्स, वीडियो और पाठ्य सामग्री शामिल हैं, जब तक अन्यथा न बताया जाए, वेद योग आश्रम की बौद्धिक संपदा है।">All content on this website, including text, logos, photographs, graphics, videos, and course materials, is
         the intellectual property of Veda Yoga Ashram unless otherwise stated.</p>
     </section>
 
     <section>
-      <h3>Governing Law</h3>
-      <p>These Terms shall be governed by the laws of India. Any disputes shall be subject to the jurisdiction of
+      <h3 data-hi="शासकीय कानून">Governing Law</h3>
+      <p data-hi="ये नियम भारत के कानूनों द्वारा शासित होंगे। किसी भी विवाद की स्थिति में ऋषिकेश, उत्तराखंड, भारत में स्थित न्यायालयों का अधिकार क्षेत्र लागू होगा।">These Terms shall be governed by the laws of India. Any disputes shall be subject to the jurisdiction of
         the courts located in Rishikesh, Uttarakhand, India.</p>
     </section>
   </template>
 
   <template id="legalRefundTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Refund &amp; Cancellation Policy</h2>
-   
+    <p class="ld-eyebrow" data-hi="कानूनी">Legal</p>
+    <h2 data-hi="धनवापसी एवं रद्दीकरण नीति">Refund &amp; Cancellation Policy</h2>
+
 
     <section>
-      <h3>Participant Cancellation</h3>
-      <p>If you cancel your booking, the refund amount depends on how far in advance you notify us:</p>
+      <h3 data-hi="प्रतिभागी द्वारा रद्दीकरण">Participant Cancellation</h3>
+      <p data-hi="यदि आप अपनी बुकिंग रद्द करते हैं, तो धनवापसी की राशि इस बात पर निर्भर करती है कि आप हमें कितने पहले सूचित करते हैं:">If you cancel your booking, the refund amount depends on how far in advance you notify us:</p>
       <table>
         <thead>
           <tr>
-            <th>Notice before the retreat</th>
-            <th>Refund</th>
+            <th data-hi="रिट्रीट से पहले सूचना">Notice before the retreat</th>
+            <th data-hi="धनवापसी">Refund</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>More than 30 days</td>
-            <td><strong>90% refund</strong> (administrative charges may apply)</td>
+            <td data-hi="30 दिन से अधिक">More than 30 days</td>
+            <td data-hi="<strong>90% धनवापसी</strong> (प्रशासनिक शुल्क लागू हो सकते हैं)"><strong>90% refund</strong> (administrative charges may apply)</td>
           </tr>
           <tr>
-            <td>15–29 days</td>
-            <td><strong>50% refund</strong></td>
+            <td data-hi="15–29 दिन">15–29 days</td>
+            <td data-hi="<strong>50% धनवापसी</strong>"><strong>50% refund</strong></td>
           </tr>
           <tr>
-            <td>7–14 days</td>
-            <td><strong>25% refund</strong></td>
+            <td data-hi="7–14 दिन">7–14 days</td>
+            <td data-hi="<strong>25% धनवापसी</strong>"><strong>25% refund</strong></td>
           </tr>
           <tr>
-            <td>Less than 7 days</td>
-            <td><strong>No refund</strong></td>
+            <td data-hi="7 दिन से कम">Less than 7 days</td>
+            <td data-hi="<strong>कोई धनवापसी नहीं</strong>"><strong>No refund</strong></td>
           </tr>
         </tbody>
       </table>
     </section>
 
     <section>
-      <h3>Transfer Option</h3>
-      <p>Participants may request a one-time transfer to another scheduled retreat within 6 months, subject to
+      <h3 data-hi="स्थानांतरण विकल्प">Transfer Option</h3>
+      <p data-hi="प्रतिभागी उपलब्धता के अधीन, 6 महीने के भीतर किसी अन्य निर्धारित रिट्रीट में एक बार के स्थानांतरण का अनुरोध कर सकते हैं।">Participants may request a one-time transfer to another scheduled retreat within 6 months, subject to
         availability.</p>
     </section>
 
     <section>
-      <h3>Organizer Cancellation</h3>
-      <p>If Veda Yoga Ashram cancels the retreat due to operational reasons, participants may choose either a full
+      <h3 data-hi="आयोजक द्वारा रद्दीकरण">Organizer Cancellation</h3>
+      <p data-hi="यदि परिचालन कारणों से वेद योग आश्रम रिट्रीट रद्द करता है, तो प्रतिभागी पूर्ण धनवापसी या किसी अन्य उपलब्ध रिट्रीट तिथि पर स्थानांतरण में से किसी एक को चुन सकते हैं।">If Veda Yoga Ashram cancels the retreat due to operational reasons, participants may choose either a full
         refund or a transfer to another available retreat date.</p>
     </section>
 
     <section>
-      <h3>No Show</h3>
-      <p>Failure to attend without prior notice is treated as a "No Show" and is not eligible for a refund.</p>
+      <h3 data-hi="अनुपस्थिति (नो शो)">No Show</h3>
+      <p data-hi="पूर्व सूचना के बिना उपस्थित न होने को “नो शो” माना जाता है और यह धनवापसी के लिए पात्र नहीं है।">Failure to attend without prior notice is treated as a "No Show" and is not eligible for a refund.</p>
     </section>
 
     <section>
-      <h3>Early Departure</h3>
-      <p>No partial refund will be provided if a participant leaves the retreat before its scheduled completion.</p>
+      <h3 data-hi="समय से पहले प्रस्थान">Early Departure</h3>
+      <p data-hi="यदि कोई प्रतिभागी अपने निर्धारित समय से पहले रिट्रीट छोड़ देता है, तो कोई आंशिक धनवापसी नहीं की जाएगी।">No partial refund will be provided if a participant leaves the retreat before its scheduled completion.</p>
     </section>
 
     <section>
-      <h3>Force Majeure</h3>
-      <p>We are not responsible for cancellations or delays caused by events beyond our reasonable control,
+      <h3 data-hi="अप्रत्याशित परिस्थितियां (फ़ोर्स मेज्योर)">Force Majeure</h3>
+      <p data-hi="प्राकृतिक आपदाओं, बाढ़, सरकारी प्रतिबंधों, महामारियों, राजनीतिक अशांति, तथा परिवहन बाधाओं सहित हमारे उचित नियंत्रण से परे घटनाओं के कारण होने वाले रद्दीकरण या विलंब के लिए हम उत्तरदायी नहीं हैं। जहां संभव हो, हम एक वैकल्पिक रिट्रीट तिथि या अन्य उचित समाधान प्रदान करेंगे।">We are not responsible for cancellations or delays caused by events beyond our reasonable control,
         including natural disasters, floods, government restrictions, pandemics, political unrest, and
         transportation disruptions. Where feasible, we will offer an alternative retreat date or another reasonable
         solution.</p>
@@ -7124,48 +7228,48 @@
   </template>
 
   <template id="legalMedicalTpl">
-    <p class="ld-eyebrow">Legal</p>
-    <h2>Medical &amp; Meta Disclaimer</h2>
+    <p class="ld-eyebrow" data-hi="कानूनी">Legal</p>
+    <h2 data-hi="चिकित्सा एवं मेटा अस्वीकरण">Medical &amp; Meta Disclaimer</h2>
 
 
     <section>
-      <h3>Wellness Disclaimer</h3>
-      <p>Our retreat programs are intended to promote general wellness, relaxation, mindfulness, healthy lifestyle
+      <h3 data-hi="वेलनेस अस्वीकरण">Wellness Disclaimer</h3>
+      <p data-hi="हमारे रिट्रीट कार्यक्रम सामान्य वेलनेस, विश्राम, माइंडफुलनेस, स्वस्थ जीवनशैली आदतों और व्यक्तिगत विकास को बढ़ावा देने के उद्देश्य से बनाए गए हैं। इनका उद्देश्य किसी भी बीमारी या चिकित्सीय स्थिति का निदान, उपचार, इलाज या रोकथाम करना <strong>नहीं</strong> है।">Our retreat programs are intended to promote general wellness, relaxation, mindfulness, healthy lifestyle
         habits, and personal development. They are <strong>not</strong> intended to diagnose, treat, cure, or
         prevent any disease or medical condition.</p>
     </section>
 
     <section>
-      <h3>Mental Health</h3>
-      <p>Meditation, breathwork, journaling, yoga, and wellness sessions are designed to support general wellbeing.
+      <h3 data-hi="मानसिक स्वास्थ्य">Mental Health</h3>
+      <p data-hi="ध्यान, श्वास अभ्यास, जर्नलिंग, योग और वेलनेस सत्र सामान्य कल्याण का समर्थन करने के लिए डिज़ाइन किए गए हैं। ये चिकित्सा देखभाल, मनोवैज्ञानिक परामर्श, मनोरोग उपचार, या आपातकालीन मानसिक स्वास्थ्य सेवाओं का विकल्प <strong>नहीं</strong> हैं। गंभीर चिकित्सीय या मानसिक स्वास्थ्य स्थितियों वाले व्यक्तियों को भाग लेने से पहले किसी उपयुक्त स्वास्थ्य पेशेवर से परामर्श करना चाहिए।">Meditation, breathwork, journaling, yoga, and wellness sessions are designed to support general wellbeing.
         They are <strong>not</strong> a substitute for medical care, psychological counseling, psychiatric
         treatment, or emergency mental health services. Individuals with serious medical or mental health conditions
         should consult an appropriate healthcare professional before participating.</p>
     </section>
 
     <section>
-      <h3>Ayurveda</h3>
-      <p>Ayurveda sessions are educational and focus on traditional lifestyle practices. They are not intended to
+      <h3 data-hi="आयुर्वेद">Ayurveda</h3>
+      <p data-hi="आयुर्वेद सत्र शैक्षिक हैं और पारंपरिक जीवनशैली प्रथाओं पर केंद्रित हैं। इनका उद्देश्य चिकित्सीय सलाह, निदान या उपचार का स्थान लेना नहीं है।">Ayurveda sessions are educational and focus on traditional lifestyle practices. They are not intended to
         replace medical advice, diagnosis, or treatment.</p>
     </section>
 
     <section>
-      <h3>Yoga</h3>
-      <p>Participants should practice within their own physical limits. Please consult a healthcare professional
+      <h3 data-hi="योग">Yoga</h3>
+      <p data-hi="प्रतिभागियों को अपनी शारीरिक सीमाओं के भीतर अभ्यास करना चाहिए। यदि आपको हृदय रोग, उच्च रक्तचाप, हाल ही में हुई सर्जरी, गर्भावस्था, दीर्घकालिक दर्द, या अन्य महत्वपूर्ण चिकित्सीय स्थितियां हैं, तो कृपया भाग लेने से पहले किसी स्वास्थ्य पेशेवर से परामर्श करें।">Participants should practice within their own physical limits. Please consult a healthcare professional
         before participating if you have heart disease, high blood pressure, recent surgery, pregnancy, chronic
         pain, or other significant medical conditions.</p>
     </section>
 
     <section>
-      <h3>Individual Results</h3>
-      <p>Every participant is unique. Results depend on many factors, including participation, individual health,
+      <h3 data-hi="व्यक्तिगत परिणाम">Individual Results</h3>
+      <p data-hi="प्रत्येक प्रतिभागी अद्वितीय है। परिणाम कई कारकों पर निर्भर करते हैं, जिनमें भागीदारी, व्यक्तिगत स्वास्थ्य, और रिट्रीट के बाद निरंतर अभ्यास शामिल है। हम किसी भी विशिष्ट शारीरिक, भावनात्मक, वित्तीय, या व्यक्तिगत परिणाम की गारंटी नहीं देते।">Every participant is unique. Results depend on many factors, including participation, individual health,
         and continued practice after the retreat. We do not guarantee any specific physical, emotional, financial,
         or personal outcomes.</p>
     </section>
 
     <section>
-      <h3>Advertising Disclaimer (Meta &amp; Google)</h3>
-      <p>Any testimonials or participant experiences shared on this website reflect individual experiences. They
+      <h3 data-hi="विज्ञापन अस्वीकरण (Meta एवं Google)">Advertising Disclaimer (Meta &amp; Google)</h3>
+      <p data-hi="इस वेबसाइट पर साझा की गई किसी भी प्रशंसापत्र या प्रतिभागी के अनुभव व्यक्तिगत अनुभवों को दर्शाते हैं। इन्हें यह गारंटी या वादा नहीं समझा जाना चाहिए कि हर प्रतिभागी को समान परिणाम प्राप्त होंगे।">Any testimonials or participant experiences shared on this website reflect individual experiences. They
         should not be interpreted as guarantees or promises that every participant will achieve similar results.</p>
     </section>
   </template>
@@ -7367,16 +7471,12 @@
         });
       });
 
-      /* ---------- Reviews: seamless auto-scroll loop ---------- */
-      const quoteTrack = $("#quoteTrack");
-      if (quoteTrack && !prefersReduced) {
-        const clones = Array.from(quoteTrack.children).map((card) => {
-          const clone = card.cloneNode(true);
-          clone.classList.remove("reveal", "is-visible");
-          clone.setAttribute("aria-hidden", "true");
-          return clone;
-        });
-        clones.forEach((clone) => quoteTrack.appendChild(clone));
+      /* ---------- Reviews: swipeable carousel ---------- */
+      const quoteSwiper = $("#quoteSwiper");
+      if (quoteSwiper && prefersReduced) {
+        const stopAutoplay = () => quoteSwiper.swiper && quoteSwiper.swiper.autoplay.stop();
+        quoteSwiper.addEventListener("swiperinit", stopAutoplay);
+        stopAutoplay();
       }
 
       /* ---------- FAQ accordion (one open at a time) ---------- */
@@ -7393,6 +7493,14 @@
             item.classList.add("open");
             a.style.maxHeight = a.scrollHeight + "px";
           }
+        });
+      });
+
+      /* ---------- Footer accordion (mobile only, CSS gates the collapse) ---------- */
+      $$(".footer-col-toggle").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const isOpen = btn.getAttribute("aria-expanded") === "true";
+          btn.setAttribute("aria-expanded", String(!isOpen));
         });
       });
 
@@ -7547,6 +7655,9 @@
           if (!tpl) return;
           body.innerHTML = "";
           body.appendChild(tpl.content.cloneNode(true));
+          if (document.documentElement.lang === "hi") {
+            $$("[data-hi]", body).forEach((el) => { el.innerHTML = el.dataset.hi; });
+          }
           body.scrollTop = 0;
           dialog.showModal();
         }
@@ -7659,7 +7770,8 @@
               messageField.value = words.slice(0, MESSAGE_WORD_LIMIT).join(" ");
             }
             const count = messageField.value.trim() ? messageField.value.trim().split(/\s+/).filter(Boolean).length : 0;
-            messageCount.textContent = `${count} / ${MESSAGE_WORD_LIMIT} words`;
+            const unit = document.documentElement.lang === "hi" ? "शब्द" : "words";
+            messageCount.textContent = `${count} / ${MESSAGE_WORD_LIMIT} ${unit}`;
             messageCount.classList.toggle("limit-reached", count >= MESSAGE_WORD_LIMIT);
           };
           messageField.addEventListener("input", updateMessageCount);
@@ -7668,7 +7780,7 @@
         form.addEventListener("submit", async (e) => {
           e.preventDefault();
           let valid = true;
-          ["fullName", "mobile", "stateCity", "age", "gender"].forEach((id) => {
+          ["fullName", "mobile", "stateCity", "age", "gender", "joinTimeframe", "message"].forEach((id) => {
             const inp = $("#" + id);
             if (!inp.value.trim()) {
               inp.classList.add("invalid"); valid = false;
